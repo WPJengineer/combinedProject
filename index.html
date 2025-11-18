@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="./assets/iconos/icon-TW.jpg" type="jpg">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <img class="icon" id="btnCloseMenu" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Carrito</a></li>
+            </ul>
+            <div>
+                <button class="button">Entrar</button>
+                <button class="button">Regístrarme</button>
+            </div>
+        </div>
+        <nav>
+            <img id="btnMenu" class="icon" src="./assets/iconos/menu_24dp_0F0F0F.png" alt="menu">
+        </nav>
+        <img class="logo" src="./assets/images/logo.png" alt="logo">
+        <div class="icons">
+            <div class="icon-item">
+                <img class="icon" src="./assets/iconos/home_24dp_0F0F0F.png" alt="home">
+                <span>Home</span>
+            </div>
+            <div class="icon-item">
+                <img class="icon" src="./assets/iconos/wishlist.png" alt="wishlist">
+                <span>Wishlist</span>
+            </div>
+            <div class="icon-item">
+                <img class="icon" src="./assets/iconos/shopping_cart_24dp_0F0F0F.png" alt="cart">
+                <span>Carrito</span>
+            </div>
+            <div class="icon-item user">
+                <img class="icon" src="./assets/iconos/person_24dp_0F0F0F.png" alt="user">
+                <span>Cuenta</span>
+            </div>
+            <img class="icon" src="./assets/iconos/search_24dp_OFOFOF.png" alt="search">
+        </div>
+    </header>
+    <main>
+        <img id="background" src="./assets/images/background-image.png" alt="background-image">
+        <div id="special-offer">
+            <p>Gastos de envios gratis a partir de 50.00€</p>
+        </div>
+        <section>
+            <div class="content">
+                <div class="menuFilters">
+                    <img class="icon" id="btnCloseFilters" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+                    <form action="#" method=""><!--figure out type of where it sends to and which method-->
+                        <div>
+                            <h3>Filtros</h3>
+                            <p>
+                                <label for="tshirt">
+                                    <input type="checkbox" id="tshirt" name="tshirt">Camisetas
+                                </label>
+                            </p>
+                            <p>
+                                <label for="hats">
+                                    <input type="checkbox" id="hats" name="hats">Gorras
+                                </label>
+                            </p>
+                            <p>
+                                <label for="hoodies">
+                                    <input type="checkbox" id="hoodies" name="hoodies">Sudaderas
+                                </label>
+                            </p>
+                        </div>
+                        <div>
+                            <h3>Ordernar por</h3>
+                            <p>
+                                <label for="low-price">
+                                    <input type="checkbox" id="low-price" name="low-price">Precio más bajo
+                                </label>
+                            </p>
+                            <p>
+                                <label for="high-price">
+                                    <input type="checkbox" id="high-price" name="high-price">Precio más alto
+                                </label>
+                            </p>
+                            <p>
+                                <label for="newest">
+                                    <input type="checkbox" id="newest" name="newest">Más nuevo
+                                </label>
+                            </p>
+                            <p>
+                                <label for="color">
+                                    <input type="checkbox" id="color" name="color">Color
+                                </label>
+                            </p>
+                        </div>
+                        <p>
+                            <input id="btnSubmit" class="button" type="submit" value="Submit">
+                        </p>
+                    </form>
+                </div>
+                <div id="filters">
+                    <button id="btnFilters" class="button">Filtros <img src="./assets/iconos/filter_alt_24dp_0F0F0F.png" alt="filter"></button>
+                </div>
+                <!--images and number of products hardcoded currently before we use javascript in get from database-->
+                <div class="articles">
+                    <article class="article-card">
+                        <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+                        <div class="bottom-overlay">
+                            <div>
+                                <h4>Nombre producto</h4>
+                                <h3><span>9.99</span>€</h3>
+                            </div>
+                            <div>
+                                <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+                        <div class="bottom-overlay">
+                            <div>
+                                <h4>Nombre producto</h4>
+                                <h3><span>9.99</span>€</h3>
+                            </div>
+                            <div>
+                                <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+                        <div class="bottom-overlay">
+                            <div>
+                                <h4>Nombre producto</h4>
+                                <h3><span>9.99</span>€</h3>
+                            </div>
+                            <div>
+                                <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+                        <div class="bottom-overlay">
+                            <div>
+                                <h4>Nombre producto</h4>
+                                <h3><span>9.99</span>€</h3>
+                            </div>
+                            <div>
+                                <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+                        <div class="bottom-overlay">
+                            <div>
+                                <h4>Nombre producto</h4>
+                                <h3><span>9.99</span>€</h3>
+                            </div>
+                            <div>
+                                <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+                        <div class="bottom-overlay">
+                            <div>
+                                <h4>Nombre producto</h4>
+                                <h3><span>9.99</span>€</h3>
+                            </div>
+                            <div>
+                                <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
+                            </div>
+                        </div>
+                    </article>
+                    <div class="menuProduct">
+                        <img class="icon" id="btnCloseProduct" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+                        <form action="#" method=""><!--missing method-->
+                            <div class="product">
+                                <div>
+                                    <img src="./assets/images/2.png" alt="foto-producto">
+                                    <button class="num-products"><span>-</span><span>1</span><span>+</span></button>
+                                    <p class="price"><span>9.99</span>€</p>
+                                </div>
+                                <p>Nombre producto</p>
+                            </div>
+                            <div class="color">
+                                <p>Selecciona color</p>
+                                <div>
+                                    <button></button>
+                                    <button></button>
+                                    <button></button>
+                                    <button></button>
+                                    <button></button>
+                                </div>
+                            </div>
+                            <div class="size">
+                                <p>Selecciona tu talla</p>
+                                <div>
+                                    <button>XS</button>
+                                    <button>S</button>
+                                    <button>M</button>
+                                    <button>L</button>
+                                    <button>XL</button>
+                                    <button>2XL</button>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="button">Añadir a la cesta</button>
+                                <button class="button">Comprar ahora</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="show-more">
+                <p>Mostrando <span>0</span> de <span>99</span></p>
+                <button class="button mostrar">Mostrar más</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <img  class="logo" src="./assets/images/logo.png" alt="logo">
+        <nav class="links">
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </nav>
+        <div class="socials">
+            <a href=""><img class="icon" src="./assets/iconos/facebook.png" alt="facebook-logo"></a>
+            <a href=""><img class="icon" src="./assets/iconos/instagram.png" alt="instagram-logo"></a>
+            <a href=""><img class="icon" src="./assets/iconos/twitter.png" alt="twitter-logo"></a>
+        </div>
+        <div id="copyright">
+            <p>&copy; 2025 TeamWear. Todos los derechos reservados.</p>
+        </div>
+        <nav class="legal">
+            <ul>
+                <li><a href="#">Información legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+                <li><a href="#">Política de cookies</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
+

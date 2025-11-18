@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@source "../../views/products.html";
+
+@layer base {
+
+  @font-face {
+    font-family: "Afacad";
+    src: url("../../assets/fonts/afacad.ttf");
+  }
+
+}
+
+@theme {
+  --color-dark: #0f0f0f;
+  --color-light: #fcfcfc;
+  --color-green: #4fb286;
+  --color-blue: #336699;
+  --regular-text-mobile: 20px;
+  --small-text-mobile: 16px;
+  --regular-text-tablet: 24px;
+  --small-text-tablet: 20px;
+  --regular-text-desktop: 28px;
+  --small-text-desktop: 24px;
+  --box-positive: 4px 2px 2px var(--color-dark);
+  --box-negative: -2px -2px 1px var(--color-dark);
+  --font-afacad: "Afacad", sans-serif;
+}
+
+@layer components {
+  @font-face {
+    font-family: "afacad";
+    src: url("../../assets/fonts/afacad.ttf");
+  }
+
+  .logo {
+    @apply w-50;
+  }
+
+  .icon {
+    @apply w-7.5 hover:cursor-pointer;
+  }
+
+  .button {
+    @apply flex items-center justify-between bg-blue text-light mx-2.5 my-5 px-5 py-2.5 rounded-3xl border border-solid border-dark text-xl shadow-(--box-positive)
+    hover:cursor-pointer hover:scale-110
+    active:shadow-(--box-negative)
+    md:text-2xl
+    ;
+  }
+
+  .menu {
+    @apply hidden absolute left-2.5 top-2.5 z-10 flex flex-col items-center gap-7.5 bg-light border border-solid border-b-dark p-5 ;
+  }
+  
+  #copyright {
+    @apply text-base;
+  }
+
+  
+
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/tailwind/products-output.css">
+  <title>Products</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+</head>
+<body class="text-xl font-afacad text-dark md:text-2xl">
+  <header class="flex items-center justify-between px-2.5 py-10 h-25 bg-light">
+        <div class="menu">
+            <img class="icon absolute right-1.5 top-1.5" id="btnCloseMenu" src="../assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+            <ul class="flex flex-col gap-2.5">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Carrito</a></li>
+            </ul>
+            <div class="flex flex-col items-center">
+                <button class="button">Entrar</button>
+                <button class="button">Regístrarme</button>
+            </div>
+        </div>
+        <nav>
+            <img id="btnMenu" class="icon" src="../assets/iconos/menu_24dp_0F0F0F.png" alt="menu">
+        </nav>
+        <img class="logo" src="../assets/images/logo.png" alt="logo">
+        <div>
+            <div class="hidden">
+                <img class="icon" src="../assets/iconos/home_24dp_0F0F0F.png" alt="home">
+                <span class="hidden">Home</span>
+            </div>
+            <div class="hidden">
+                <img class="icon" src="../assets/iconos/wishlist.png" alt="wishlist">
+                <span class="hidden">Wishlist</span>
+            </div>
+            <div class="hidden">
+                <img class="icon" src="../assets/iconos/shopping_cart_24dp_0F0F0F.png" alt="cart">
+                <span class="hidden">Carrito</span>
+            </div>
+            <div class="hidden user">
+                <img class="icon" src="../assets/iconos/person_24dp_0F0F0F.png" alt="user">
+                <span class="hidden">Cuenta</span>
+            </div>
+            <img class="icon" src="../assets/iconos/search_24dp_OFOFOF.png" alt="search">
+        </div>
+    </header>
+<!--picture is fixed, try to get it to work with backend-->
+<!--missing media queries for tablet and desktop md: for tabled and lg: for desktop-->
+    <main class="bg-green flex flex-col p-5 gap-5">
+        <p class="">breadcrumbs > breadcrumb</p>
+        <img class="mx-auto w-3/4 border border-dark aspect-4/5" src="../assets/images/1.png" alt="product-image">
+        <div class="flex flex-col gap-1">
+            <p>Nombre producto</p>
+            <p class="text-3xl md:text-4xl">9.99€</p>
+        </div>
+        <div class="tagCategories flex gap-2.5">
+            <p class="bg-light border rounded-full px-5 py-2.5">tshirt</p>
+            <p class="bg-light border rounded-full px-5 py-2.5">white</p>
+            <p class="bg-light border rounded-full px-5 py-2.5">legends</p>
+        </div><!--categories go here and auto-populate from info from backend-->
+        <div class="flex flex-col gap-2">
+            <p>Selecciona color</p>
+            <div class="flex gap-2.5">
+                <button class="h-8 w-8 rounded-full border border-dark bg-dark hover:cursor-pointer"></button>
+                <button class="h-8 w-8 rounded-full border border-dark bg-light hover:cursor-pointer"></button>
+                <button class="h-8 w-8 rounded-full border border-dark bg-[#D2AAA1] hover:cursor-pointer"></button>
+                <button class="h-8 w-8 rounded-full border border-dark bg-[#A4A2A2] hover:cursor-pointer"></button>
+                <button class="h-8 w-8 rounded-full border border-dark bg-[#353A26] hover:cursor-pointer"></button>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2">
+            <p>Selecciona tu talla</p>
+            <div class="flex gap-2.5">
+                <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer">XS</button>
+                <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer">S</button>
+                <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer">M</button>
+                <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer">L</button>
+                <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer">XL</button>
+                <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer">2XL</button>
+            </div>
+        </div>
+        <div class="flex items-center gap-5">
+            <p>Cantidad</p>
+            <div class="flex items-center gap-2.5 rounded-full border border-dark  bg-light px-3 py-1">
+                <button class="p-2 hover:cursor-pointer">-</button>
+                <span class="p-2">1</span>
+                <button class="p-2 hover:cursor-pointer">+</button>
+            </div>
+        </div>
+        <div class="flex flex-col items-center">
+            <button class="button">Añadir a la cesta</button>
+            <button class="button">Comprar ahora</button>
+        </div>
+        <div class="flex flex-col gap-2">
+            <p>Descripción</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim temporibus nam, eum, perferendis perspiciatis adipisci rem ratione molestias rerum illum aut expedita nihil dignissimos tempore ut ipsam tenetur non nisi.</p>
+        </div>
+        <div class="flex flex-col gap-2">
+            <p>También te gustará</p>
+            <div class="flex items-center gap-2.5">
+                <img class="icon" src="../assets/iconos/chevron_left_24dp_OFOFOF.png" alt="left-arrow-icon">
+                <div class="flex justify-start gap-5 overflow-scroll scroll-smooth hover:cursor-grab">
+                    <img class="h-60 aspect-4/5" src="../assets/images/1.png" alt="product-image">
+                    <img class="h-60 aspect-4/5" src="../assets/images/1.png" alt="product-image">
+                    <img class="h-60 aspect-4/5" src="../assets/images/1.png" alt="product-image">
+                    <img class="h-60 aspect-4/5" src="../assets/images/1.png" alt="product-image">
+                    <img class="h-60 aspect-4/5" src="../assets/images/1.png" alt="product-image">
+                </div>
+                <img class="icon" src="../assets/iconos/navigate_next_24dp_OFOFOF.png" alt="right-arrow-icon">
+            </div>
+        </div>
+    </main>
+
+    <footer class="pt-2.5 pb-7.5 bg-light flex flex-col items-center gap-5 text-xl">
+        <img  class="logo" src="../assets/images/logo.png" alt="logo">
+        <nav>
+            <ul class="flex flex-col items-center gap-5 text-xl">
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Ayuda</a></li>
+            </ul>
+        </nav>
+        <div class="flex gap-5">
+            <a href=""><img class="icon" src="../assets/iconos/facebook.png" alt="facebook-logo"></a>
+            <a href=""><img class="icon" src="../assets/iconos/instagram.png" alt="instagram-logo"></a>
+            <a href=""><img class="icon" src="../assets/iconos/twitter.png" alt="twitter-logo"></a>
+        </div>
+        <div id="copyright">
+            <p>&copy; 2025 TeamWear. Todos los derechos reservados.</p>
+        </div>
+        <nav>
+            <ul class="flex items-center gap-5 text-base">
+                <li class="text-center"><a href="#">Información legal</a></li>
+                <li class="text-center"><a href="#">Política de privacidad</a></li>
+                <li class="text-center"><a href="#">Política de cookies</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
