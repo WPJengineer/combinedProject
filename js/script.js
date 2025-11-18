@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnCloseProduct = document.querySelector("#btnCloseProduct");
     const btnLogin = document.querySelector('.menu div button:nth-child(1)');
     const btnLogin2 = document.querySelector('.user');
+    const selectProduct = document.querySelectorAll('.article-card');
+
+    selectProduct.forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (e.target.classList.contains("icon")) return;
+            window.location.href = "/views/products.html";
+        });
+    });
 
     btnMenu.addEventListener('click', () => {
         menuPrincipal.style.display = "flex";
