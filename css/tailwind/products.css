@@ -34,11 +34,11 @@
   }
 
   .logo {
-    @apply w-50;
+    @apply w-50 md:w-75 lg:w-100;
   }
 
   .icon {
-    @apply w-7.5 hover:cursor-pointer;
+    @apply w-7.5 hover:cursor-pointer md:w-10;
   }
 
   .button {
@@ -51,10 +51,6 @@
 
   .menu {
     @apply hidden absolute left-2.5 top-2.5 z-10 flex flex-col items-center gap-7.5 bg-light border border-solid border-b-dark p-5 ;
-  }
-  
-  #copyright {
-    @apply text-base;
   }
 
   
