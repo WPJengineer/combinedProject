@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (!isSelected) {
                 btn.classList.replace('bg-light', 'bg-dark');
-                btn.classList.add('text-light');
+                // btn.classList.add('text-light');
+                btn.classList.replace('text-dark', 'text-light');
             }
         });
     });
