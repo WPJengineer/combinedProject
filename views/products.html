@@ -49,7 +49,7 @@
         <p class="">breadcrumbs > breadcrumb</p>
         <div class="flex flex-col gap-5 md:gap-10 lg:flex-row justify">
             <div class="flex flex-col gap-5 md:gap-10">
-                <img class="mx-auto w-3/4 border border-dark aspect-4/5 max-h-250" src="../assets/images/1.png" alt="product-image">
+                <img class="mx-auto w-3/4 border border-dark aspect-4/5 max-h-250" id="product-image" src="../assets/images/1.png" alt="product-image">
             </div>
             <div class="flex flex-col gap-5 md:gap-10">
                 <div class="flex flex-col gap-1 md:gap-2">
@@ -64,11 +64,11 @@
                 <div class="flex flex-col gap-2 md:gap-2.5">
                     <p>Selecciona color</p>
                     <div class="flex gap-2.5 md:gap-5">
-                        <button class="h-8 w-8 rounded-full border border-dark bg-dark hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-light hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-[#D2AAA1] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-[#A4A2A2] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-[#353A26] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12"></button>
+                        <button class="h-8 w-8 rounded-full border border-dark bg-dark hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnBlack"></button>
+                        <button class="h-8 w-8 rounded-full border border-dark bg-light hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnWhite"></button>
+                        <button class="h-8 w-8 rounded-full border border-dark bg-[#D2AAA1] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnOrange"></button>
+                        <button class="h-8 w-8 rounded-full border border-dark bg-[#A4A2A2] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnGrey"></button>
+                        <button class="h-8 w-8 rounded-full border border-dark bg-[#353A26] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnGreen"></button>
                     </div>
                 </div>
                 <div class="flex flex-col gap-2 md:gap-2.5">
@@ -103,15 +103,15 @@
         <div class="flex flex-col gap-5 md:gap-7.5">
             <p>También te gustará</p>
             <div class="flex items-center gap-2.5 md:gap-5">
-                <img class="icon" src="../assets/iconos/chevron_left_24dp_OFOFOF.png" alt="left-arrow-icon">
-                <div class="flex justify-start gap-5 overflow-scroll scroll-smooth hover:cursor-grab md:gap-7.5">
+                <img class="arrow-icon" id="btnLeft" src="../assets/iconos/chevron_left_24dp_OFOFOF.png" alt="left-arrow-icon">
+                <div class="flex justify-start gap-5 overflow-scroll scroll-smooth hover:cursor-grab md:gap-7.5" id="scrollContainer">
                     <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/2.png" alt="product-image">
                     <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/9.png" alt="product-image">
                     <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/17.png" alt="product-image">
                     <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/41.png" alt="product-image">
                     <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/49.png" alt="product-image">
                 </div>
-                <img class="icon" src="../assets/iconos/navigate_next_24dp_OFOFOF.png" alt="right-arrow-icon">
+                <img class="arrow-icon" id="btnRight" src="../assets/iconos/navigate_next_24dp_OFOFOF.png" alt="right-arrow-icon">
             </div>
         </div>
     </main>

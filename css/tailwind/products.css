@@ -41,6 +41,10 @@
     @apply w-7.5 hover:cursor-pointer md:w-10;
   }
 
+  .arrow-icon {
+    @apply border rounded bg-light w-12 md:w-14 lg:w-16;
+  }
+
   .button {
     @apply flex items-center justify-between bg-blue text-light mx-2.5 my-5 px-5 py-2.5 rounded-3xl border border-solid border-dark text-xl shadow-(--box-positive)
     hover:cursor-pointer hover:scale-110
