@@ -45,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // to avoid issue with disappearing filters menu after resizing to desktop
     window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+            menuPrincipal.style.display = "";
+        }
+
         if (window.innerWidth >= 992) {
             menuFilters.style.display = "";
         }

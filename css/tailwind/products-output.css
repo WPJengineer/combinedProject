@@ -262,6 +262,9 @@
   .items-center {
     align-items: center;
   }
+  .items-start {
+    align-items: flex-start;
+  }
   .justify-between {
     justify-content: space-between;
   }
@@ -373,6 +376,9 @@
   }
   .text-dark {
     color: var(--color-dark);
+  }
+  .text-light {
+    color: var(--color-light);
   }
   .underline {
     text-decoration-line: underline;
