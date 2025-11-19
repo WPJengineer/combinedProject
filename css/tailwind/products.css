@@ -54,7 +54,7 @@
   }
 
   .menu {
-    @apply hidden absolute left-2.5 top-2.5 z-10 flex flex-col items-center gap-7.5 bg-light border border-solid border-b-dark p-5 ;
+    @apply hidden absolute left-2.5 top-2.5 z-10 flex-col items-center gap-7.5 bg-light border border-solid border-b-dark p-5 ;
   }
 
   

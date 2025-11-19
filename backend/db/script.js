@@ -2,7 +2,7 @@ const endPoint = '/student014/online_shop/backend/endpoints/product-search.php';
 function showHint(str) {
   if (str.length == 0) {
       document.getElementById('txtHint').innerHTML = '';
-      return;
+    //   return;
   } else {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {

@@ -1,23 +1,29 @@
 <?php
 
 session_start();
-
+// need to call script on load page to call to show all screen.
 $product_name = $_GET['product_name'];
+$lenght = 0;
+$lenght = strlen($product_name);
 
-// echo $product_name;
+if ($lenght == 0) {
+    $sql = "SELECT *
+    FROM 014_products;";
+} else {
+    $sql = "SELECT *
+    FROM 014_products
+    WHERE product_name LIKE '%$product_name%';";
+}
 
 $conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
 include('../config/db_config.php');
 
-$sql = "SELECT *
-FROM 014_products
-WHERE product_name LIKE '%$product_name%';";
+// $sql = "SELECT *
+// FROM 014_products
+// WHERE product_name LIKE '%$product_name%';";
 
 $result = mysqli_query($conn, $sql);
-// $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// $products_json = json_encode($products);
-// echo $products_json;
 
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
@@ -48,7 +54,6 @@ if (mysqli_num_rows($result) > 0) {
             }
   }
 }
-
 mysqli_close($conn);
 
 ?>
