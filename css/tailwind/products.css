@@ -42,7 +42,7 @@
   }
 
   .arrow-icon {
-    @apply border rounded bg-light w-12 md:w-14 lg:w-16;
+    @apply border rounded bg-light w-12 hover:cursor-pointer md:w-14 lg:w-16;
   }
 
   .button {
