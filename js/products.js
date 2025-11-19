@@ -43,14 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             
             const isSelected = btn.classList.contains('bg-dark');
-            btnsSize.forEach(btn => {
-                btn.classList.replace('bg-dark', 'text-light');
-                btn.classList.add('bg-light');
+            btnsSize.forEach(b => {
+                b.classList.remove('bg-dark', 'text-light');
+                b.classList.add('bg-light', 'text-dark');
             });
             if (!isSelected) {
-                btn.classList.replace('bg-light', 'bg-dark');
-                btn.classList.add('text-light');
-                // btn.classList.replace('text-dark', 'text-light');
+                btn.classList.remove('bg-light', 'text-dark');
+                btn.classList.add('bg-dark', 'text-light');
             }
         });
     });
