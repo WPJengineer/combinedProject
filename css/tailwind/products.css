@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@source "../../views/products.html";
-
 @layer base {
 
   @font-face {
@@ -22,10 +20,6 @@
 }
 
 @layer components {
-  @font-face {
-    font-family: "afacad";
-    src: url("../../assets/fonts/afacad.ttf");
-  }
 
   .headerNavText {
     @apply hidden hover:cursor-pointer lg:flex;
@@ -49,31 +43,38 @@
   }
 
   .button {
-    @apply flex items-center justify-between bg-blue text-light mx-2.5 my-5 px-5 py-2.5 rounded-3xl border border-solid border-dark text-xl shadow-(--box-positive)
+    @apply flex items-center justify-between
+    bg-blue text-light mx-2.5 my-5 px-5 py-2.5
+    rounded-3xl border border-solid border-dark
+    text-xl shadow-(--box-positive)
     hover:cursor-pointer hover:scale-110
     active:shadow-(--box-negative)
     md:text-2xl
     ;
   }
 
-  .menu {
-    @apply hidden absolute left-2.5 top-2.5 z-10 flex-col items-center gap-7.5 bg-light border border-solid border-b-dark p-5 ;
+  .menuHeader {
+    @apply hidden absolute left-2.5 top-2.5 z-10
+    flex-col items-center gap-7.5 bg-light
+    border border-solid border-b-dark p-5 ;
   }
 
-  .colorBtn {
+  .selectColorBtn {
     @apply h-8 w-8 rounded-full border border-dark
     hover:cursor-pointer
     md:h-10 md:w-10 lg:h-12 lg:w-12;
   }
 
-  .sizeBtn {
-    @apply w-10 h-10 rounded border border-dark bg-light p-1
+  .selectSizeBtn {
+    @apply w-10 h-10
+    rounded border border-dark bg-light p-1
     hover:cursor-pointer
     md:h-12 md:w-12 lg:h-14 lg:w-14;
   }
 
   .scrollbar {
-    @apply flex justify-start gap-5 overflow-scroll scroll-smooth
+    @apply flex justify-start gap-5
+    overflow-scroll scroll-smooth
     hover:cursor-grab
     md:gap-7.5;
   }

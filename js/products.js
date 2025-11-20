@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const btnMenu = document.querySelector("#btnMenu");
-    const menuPrincipal = document.querySelector(".menu");
+    const menuHeader = document.querySelector(".menuHeader");
     const btnCloseMenu = document.querySelector("#btnCloseMenu");
-    const sizeBtn = document.querySelectorAll('.sizeBtn');
+    const selectSizeBtn = document.querySelectorAll('.selectSizeBtn');
     const btnMinus = document.querySelector('.btnMinus');
     const btnPlus = document.querySelector('.btnPlus');
     const quantity = document.querySelector('.quantity');
@@ -20,16 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const SCROLL_AMOUNT = 300;
 
     btnMenu.addEventListener('click', () => {
-        menuPrincipal.style.display = "flex";
+        menuHeader.style.display = "flex";
     });
 
     btnCloseMenu.addEventListener('click', () => {
-        menuPrincipal.style.display = "none";
+        menuHeader.style.display = "none";
     });
 
     window.addEventListener("resize", () => {
         if (window.innerWidth >= 768) {
-            menuPrincipal.style.display = "";
+            menuHeader.style.display = "";
         }
     });
 
@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnGrey.addEventListener('click', () => productImage.src = "../assets/images/17.png");
     btnGreen.addEventListener('click', () => productImage.src = "../assets/images/33.png");
 
-    sizeBtn.forEach(btn => {
+    selectSizeBtn.forEach(btn => {
         btn.addEventListener('click', () => {
             const isSelected = btn.classList.contains('bg-dark');
-            sizeBtn.forEach(b => {
+            selectSizeBtn.forEach(b => {
                 b.classList.remove('bg-dark', 'text-light');
                 b.classList.add('bg-light', 'text-dark');
             });

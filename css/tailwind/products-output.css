@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-amber-300: oklch(87.9% 0.169 91.605);
     --spacing: 0.25rem;
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
@@ -309,9 +308,6 @@
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
   }
-  .text-amber-300 {
-    color: var(--color-amber-300);
-  }
   .text-dark {
     color: var(--color-dark);
   }
@@ -435,10 +431,6 @@
   }
 }
 @layer components {
-  @font-face {
-    font-family: "afacad";
-    src: url("../../assets/fonts/afacad.ttf");
-  }
   .headerNavText {
     display: none;
     &:hover {
@@ -530,7 +522,7 @@
       line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
   }
-  .menu {
+  .menuHeader {
     position: absolute;
     top: calc(var(--spacing) * 2.5);
     left: calc(var(--spacing) * 2.5);
@@ -547,7 +539,7 @@
     background-color: var(--color-light);
     padding: calc(var(--spacing) * 5);
   }
-  .colorBtn {
+  .selectColorBtn {
     height: calc(var(--spacing) * 8);
     width: calc(var(--spacing) * 8);
     border-radius: calc(infinity * 1px);
@@ -572,7 +564,7 @@
       width: calc(var(--spacing) * 12);
     }
   }
-  .sizeBtn {
+  .selectSizeBtn {
     height: calc(var(--spacing) * 10);
     width: calc(var(--spacing) * 10);
     border-radius: 0.25rem;
