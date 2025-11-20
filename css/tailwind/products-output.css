@@ -518,6 +518,9 @@
       font-size: var(--text-2xl);
       line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
+    @media (width >= 64rem) {
+      font-size: 28px;
+    }
   }
   .menuHeader {
     position: absolute;

@@ -49,7 +49,7 @@
     text-xl shadow-(--box-positive)
     hover:cursor-pointer hover:scale-110
     active:shadow-(--box-negative)
-    md:text-2xl
+    md:text-2xl lg:text-[28px]
     ;
   }
 
