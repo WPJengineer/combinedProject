@@ -28,19 +28,19 @@
         <div class="md:flex md:gap-2 lg:gap-10">
             <div class="hidden md:flex">
                 <img class="icon lg:hidden" src="../assets/iconos/home_24dp_0F0F0F.png" alt="home">
-                <span class="hidden hover:cursor-pointer lg:flex">Home</span>
+                <span class="headerNavText">Home</span>
             </div>
             <div class="hidden md:flex">
                 <img class="icon lg:hidden" src="../assets/iconos/wishlist.png" alt="wishlist">
-                <span class="hidden hover:cursor-pointer lg:flex">Wishlist</span>
+                <span class="headerNavText">Wishlist</span>
             </div>
             <div class="hidden md:flex">
                 <img class="icon lg:hidden" src="../assets/iconos/shopping_cart_24dp_0F0F0F.png" alt="cart">
-                <span class="hidden hover:cursor-pointer lg:flex">Carrito</span>
+                <span class="headerNavText">Carrito</span>
             </div>
             <div class="hidden user md:flex">
                 <img class="icon lg:hidden" src="../assets/iconos/person_24dp_0F0F0F.png" alt="user">
-                <span class="hidden hover:cursor-pointer lg:flex">Cuenta</span>
+                <span class="headerNavText">Cuenta</span>
             </div>
             <img class="icon" src="../assets/iconos/search_24dp_OFOFOF.png" alt="search">
         </div>
@@ -59,22 +59,22 @@
                 <div class="flex flex-col gap-2 md:gap-2.5">
                     <p>Selecciona color</p>
                     <div class="flex gap-2.5 md:gap-5">
-                        <button class="h-8 w-8 rounded-full border border-dark bg-dark hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnBlack"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-light hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnWhite"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-[#D2AAA1] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnOrange"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-[#A4A2A2] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnGrey"></button>
-                        <button class="h-8 w-8 rounded-full border border-dark bg-[#353A26] hover:cursor-pointer md:h-10 md:w-10 lg:h-12 lg:w-12" id="btnGreen"></button>
+                        <button class="colorBtn bg-dark" id="btnBlack"></button>
+                        <button class="colorBtn bg-light" id="btnWhite"></button>
+                        <button class="colorBtn bg-[#D2AAA1]" id="btnOrange"></button>
+                        <button class="colorBtn bg-[#A4A2A2]" id="btnGrey"></button>
+                        <button class="colorBtn bg-[#353A26]" id="btnGreen"></button>
                     </div>
                 </div>
                 <div class="flex flex-col gap-2 md:gap-2.5">
                     <p>Selecciona tu talla</p>
                     <div class="size flex gap-2.5 md:gap-5">
-                        <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer md:h-12 md:w-12 lg:h-14 lg:w-14">XS</button>
-                        <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer md:h-12 md:w-12 lg:h-14 lg:w-14">S</button>
-                        <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer md:h-12 md:w-12 lg:h-14 lg:w-14">M</button>
-                        <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer md:h-12 md:w-12 lg:h-14 lg:w-14">L</button>
-                        <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer md:h-12 md:w-12 lg:h-14 lg:w-14">XL</button>
-                        <button class="w-10 h-10 rounded border border-dark bg-light p-1 hover:cursor-pointer md:h-12 md:w-12 lg:h-14 lg:w-14">2XL</button>
+                        <button class="sizeBtn">XS</button>
+                        <button class="sizeBtn">S</button>
+                        <button class="sizeBtn">M</button>
+                        <button class="sizeBtn">L</button>
+                        <button class="sizeBtn">XL</button>
+                        <button class="sizeBtn">2XL</button>
                     </div>
                 </div>
                 <div class="flex flex-col items-start gap-2 lg:items-start">
@@ -99,12 +99,12 @@
             <p>También te gustará</p>
             <div class="flex items-center gap-2.5 md:gap-5">
                 <img class="arrow-icon" id="btnLeft" src="../assets/iconos/chevron_left_24dp_OFOFOF.png" alt="left-arrow-icon">
-                <div class="flex justify-start gap-5 overflow-scroll scroll-smooth hover:cursor-grab md:gap-7.5" id="scrollContainer">
-                    <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/2.png" alt="product-image">
-                    <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/9.png" alt="product-image">
-                    <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/17.png" alt="product-image">
-                    <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/41.png" alt="product-image">
-                    <img class="h-60 aspect-4/5 md:h-80 lg:h-100" src="../assets/images/49.png" alt="product-image">
+                <div class="scrollbar" id="scrollContainer">
+                    <img class="scrollbarImage" src="../assets/images/2.png" alt="product-image">
+                    <img class="scrollbarImage" src="../assets/images/9.png" alt="product-image">
+                    <img class="scrollbarImage" src="../assets/images/17.png" alt="product-image">
+                    <img class="scrollbarImage" src="../assets/images/41.png" alt="product-image">
+                    <img class="scrollbarImage" src="../assets/images/49.png" alt="product-image">
                 </div>
                 <img class="arrow-icon" id="btnRight" src="../assets/iconos/navigate_next_24dp_OFOFOF.png" alt="right-arrow-icon">
             </div>
