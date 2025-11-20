@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnMenu = document.querySelector("#btnMenu");
     const menuPrincipal = document.querySelector(".menu");
     const btnCloseMenu = document.querySelector("#btnCloseMenu");
-    const btnsSize = document.querySelectorAll('.size button');
+    const sizeBtn = document.querySelectorAll('.sizeBtn');
     const btnMinus = document.querySelector('.btnMinus');
     const btnPlus = document.querySelector('.btnPlus');
     const quantity = document.querySelector('.quantity');
@@ -39,11 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnGrey.addEventListener('click', () => productImage.src = "../assets/images/17.png");
     btnGreen.addEventListener('click', () => productImage.src = "../assets/images/33.png");
 
-    btnsSize.forEach(btn => {
+    sizeBtn.forEach(btn => {
         btn.addEventListener('click', () => {
-            
             const isSelected = btn.classList.contains('bg-dark');
-            btnsSize.forEach(b => {
+            sizeBtn.forEach(b => {
                 b.classList.remove('bg-dark', 'text-light');
                 b.classList.add('bg-light', 'text-dark');
             });
