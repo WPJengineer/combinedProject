@@ -43,8 +43,8 @@
   }
 
   .button {
-    @apply flex items-center justify-between
-    bg-blue text-light mx-2.5 my-5 px-5 py-2.5
+    @apply bg-blue text-light
+    mx-2.5 my-5 px-5 py-2.5
     rounded-3xl border border-solid border-dark
     text-xl shadow-(--box-positive)
     hover:cursor-pointer hover:scale-110
