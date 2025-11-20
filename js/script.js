@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     selectProduct.forEach(card => {
         card.addEventListener('click', (e) => {
             if (e.target.classList.contains("icon")) return;
-            window.location.href = "/views/products.html";
+            window.location.href = "./views/products.html";
         });
     });
 
