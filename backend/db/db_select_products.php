@@ -13,8 +13,6 @@ include('./config/db_config.php');
 $sql = "SELECT *
 FROM 014_products;";
 
-
-
 // execute query
 $result = mysqli_query($conn, $sql);
 
@@ -27,7 +25,7 @@ if (mysqli_query($conn, $sql)) {
             '<div class="insertBar">
                 <div class="search-bar">
                     <form>
-                        <input type="text" onkeyup="showHint(this.value)" placeholder="Type product name...">
+                        <input id="textBox" onkeyup="showHint(this.value)" type="text" placeholder="Type product name...">
                     </form>
                 </div>';
                 if ($_SESSION['customer_role'] == "admin") {
