@@ -27,8 +27,8 @@
 
   .logo {
     @apply w-50
-    md:w-75 lg:w-100
-    hover:cursor-pointer;
+    hover:cursor-pointer
+    md:w-75 lg:w-100;
   }
 
   .icon {
