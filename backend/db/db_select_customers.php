@@ -24,14 +24,14 @@ if (mysqli_query($conn, $sql)) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo 
                 '<div class="customers">
-                    <div class="customer-info">
+                    <div class="flex items-center gap-6">
                         <p>'.$row['customer_id'].'</p>
                         <p>'.$row['forename'].'</p>
                         <p>'.$row['lastname'].'</p>
                     </div>
                     <div class="buttons">
-                        <a href="./forms/form_customer_update.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Update</a>
-                        <a href="./forms/form_customer_delete.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Delete</a> 
+                        <a class="button" href="./forms/form_customer_update.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Update</a>
+                        <a class="button" href="./forms/form_customer_delete.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Delete</a> 
                     </div>
                 </div>';
         }

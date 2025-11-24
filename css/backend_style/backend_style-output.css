@@ -344,9 +344,7 @@
     border-top-width: 1px;
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
-    padding-block: calc(var(--spacing) * 2.5);
-    padding-right: calc(var(--spacing) * 12);
-    padding-left: calc(var(--spacing) * 2.5);
+    padding: calc(var(--spacing) * 10);
   }
   .customers {
     display: flex;
@@ -356,9 +354,17 @@
     border-top-width: 1px;
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
-    padding-block: calc(var(--spacing) * 2.5);
-    padding-right: calc(var(--spacing) * 12);
-    padding-left: calc(var(--spacing) * 2.5);
+    padding: calc(var(--spacing) * 10);
+  }
+  .shopping-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+    padding: calc(var(--spacing) * 10);
   }
 }
 @property --tw-rotate-x {

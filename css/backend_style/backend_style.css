@@ -54,11 +54,15 @@
     }
 
     .products {
-        @apply flex items-center justify-between border-t border-b pr-12 pl-2.5 py-2.5;
+        @apply flex items-center justify-between border-t border-b p-10;
     }
 
     .customers {
-        @apply flex items-center justify-between border-t border-b pr-12 pl-2.5 py-2.5;
+        @apply flex items-center justify-between border-t border-b p-10;
+    }
+
+    .shopping-cart {
+        @apply flex items-center justify-between border-t border-b p-10;
     }
 
 }

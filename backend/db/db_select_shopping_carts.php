@@ -34,16 +34,16 @@ if (mysqli_query($conn, $sql)) {
         echo
             // '<main>
                 '<div class="insertBar">
-                    <div class="insertBtn buttons">
+                    <div class="button">
                         <a href="./forms/form_shopping_cart_insert.php">Insert Into Shopping Carts</a>
                     </div>
                 </div>';
         while ($row = mysqli_fetch_assoc($result)) {
             echo
                 '<div class="shopping-cart">
-                    <div>
-                        <img src="'.$row['product_image'].'" alt="product-image">
-                        <div class="shopping-cart-info">
+                    <div class="flex gap-6">
+                        <img class="w-25" src="'.$row['product_image'].'" alt="product-image">
+                        <div class="flex items-center gap-6">
                             <p>'.$row['product_name'].'</p>
                             <p>'.$row['product_unit_price'].'€</p>
                             <p>'.$row['forename'].'</p>
@@ -51,10 +51,10 @@ if (mysqli_query($conn, $sql)) {
                             <p>'.$row['quantity'].'</p>
                         </div>
                     </div>
-                    <div class="buttons">
-                        <a href="">Place Order</a>
-                        <a href="./forms/form_shopping_cart_update.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Update</a>
-                        <a href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Delete</a> 
+                    <div class="flex">
+                        <a class="button" href="">Place Order</a>
+                        <a class="button" href="./forms/form_shopping_cart_update.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Update</a>
+                        <a class="button" href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Delete</a> 
                     </div>
                 </div>';
         }
