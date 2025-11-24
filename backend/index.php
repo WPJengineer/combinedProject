@@ -1,6 +1,6 @@
 <?php $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/'; ?>
 <?php require($backend.'header.php'); ?>
-
+<main class="min-h-screen bg-green flex flex-col items-center justify-center">
     <div class="flex flex-col items-center justify-center gap-6">
         <p>Welcome to my backend</p>
         <nav>
@@ -16,10 +16,9 @@
             </ul>
         </nav>
     </div>
-
+</main>
 <?php require($backend.'footer.php'); ?>
 
-</html>
 
 
 

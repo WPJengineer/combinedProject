@@ -253,5 +253,5 @@ session_start();
             </ul>
         </nav>
     </header>
-    <main class="bg-green">
+    <!-- <main class="min-h-screen bg-green"> -->
 

@@ -3,7 +3,8 @@ $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
 require($backend.'header.php');
 ?>
 
-<!-- <h1>Log in</h1> -->
+<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+<h1 class="text-4xl font-bold">Welcome to the backend</h1>
 <?php
     if (!isset($_SESSION['username'])) {
         echo
@@ -30,5 +31,5 @@ require($backend.'header.php');
             </script>';
     }
 ?>
-
+</main>
 <?php require($backend.'footer.php'); ?>
