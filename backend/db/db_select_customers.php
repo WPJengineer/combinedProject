@@ -17,24 +17,16 @@ if (mysqli_query($conn, $sql)) {
     // Fetch and display each row
         echo
             '<div class="insertBar">
+                <div>
+                    <form>
+                        <input class="textBox" id="textBox" onkeyup="showCustomer(this.value)" type="text" placeholder="Type customer name...">
+                    </form>
+                </div>
                 <div class="button">
                     <a href="./forms/form_customer_insert.php">Insert New Customer</a>
                 </div>
-            </div>';
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo 
-                '<div class="customers">
-                    <div class="flex items-center gap-6">
-                        <p>'.$row['customer_id'].'</p>
-                        <p>'.$row['forename'].'</p>
-                        <p>'.$row['lastname'].'</p>
-                    </div>
-                    <div class="buttons">
-                        <a class="button" href="./forms/form_customer_update.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Update</a>
-                        <a class="button" href="./forms/form_customer_delete.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Delete</a> 
-                    </div>
-                </div>';
-        }
+            </div>
+            <div id="txtHint"></div>';
     } else {
         echo "No customer found with ID: ";
     }

@@ -1,9 +1,9 @@
-const endPoint = '/student014/shop/backend/endpoints/product_search.php';
+const endPointCustomer = '/student014/shop/backend/endpoints/customer_search.php';
 
 let str = "";
-showHint(str);
+showCustomer(str);
 
-function showHint(str) {
+function showCustomer(str) {
   if (str.length == null && str.length == 0) {
     document.getElementById('txtHint').innerHTML = "";
     return;
@@ -15,6 +15,6 @@ function showHint(str) {
           }
       };
   }
-  xmlhttp.open('GET', endPoint + '?product_name=' + str, true);
+  xmlhttp.open('GET', endPointCustomer + '?customer_name=' + str, true);
   xmlhttp.send();  
 }

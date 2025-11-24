@@ -25,7 +25,7 @@ if (mysqli_query($conn, $sql)) {
             '<div class="insertBar">
                 <div>
                     <form>
-                        <input class="textBox" id="textBox" onkeyup="showHint(this.value)" type="text" placeholder="Type product name...">
+                        <input class="textBox" id="textBox" onkeyup="showProduct(this.value)" type="text" placeholder="Type product name...">
                     </form>
                 </div>';
                 if ($_SESSION['customer_role'] == "admin") {
