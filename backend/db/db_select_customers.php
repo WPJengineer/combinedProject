@@ -26,7 +26,7 @@ if (mysqli_query($conn, $sql)) {
                     <a href="./forms/form_customer_insert.php">Insert New Customer</a>
                 </div>
             </div>
-            <div id="txtHint"></div>';
+            <div id="txtHintCustomer"></div>';
     } else {
         echo "No customer found with ID: ";
     }

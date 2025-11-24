@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollContainer = document.getElementById("scrollContainer");
     const btnLeft = document.getElementById("btnLeft");
     const btnRight = document.getElementById("btnRight");
+    const btnHome = document.getElementById('btnHome');
+    const btnHome2 = document.getElementById('btnHome2');
+    const btnLogo = document.getElementById('btnLogo');
     let total = parseInt(quantity.textContent, 10);
     const SCROLL_AMOUNT = 300;
 
@@ -76,6 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
             left: -SCROLL_AMOUNT,
             behavior: "smooth"
         });
+    });
+
+    btnHome.addEventListener('click', () => {
+        window.location.href = "../index.html";
+    });
+
+    btnHome2.addEventListener('click', () => {
+        window.location.href = "../index.html";
+    });
+
+    btnLogo.addEventListener('click', () => {
+        window.location.href = "../index.html";
     });
 
 });
