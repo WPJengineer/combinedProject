@@ -4,7 +4,7 @@
 $customer_id = $_POST['customer_id'];
 $customer_forename = $_POST['customer_forename'];
 $customer_lastname = $_POST['customer_lastname'];
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 

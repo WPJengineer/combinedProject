@@ -8,7 +8,7 @@ $sql = "SELECT *
 FROM 014_products
 WHERE product_name LIKE '%$product_name%';";
 
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
 include('../config/db_config.php');
 

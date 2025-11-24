@@ -3,7 +3,7 @@
 
 // print_r($_POST);
 $product_id = $_POST['product_id'];
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db');
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db');
 
 // establish connection to database
 include('../config/db_config.php');

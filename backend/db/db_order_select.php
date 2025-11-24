@@ -2,7 +2,7 @@
 
 // Get data
 $order_id = $_POST['order_id'];
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
 // establish connection to database
 include('../config/db_config.php');

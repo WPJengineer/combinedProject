@@ -66,4 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "/student014/shop/backend/forms/form_login.php";
     });
 
-});    
+});

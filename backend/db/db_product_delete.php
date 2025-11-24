@@ -1,6 +1,6 @@
 <?php
 // Get data
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 $product_id = $_POST['product_id'];
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');

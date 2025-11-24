@@ -7,7 +7,7 @@ $quantity = $_POST['quantity'];
 // need to find a way to reset $_POST so that after an F5 doesn't cause isssues with duplicated keys.
 // unset($_POST['product_id']);
 // $_POST = array();
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
 // Put data in the database
 include('../config/db_config.php');

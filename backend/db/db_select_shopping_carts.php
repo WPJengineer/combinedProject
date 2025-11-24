@@ -6,7 +6,7 @@ if (!isset($_SESSION['customer_id'])) {
     //issue here with redirection.
 }
 
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
 include('./config/db_config.php');
 

@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 // require($backend.'header.php');
 
