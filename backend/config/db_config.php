@@ -1,7 +1,7 @@
 <?php
 
 // connect to database
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
 
 // check connection
 if (!$conn) {

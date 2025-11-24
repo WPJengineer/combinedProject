@@ -1,4 +1,4 @@
-const endPoint = '/student014/online_shop/backend/endpoints/product-search.php';
+const endPoint = '/student014/shop/backend/endpoints/product-search.php';
 
 let str = "";
 showHint(str);

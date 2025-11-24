@@ -59,11 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnLogin.addEventListener('click', () => {
-        window.location.href = "/student014/online_shop/backend/forms/form_login.php";
+        window.location.href = "/student014/shop/backend/forms/form_login.php";
     });
 
     btnLogin2.addEventListener('click', () => {
-        window.location.href = "/student014/online_shop/backend/forms/form_login.php";
+        window.location.href = "/student014/shop/backend/forms/form_login.php";
     });
 
 });    

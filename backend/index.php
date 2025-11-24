@@ -1,4 +1,4 @@
-<?php $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/'; ?>
+<?php $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/'; ?>
 <?php require($backend.'header.php'); ?>
 <main class="min-h-screen bg-green flex flex-col items-center justify-center">
     <div class="flex flex-col items-center justify-center gap-6">

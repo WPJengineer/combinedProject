@@ -3,7 +3,7 @@
 // Get data
 $category_id = $_POST['category_id'];
 $product_id = $_POST['product_id'];
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
 
 // establish connection to database
 include('../config/db_config.php');
@@ -51,7 +51,7 @@ mysqli_close($conn);
 ?>
 
 <!-- go back to start -->
-<form action="/student014/online_shop/backend/index.php">
+<form action="/student014/shop/backend/index.php">
     <p>
         <input type="submit" value="Return to start">
     </p>

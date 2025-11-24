@@ -1,4 +1,4 @@
-<form action="/student014/online_shop/backend/db/db_order_select.php" method="POST">
+<form action="/student014/shop/backend/db/db_order_select.php" method="POST">
 
     <p>
         <label for="order_id">Order ID: </label>

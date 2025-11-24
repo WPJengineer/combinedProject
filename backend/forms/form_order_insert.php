@@ -1,8 +1,8 @@
 <?php
-    $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
+    $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 ?>
 
-<form action="/student014/online_shop/backend/db/db_order_insert.php" method="POST">
+<form action="/student014/shop/backend/db/db_order_insert.php" method="POST">
     <p>
         <label for="customer_id">Customer ID:</label>
         <input type="text" id="customer_id" name="customer_id">

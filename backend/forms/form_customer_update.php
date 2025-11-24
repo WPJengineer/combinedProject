@@ -1,6 +1,6 @@
 <?php
 
-$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
 ?>

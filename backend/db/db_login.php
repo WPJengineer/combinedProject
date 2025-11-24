@@ -6,8 +6,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
-$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
+$conn = mysqli_connect('localhost', 'root', '', 'shop_db', 3306);
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 // require($backend.'header.php');
 
 include($backend.'/config/db_config.php');
@@ -31,11 +31,11 @@ if (mysqli_query($conn, $sql)) {
         // if ($role === "admin") {
         if ($_SESSION['customer_role'] === "admin") {
             // admin so go to admin panel
-            header("Location: /student014/online_shop/backend/index.php");
+            header("Location: /student014/shop/backend/index.php");
             exit();
         } else {
             // customer so go to products page
-            header("Location: /student014/online_shop/backend/products.php");
+            header("Location: /student014/shop/backend/products.php");
             exit();
         }
         

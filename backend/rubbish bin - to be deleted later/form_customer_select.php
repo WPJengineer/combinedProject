@@ -1,4 +1,4 @@
-<form action="/student014/online_shop/backend/db/db_customer_select.php" method="POST">
+<form action="/student014/shop/backend/db/db_customer_select.php" method="POST">
 
     <p>
         <label for="customer_id">Customer ID: </label>
