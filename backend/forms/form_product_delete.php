@@ -1,6 +1,6 @@
 <?php
 
-$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
 ?>
@@ -32,7 +32,7 @@ require($backend.'header.php');
                 <input type="submit" value="Delete">
             </p>
             <p class="buttons">
-                <a href="/student014/online_shop/backend/products.php">Cancel</a>
+                <a href="/student014/shop/backend/products.php">Cancel</a>
             </p>
         </div>
     </form>

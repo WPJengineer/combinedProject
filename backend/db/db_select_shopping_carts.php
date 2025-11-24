@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: /student014/online_shop/backend/forms/form_login.php");
+    header("Location: /student014/shop/backend/forms/form_login.php");
     exit();
     //issue here with redirection.
 }

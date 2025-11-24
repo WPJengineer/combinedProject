@@ -1,5 +1,5 @@
 <?php
-$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 ?>
 
@@ -8,7 +8,7 @@ require($backend.'header.php');
 <?php
     if (!isset($_SESSION['username'])) {
         echo
-            '<form class="flex flex-col gap-6 items-center justify-center" action="/student014/online_shop/backend/db/db_login.php" method="POST">
+            '<form class="flex flex-col gap-6 items-center justify-center" action="/student014/shop/backend/db/db_login.php" method="POST">
                 <p>
                     <label for="username">Username:</label>
                     <input class="textBox" type="text" id="username" name="username">
@@ -26,7 +26,7 @@ require($backend.'header.php');
             '<button class="button" onclick="logOut()">Log Out</button>
             <script>
                 function logOut() {
-                    window.location.href="/student014/online_shop/backend/forms/form_logout.php"
+                    window.location.href="/student014/shop/backend/forms/form_logout.php"
                 }
             </script>';
     }

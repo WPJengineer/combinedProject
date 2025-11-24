@@ -50,7 +50,7 @@ mysqli_close($conn);
 ?>
 
 <!-- go back to start -->
-<form action="/student014/online_shop/backend/index.php">
+<form action="/student014/shop/backend/index.php">
     <p>
         <input type="submit" value="Return to start">
     </p>

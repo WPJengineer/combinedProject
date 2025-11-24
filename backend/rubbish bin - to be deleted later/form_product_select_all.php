@@ -1,4 +1,4 @@
-<form action="/student014/online_shop/backend/db/db_product_select_all.php" method="POST">
+<form action="/student014/shop/backend/db/db_product_select_all.php" method="POST">
     <?php // echo 'file we send data to'; ?>
     <!-- <p>
         <label for="product_id">Product ID:</label>

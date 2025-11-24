@@ -1,8 +1,8 @@
-<?php  $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/'; ?>
+<?php  $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/'; ?>
 
 <?php require($backend.'header.php'); ?>
 <main>
-    <form class="call-form" action="/student014/online_shop/backend/db/db_shopping_cart_insert.php" method="POST">
+    <form class="call-form" action="/student014/shop/backend/db/db_shopping_cart_insert.php" method="POST">
         <?php 
             $customer_id = $_SESSION['customer_id'];
             $product_id = $_GET['product_id'];

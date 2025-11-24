@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: /student014/online_shop/backend/forms/form_login.php");
+    header("Location: /student014/shop/backend/forms/form_login.php");
     exit();
 }
 
@@ -15,7 +15,7 @@ $quantity = $_POST['quantity'];
 
 $conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
-$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
 include('../config/db_config.php');
@@ -27,7 +27,7 @@ if (mysqli_query($conn, $sql)) {
     echo
         '<main>
             <p>Details updated successfully into shopping cart</p>
-            <p class="input-id"><a href="/student014/online_shop/backend/products.php">Return to Start</a></p>
+            <p class="input-id"><a href="/student014/shop/backend/products.php">Return to Start</a></p>
         </main>';
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);

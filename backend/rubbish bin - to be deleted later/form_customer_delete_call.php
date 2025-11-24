@@ -1,4 +1,4 @@
-<form action="/student014/online_shop/backend/forms/form_customer_delete.php" method="POST">
+<form action="/student014/shop/backend/forms/form_customer_delete.php" method="POST">
     <p>Which product do you want to delete?</p>
     <p>
         <label for="customer_id">Customer ID:</label>

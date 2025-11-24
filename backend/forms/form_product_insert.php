@@ -1,11 +1,11 @@
 <?php
-    $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/online_shop/backend/';
+    $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 ?>
 
 <?php require($backend.'header.php'); ?> <!--here goes name of my header.php file and location in folder-->
 <?php //maybe need option to enter pictures of products.?>
 <main>
-    <form class="call-form" action="/student014/online_shop/backend/db/db_product_insert.php" method="POST">
+    <form class="call-form" action="/student014/shop/backend/db/db_product_insert.php" method="POST">
         <p class="input-id">
             <label for="product_id">Product ID:</label>
             <input type="text" id="product_id" name="product_id">

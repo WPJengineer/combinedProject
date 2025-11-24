@@ -1,4 +1,4 @@
-<form action="/student014/online_shop/backend/forms/form_customer_update.php" method="POST">
+<form action="/student014/shop/backend/forms/form_customer_update.php" method="POST">
     <p>Are you sure you want to update this customer?</p>
     <p>
         <label for="customer_id">Customer ID:</label>

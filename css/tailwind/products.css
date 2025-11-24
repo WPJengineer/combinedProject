@@ -27,6 +27,7 @@
 
   .logo {
     @apply w-50
+    hover:cursor-pointer
     md:w-75 lg:w-100;
   }
 

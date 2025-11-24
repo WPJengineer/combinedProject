@@ -1,4 +1,4 @@
-<form action="/student014/online_shop/backend/db/db_product_select.php" method="POST">
+<form action="/student014/shop/backend/db/db_product_select.php" method="POST">
     
     <p>
         <label for="category_id">Categoria: </label>
