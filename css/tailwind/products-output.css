@@ -504,7 +504,7 @@
         --tw-scale-z: 110%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
       }
-    }
+    } 
     &:hover {
       @media (hover: hover) {
         cursor: pointer;
