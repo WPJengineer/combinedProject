@@ -18,9 +18,9 @@ if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     echo
         '<div class="products">
-            <div>
-                <img src="'.$row['product_image'].'" alt="product-image">
-                <div class="product-info">
+            <div class="flex gap-6">
+                <img class="w-25" src="'.$row['product_image'].'" alt="product-image">
+                <div class="flex items-center gap-6">
                     <p>'.$row['product_name'].'</p>
                     <p>'.$row['product_unit_price'].'€</p>
                 </div>
@@ -28,16 +28,16 @@ if (mysqli_num_rows($result) > 0) {
             
             if ($_SESSION['customer_role'] == "admin") {
                 echo
-                    '<div class="buttons">
-                        <a href="./forms/form_shopping_cart_insert.php?product_id='.$row['product_id'].'">Add to cart</a>
-                        <a href="./forms/form_product_update.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Update</a>
-                        <a href="./forms/form_product_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Delete</a> 
+                    '<div class="flex">
+                        <a class="button" href="./forms/form_shopping_cart_insert.php?product_id='.$row['product_id'].'">Add to cart</a>
+                        <a class="button" href="./forms/form_product_update.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Update</a>
+                        <a class="button" href="./forms/form_product_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Delete</a> 
                     </div>
                 </div>';
             } else {
                 echo
-                    '<div class="buttons">
-                        <a href="./forms/form_shopping_cart_insert.php?product_id='.$row['product_id'].'">Add to cart</a> 
+                    '<div class="flex">
+                        <a class="button" href="./forms/form_shopping_cart_insert.php?product_id='.$row['product_id'].'">Add to cart</a> 
                     </div>
                 </div>';
             }

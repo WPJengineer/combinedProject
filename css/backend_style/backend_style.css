@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@source "../../backend/**/*.php";
+@source "../../index.html";
+
+@layer base {
+
+  @font-face {
+    font-family: "Afacad";
+    src: url("../../assets/fonts/afacad.ttf");
+  }
+
+}
+
+@theme {
+  --color-dark: #0f0f0f;
+  --color-light: #fcfcfc;
+  --color-green: #4fb286;
+  --color-blue: #336699;
+  --box-positive: 4px 2px 2px var(--color-dark);
+  --box-negative: -2px -2px 1px var(--color-dark);
+  --font-afacad: "Afacad", sans-serif;
+}
+
+@layer components {
+
+    .button {
+        @apply bg-blue text-light
+        mx-2.5 my-5 px-5 py-2.5
+        rounded-3xl border border-solid border-dark
+        text-xl shadow-(--box-positive)
+        hover:cursor-pointer hover:scale-110
+        active:shadow-(--box-negative)
+        md:text-2xl lg:text-[28px];
+    }
+
+    .icon {
+        @apply w-7.5
+        hover:cursor-pointer
+        md:w-10;
+    }
+
+    .logo {
+        @apply w-50
+        md:w-75 lg:w-100;
+    }
+
+    .textBox {
+        @apply bg-light border rounded-xl focus:outline-blue border-dark;
+    }
+
+    .insertBar {
+        @apply bg-dark h-12 flex justify-end items-center p-10 gap-5;
+    }
+
+    .products {
+        @apply flex items-center justify-between border-t border-b pr-12 pl-2.5 py-2.5;
+    }
+
+    .customers {
+        @apply flex items-center justify-between border-t border-b pr-12 pl-2.5 py-2.5;
+    }
+
+}

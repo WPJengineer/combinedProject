@@ -17,7 +17,7 @@ if (mysqli_query($conn, $sql)) {
     // Fetch and display each row
         echo
             '<div class="insertBar">
-                <div class="insertBtn buttons">
+                <div class="button">
                     <a href="./forms/form_customer_insert.php">Insert New Customer</a>
                 </div>
             </div>';

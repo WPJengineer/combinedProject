@@ -23,13 +23,13 @@ if (mysqli_query($conn, $sql)) {
     // Fetch and display each row
         echo
             '<div class="insertBar">
-                <div class="search-bar">
+                <div>
                     <form>
-                        <input id="textBox" onkeyup="showHint(this.value)" type="text" placeholder="Type product name...">
+                        <input class="textBox" id="textBox" onkeyup="showHint(this.value)" type="text" placeholder="Type product name...">
                     </form>
                 </div>';
                 if ($_SESSION['customer_role'] == "admin") {
-                    echo '<div class="insertBtn buttons">
+                    echo '<div class="button">
                     <a href="./forms/form_product_insert.php">Insert New Product</a>
                 </div>';
                 }
