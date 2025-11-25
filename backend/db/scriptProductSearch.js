@@ -5,13 +5,13 @@ showProduct(str);
 
 function showProduct(str) {
   if (str.length == null && str.length == 0) {
-    document.getElementById('txtHint').innerHTML = "";
+    document.getElementById('txtHintProduct').innerHTML = "";
     return;
   } else {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('txtHint').innerHTML = this.responseText;
+            document.getElementById('txtHintProduct').innerHTML = this.responseText;
           }
       };
   }
