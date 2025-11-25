@@ -1,7 +1,6 @@
 const endPointProduct = '/student014/shop/backend/endpoints/product_search.php';
 
-let str = "";
-showProduct(str);
+showProduct("");
 
 function showProduct(str) {
   if (str.length == null && str.length == 0) {

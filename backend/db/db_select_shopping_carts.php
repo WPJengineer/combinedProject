@@ -34,10 +34,17 @@ if (mysqli_query($conn, $sql)) {
         echo
             // '<main>
                 '<div class="insertBar">
+                    <div>
+                        <form>
+                            <input class="textBox" id="textBox" onkeyup="showShoppingCart(this.value)" type="text" placeholder="Type product name...">
+                            <input class="textBox" id="textBox" onkeyup="showShoppingCart(this.value)" type="text" placeholder="Type customer name...">
+                        </form>
+                    </div>
                     <div class="button">
                         <a href="./forms/form_shopping_cart_insert.php">Insert Into Shopping Carts</a>
                     </div>
-                </div>';
+                </div>
+                <div id="txtHintShoppingCart"></div>';
         while ($row = mysqli_fetch_assoc($result)) {
             echo
                 '<div class="shopping-cart">

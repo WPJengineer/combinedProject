@@ -1,7 +1,6 @@
 const endPointCustomer = '/student014/shop/backend/endpoints/customer_search.php';
 
-let str = "";
-showCustomer(str);
+showCustomer("");
 
 function showCustomer(str) {
   if (str.length == null && str.length == 0) {
