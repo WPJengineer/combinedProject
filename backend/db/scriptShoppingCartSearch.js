@@ -1,4 +1,4 @@
-const endPointProduct = '/student014/shop/backend/endpoints/shopping_cart_search.php';
+const endPointShoppingCart = '/student014/shop/backend/endpoints/shopping_cart_search.php';
 
 showShoppingCart("");
 
@@ -14,6 +14,6 @@ function showShoppingCart(str) {
           }
       };
   }
-  xmlhttp.open('GET', endPointProduct + '?product_name=' + str, true);
+  xmlhttp.open('GET', endPointShoppingCart + '?product_name=' + str, true);
   xmlhttp.send();  
 }
