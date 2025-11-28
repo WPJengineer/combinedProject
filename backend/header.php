@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="/student014/shop/css/backend_style/backend_style-output.css">
 </head>
 <body class="text-xl text-dark font-afacad md:text-2xl lg:text-[28px]">
-    <header class="flex items-center justify-between px-5 bg-light">
+    <header class="h-50 flex items-center justify-between px-5 bg-light">
         <img class="logo" src="/student014/shop/assets/images/logo.png" alt="logo">
         <nav>
             <ul class="flex items-center gap-5">
