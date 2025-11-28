@@ -50,7 +50,11 @@ if (mysqli_query($conn, $sql)) {
                             <p>'.$row['product_unit_price'].'€</p>
                             <p>'.$row['forename'].'</p>
                             <p>'.$row['lastname'].'</p>
-                            <p>'.$row['quantity'].'</p>
+                            <div class="flex items-center gap-5 border rounded-full border-dark bg-light px-3 py-1 hover:cursor-pointer">
+                                <button class="btnMinus p-2 hover:cursor-pointer">-</button>
+                                <span class="quantity p-2">'.$row['quantity'].'</span>
+                                <button class="btnPlus p-2 hover:cursor-pointer">+</button>
+                            </div>
                         </div>
                     </div>
                     <div class="flex">
