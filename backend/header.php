@@ -13,8 +13,8 @@ session_start();
     <title>Teamware</title>
     <link rel="stylesheet" href="/student014/shop/css/backend_style/backend_style-output.css">
 </head>
-<body class="text-xl text-dark font-afacad md:text-2xl lg:text-[28px]">
-    <header class="h-50 flex items-center justify-between px-5 bg-light">
+<body class="min-h-screen flex flex-col text-xl text-dark font-afacad md:text-2xl lg:text-[28px]">
+    <header class="flex items-center justify-between px-5 bg-light">
         <img class="logo" src="/student014/shop/assets/images/logo.png" alt="logo">
         <nav>
             <ul class="flex items-center gap-5">
@@ -33,5 +33,7 @@ session_start();
             </ul>
         </nav>
     </header>
+
+
     <!-- <main class="min-h-screen bg-green"> -->
 

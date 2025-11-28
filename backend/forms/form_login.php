@@ -3,7 +3,7 @@ $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 ?>
 
-<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
 <h1 class="text-4xl font-bold">Welcome to the backend</h1>
 <?php
     if (!isset($_SESSION['username'])) {

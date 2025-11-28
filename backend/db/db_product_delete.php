@@ -15,7 +15,7 @@ WHERE product_id = '$product_id'";
 
 // execute query
 if (mysqli_query($conn, $sql)) {
-    echo    '<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+    echo    '<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
                 <p>Product deleted successfully</p>
                 <p class="button"><a href="/student014/shop/backend/products.php">Return to Start</a></p>
             </main>';

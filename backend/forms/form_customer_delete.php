@@ -4,7 +4,7 @@ $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
 ?>
-<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="../db/db_customer_delete.php" method="POST">
         <?php
             $customer_id = $_GET['customer_id'];

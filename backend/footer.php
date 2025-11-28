@@ -1,5 +1,5 @@
 <!-- </main> -->
-<footer class="bg-light text-center p-6 h-25">
+<footer class="bg-light text-center p-6">
     <div class="copyright">&copy; 2025 TeamWear. All Rights Reserved.</div>
 </footer>
 <script src="/student014/shop/backend/db/scriptProductSearch.js"></script>

@@ -5,7 +5,7 @@ require($backend.'header.php');
 
 ?>
 
-<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="../db/db_product_update.php" method="POST">
         <?php
             $product_id = $_GET['product_id'];

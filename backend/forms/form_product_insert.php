@@ -4,7 +4,7 @@
 
 <?php require($backend.'header.php'); ?>
 <?php //maybe need option to enter pictures of products.?>
-<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="/student014/shop/backend/db/db_product_insert.php" method="POST">
         <p class="flex justify-center items-center gap-5">
             <label for="product_id">Product ID:</label>

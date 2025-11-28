@@ -1,7 +1,7 @@
 <?php  $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/'; ?>
 
 <?php require($backend.'header.php'); ?>
-<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+<main class="bg-green flex flex-col items-center justify-center gap-6"  style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="/student014/shop/backend/db/db_shopping_cart_insert.php" method="POST">
         <p class="flex justify-center items-center gap-5">
             <label for="customer_id">Customer ID:</label>
