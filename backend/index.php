@@ -5,14 +5,14 @@
         <p>Welcome to my backend</p>
         <nav>
             <ul class="flex items-center justify-center gap-6">
-                <li><a class="button" href="./products.php">Products</a></li>
+                <li class="button"><a href="./products.php">Products</a></li>
                 <?php
                 if ($_SESSION['customer_role'] == 'admin') {
-                    echo '<li><a class="button" href="./customers.php">Customers</a></li>';
+                    echo '<li class="button"><a href="./customers.php">Customers</a></li>';
                 }
                 ?>
-                <li><a class="button" href="./shopping_carts.php">Shopping Carts</a></li>
-                <li><a class="button" href="./orders.php">Orders</a></li>
+                <li class="button"><a href="./shopping_carts.php">Shopping Carts</a></li>
+                <li class="button"><a href="./orders.php">Orders</a></li>
             </ul>
         </nav>
     </div>

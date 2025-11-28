@@ -183,14 +183,23 @@
   .hidden {
     display: none;
   }
+  .table {
+    display: table;
+  }
   .min-h-screen {
     min-height: 100vh;
   }
   .w-25 {
     width: calc(var(--spacing) * 25);
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -210,6 +219,9 @@
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
+  .gap-12 {
+    gap: calc(var(--spacing) * 12);
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -219,6 +231,9 @@
   }
   .bg-light {
     background-color: var(--color-light);
+  }
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
   }
   .p-6 {
     padding: calc(var(--spacing) * 6);
@@ -246,6 +261,13 @@
   }
   .text-dark {
     color: var(--color-dark);
+  }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -410,6 +432,11 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -553,6 +580,7 @@
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;

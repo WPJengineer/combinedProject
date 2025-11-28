@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
     echo
         '<div class="products">
             <div class="flex gap-6">
-                <img class="w-25" src="'.$row['product_image'].'" alt="product-image">
+                <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
                 <div class="flex items-center gap-6">
                     <p>'.$row['product_name'].'</p>
                     <p>'.$row['product_unit_price'].'€</p>

@@ -1,25 +1,21 @@
 <?php  $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/'; ?>
 
 <?php require($backend.'header.php'); ?>
-<main>
-    <form class="call-form" action="/student014/shop/backend/db/db_shopping_cart_insert.php" method="POST">
-        <?php 
-            $customer_id = $_SESSION['customer_id'];
-            $product_id = $_GET['product_id'];
-        ?>
-        <p class="input-id">
+<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+    <form class="flex flex-col gap-6 items-center" action="/student014/shop/backend/db/db_shopping_cart_insert.php" method="POST">
+        <p class="flex justify-center items-center gap-5">
             <label for="customer_id">Customer ID:</label>
-            <input type="text" id="customer_id" name="customer_id" value="<?php echo $customer_id; ?>" readonly>
+            <input class="textBox" type="number" id="customer_id" name="customer_id">
         </p>
-        <p class="input-id">
+        <p class="flex justify-center items-center gap-5">
             <label for="product_id">Product ID:</label>
-            <input type="text" id="product_id" name="product_id" value="<?php echo $product_id; ?>" readonly>
+            <input class="textBox" type="number" id="product_id" name="product_id">
         </p>
-        <p class="input-id">
+        <p class="flex justify-center items-center gap-5">
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" value="1">
+            <input class="textBox" type="number" id="quantity" name="quantity">
         </p>
-        <p class="buttons">
+        <p class="button">
             <input type="submit" value="Insert">
         </p>
     </form>

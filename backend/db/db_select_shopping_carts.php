@@ -32,43 +32,36 @@ if (mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
     // Fetch and display each row
         echo
-            // '<main>
-                '<div class="insertBar">
-                    <div>
-                        <form>
-                            <input class="textBox" id="textBox" onkeyup="showShoppingCart(this.value)" type="text" placeholder="Search...">
-                        </form>
-                    </div>';
-                    if ($_SESSION['customer_role'] == "admin") {
-                        echo
-                    '<div class="button">
-                        <a href="./forms/form_shopping_cart_insert.php">Insert Into Shopping Carts</a>
-                    </div>';
-                    }
+            '<div class="insertBar">';
+                if ($_SESSION['customer_role'] == "admin") {
                     echo
-                '</div>
-                <div id="txtHintShoppingCart"></div>';
-        // while ($row = mysqli_fetch_assoc($result)) {
-            // echo
-            //     '<div class="shopping-cart">
-            //         <div class="flex gap-6">
-            //             <img class="w-25" src="'.$row['product_image'].'" alt="product-image">
-            //             <div class="flex items-center gap-6">
-            //                 <p>'.$row['product_name'].'</p>
-            //                 <p>'.$row['product_unit_price'].'€</p>
-            //                 <p>'.$row['forename'].'</p>
-            //                 <p>'.$row['lastname'].'</p>
-            //                 <p>'.$row['quantity'].'</p>
-            //             </div>
-            //         </div>
-            //         <div class="flex">
-            //             <a class="button" href="">Place Order</a>
-            //             <a class="button" href="./forms/form_shopping_cart_update.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Edit</a>
-            //             <a class="button" href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Remove</a> 
-            //         </div>
-            //     </div>';
-        // }
-        // echo '</main>';
+                '<div class="button">
+                    <a href="./forms/form_shopping_cart_insert.php">Insert Into Shopping Carts</a>
+                </div>';
+                }
+                echo
+            '</div>';
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo
+                '<div class="shopping-cart">
+                    <div class="flex gap-6">
+                        <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
+                        <div class="flex items-center gap-6">
+                            <p>'.$row['product_name'].'</p>
+                            <p>'.$row['product_unit_price'].'€</p>
+                            <p>'.$row['forename'].'</p>
+                            <p>'.$row['lastname'].'</p>
+                            <p>'.$row['quantity'].'</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <a class="button" href="">Place Order</a>
+                        <a class="button" href="./forms/form_shopping_cart_update.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Edit</a>
+                        <a class="button" href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Remove</a> 
+                    </div>
+                </div>';
+        }
+        echo '</main>';
     } else {
         echo "No product or customer found with ID: ";
     }

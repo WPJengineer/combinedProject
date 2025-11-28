@@ -5,33 +5,28 @@ require($backend.'header.php');
 
 ?>
 
-<main>
-    <form class="call-form" action="../db/db_product_update.php" method="POST">
+<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+    <form class="flex flex-col gap-6 items-center" action="../db/db_product_update.php" method="POST">
         <?php
             $product_id = $_GET['product_id'];
             $product_name = $_GET['product_name'];
             $product_price = $_GET['product_price'];
             $product_image = $_GET['product_image'];
         ?>
-        <!-- <p class="input-id"> -->
-            <!-- <label for="product_id">Product ID:</label> -->
-            <input type="hidden" id="product_id" name="product_id" value="<?php echo $product_id; ?>">
-        <!-- </p> -->
-        <p class="product-img">
+        <input type="hidden" id="product_id" name="product_id" value="<?php echo $product_id; ?>">
+        <p class="w-25 border">
             <label for="product_image"></label>
             <img src="<?php echo $product_image; ?>" alt="product-image">
         </p>
-        <p class="input-id">
+        <p class="flex justify-center items-center gap-5">
             <label for="product_name">Product name:</label>
-            <input type="text" id="product_name" name="product_name" value="<?php echo $product_name; ?>">
+            <input class="textBox" type="text" id="product_name" name="product_name" value="<?php echo $product_name; ?>">
         </p>
-        <p class="input-id">
+        <p class="flex justify-center items-center gap-5">
             <label for="product_price">Product price:</label>
-            <input type="number" id="product_price" name="product_price" value="<?php echo $product_price; ?>">
+            <input class="textBox" type="number" id="product_price" name="product_price" value="<?php echo $product_price; ?>">
         </p>
-        
-        
-        <p class="buttons">
+        <p class="button">
             <input type="submit" value="Update">
         </p>
     </form>

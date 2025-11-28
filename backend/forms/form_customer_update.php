@@ -5,29 +5,27 @@ require($backend.'header.php');
 
 ?>
 
-<main>
-    <form class="call-form" action="../db/db_customer_update.php" method="POST">
+<main class="min-h-screen bg-green flex flex-col items-center justify-center gap-6">
+    <form class="flex flex-col gap-6 items-cente" action="../db/db_customer_update.php" method="POST">
         <?php
             $customer_id = $_GET['customer_id'];
             $customer_name = $_GET['customer_name'];
             $customer_lastname = $_GET['customer_lastname'];
         ?>
-        <p class="input-id">
+        <p class="flex justify-center items-center gap-5">
             <label for="customer_id">Customer ID:</label>
-            <input type="text" id="customer_id" name="customer_id" value="<?php echo $customer_id ?>" readonly>
+            <input class="textBox" type="text" id="customer_id" name="customer_id" value="<?php echo $customer_id ?>" readonly>
         </p>
-        <p class="input-id">
+        <p class="flex justify-center items-center gap-5">
             <label for="customer_forename">Customer forename:</label>
-            <input type="text" id="customer_forename" name="customer_forename" value="<?php echo $customer_name ?>">
+            <input class="textBox" type="text" id="customer_forename" name="customer_forename" value="<?php echo $customer_name ?>">
         </p>
-        <p class="input-id">
+        <p class="flex justify-center items-center gap-5">
             <label for="customer_lastname">Customer lastname:</label>
-            <input type="text" id="customer_lastname" name="customer_lastname" value="<?php echo $customer_lastname ?>">
+            <input class="textBox" type="text" id="customer_lastname" name="customer_lastname" value="<?php echo $customer_lastname ?>">
         </p>
-        
-        
-        <p class="buttons">
-            <input type="submit" value="Update">
+        <p class="flex justify-center">
+            <input class="button" type="submit" value="Update">
         </p>
     </form>
 </main>
