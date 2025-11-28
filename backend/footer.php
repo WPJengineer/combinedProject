@@ -4,5 +4,6 @@
 </footer>
 <script src="/student014/shop/backend/db/scriptProductSearch.js"></script>
 <script src="/student014/shop/backend/db/scriptCustomerSearch.js"></script>
+<script src="/student014/shop/backend/db/scriptShoppingCart.js"></script>
 </body>
 </html>

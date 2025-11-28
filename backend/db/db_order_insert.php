@@ -18,6 +18,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 include('../config/db_config.php');
 
 // create query
+//Insert into Select.
 $sql = "INSERT INTO 014_orders (customer_id, product_id, quantity)
 VALUES ('$customer_id', '$product_id', '$quantity');";
 
