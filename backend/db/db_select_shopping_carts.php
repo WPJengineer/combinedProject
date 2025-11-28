@@ -54,7 +54,7 @@ if (mysqli_query($conn, $sql)) {
                             <form class="flex items-center gap-5 border rounded-full border-dark bg-light px-3 py-1">
                                 <input class="btnMinus p-2 hover:cursor-pointer" type="submit" value="-">
                                 <span id="numQuantity" class="p-2">'.$row['quantity'].'</span>
-                                <input class="btnPlus p-2 hover:cursor-pointer" onclick="increaseQuantity()" type="submit" value="+">
+                                <input class="btnPlus p-2 hover:cursor-pointer" type="submit" value="+">
                             </form>
                         </div>
                     </div>
