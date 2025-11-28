@@ -5,7 +5,7 @@ if (!isset($_SESSION['customer_id'])) {
     exit();
 }
 
-    $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 ?>
 
 <form action="/student014/shop/backend/db/db_order_insert.php" method="POST">

@@ -54,7 +54,7 @@ if (mysqli_query($conn, $sql)) {
                         </div>
                     </div>
                     <div class="flex">
-                        <a class="button" href="">Place Order</a>
+                        <a class="button" href="./forms/form_">Place Order</a>
                         <a class="button" href="./forms/form_shopping_cart_update.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Edit</a>
                         <a class="button" href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Remove</a> 
                     </div>
