@@ -1,8 +1,9 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
+// if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}
+// }
+
 
 $username = $_POST['username'];
 $password = $_POST['password'];

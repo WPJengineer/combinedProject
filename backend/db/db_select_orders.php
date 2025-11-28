@@ -1,5 +1,10 @@
 <?php
 
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
+
 $conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
 include('./config/db_config.php');

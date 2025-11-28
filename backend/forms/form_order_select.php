@@ -1,3 +1,12 @@
+<?php
+
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
+
+?>
+
 <form action="/student014/shop/backend/db/db_order_select.php" method="POST">
 
     <p>

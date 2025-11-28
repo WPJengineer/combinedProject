@@ -1,4 +1,10 @@
 <?php
+
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
+
 // Get data
 $customer_id = $_POST['customer_id'];
 $customer_forename = $_POST['customer_forename'];

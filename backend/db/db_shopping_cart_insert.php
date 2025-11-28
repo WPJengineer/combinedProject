@@ -1,8 +1,8 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// if (session_status() === PHP_SESSION_NONE) {
+    // session_start();
+// }
 
 if (!isset($_SESSION['customer_id'])) {
     header("Location: /student014/shop/backend/forms/form_login.php");
