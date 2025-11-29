@@ -52,9 +52,9 @@ if (mysqli_query($conn, $sql)) {
                             <p>'.$row['forename'].'</p>
                             <p>'.$row['lastname'].'</p>
                             <form class="flex items-center gap-5 border rounded-full border-dark bg-light px-3 py-1">
-                                <input class="btnMinus p-2 hover:cursor-pointer" type="submit" value="-">
+                                <input class="btnMinus p-2 hover:cursor-pointer" type="button" value="-" data-product-id="'.$row['product_id'].'" data-customer-id="'.$row['customer_id'].'">
                                 <span id="numQuantity" class="p-2">'.$row['quantity'].'</span>
-                                <input class="btnPlus p-2 hover:cursor-pointer" type="submit" value="+">
+                                <input class="btnPlus p-2 hover:cursor-pointer" type="button" value="+" data-product-id="'.$row['product_id'].'" data-customer-id="'.$row['customer_id'].'">
                             </form>
                         </div>
                     </div>
