@@ -3,12 +3,11 @@ const endPointShoppingCart = '/student014/shop/backend/endpoints/showQuantity.ph
 const btnMinus = document.querySelectorAll('.btnMinus');
 const btnPlus = document.querySelectorAll('.btnPlus');
 
-const productId = btn.dataset.productId;
-const customerId = btn.dataset.customerId;
-
 btnMinus.forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
+    const productId = btn.dataset.productId;
+    const customerId = btn.dataset.customerId;
     const quantity = e.target.parentElement;
     let numQuantity = +quantity.querySelector('#numQuantity').innerText;
     if (numQuantity > 1) {
@@ -29,6 +28,8 @@ btnMinus.forEach(btn => {
 btnPlus.forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
+    const productId = btn.dataset.productId;
+    const customerId = btn.dataset.customerId;
     const quantity = e.target.parentElement;
     let numQuantity = +quantity.querySelector('#numQuantity').innerText;
     numQuantity++;
