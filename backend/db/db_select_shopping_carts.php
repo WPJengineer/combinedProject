@@ -32,15 +32,11 @@ if (mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
     // Fetch and display each row
         echo
-            '<div class="insertBar">';
-                if ($_SESSION['customer_role'] == "admin") {
-                    echo
-                '<div class="button">
-                    <a class="button" href="./forms/form_order_insert.php?product_id='.$row['product_id'].'&customer_id='.$row['customer_id'].'&quantity='.$row['quantity'].'">Place Order</a>
-                </div>';
-                }
-                echo
-            '</div>';
+            '<div class="insertBar">
+                <div class="button">
+                    <a href="./forms/form_order_insert.php">Place Order</a>
+                </div>
+            </div>';
         while ($row = mysqli_fetch_assoc($result)) {
             echo
                 '<div class="shopping-cart">
@@ -58,8 +54,8 @@ if (mysqli_query($conn, $sql)) {
                             </form>
                         </div>
                     </div>
-                    <div class="flex">
-                        <a class="button" href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'">Remove</a> 
+                    <div class="button">
+                        <a class="" href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'&quantity='.$row['quantity'].'">Remove</a> 
                     </div>
                 </div>';
         }
