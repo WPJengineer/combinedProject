@@ -1,9 +1,9 @@
 <?php
 
-if (!isset($_SESSION['customer_id'])) {
-    header("Location: /student014/shop/backend/forms/form_login.php");
-    exit();
-}
+// if (!isset($_SESSION['customer_id'])) {
+//     header("Location: /student014/shop/backend/forms/form_login.php");
+//     exit();
+// }
 
 $conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
@@ -61,7 +61,10 @@ if (mysqli_query($conn, $sql)) {
         }
         echo '</main>';
     } else {
-        echo "No product or customer found with ID: ";
+        echo
+            '<div class="flex flex-col items-center justify-center gap-6" style="flex: 1;">
+                <p>No product or customer found with ID</p>
+            </div>';
     }
     
 } else {

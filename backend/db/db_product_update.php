@@ -1,9 +1,9 @@
 <?php
 
-if (!isset($_SESSION['customer_id'])) {
-    header("Location: /student014/shop/backend/forms/form_login.php");
-    exit();
-}
+// if (!isset($_SESSION['customer_id'])) {
+//     header("Location: /student014/shop/backend/forms/form_login.php");
+//     exit();
+// }
 
 // Get data
 $product_id = $_POST['product_id'];

@@ -4,10 +4,10 @@
     // session_start();
 // }
 
-if (!isset($_SESSION['customer_id'])) {
-    header("Location: /student014/shop/backend/forms/form_login.php");
-    exit();
-}
+// if (!isset($_SESSION['customer_id'])) {
+//     header("Location: /student014/shop/backend/forms/form_login.php");
+//     exit();
+// }
 
 $customer_id = $_POST['customer_id'];
 $product_id = $_POST['product_id'];
