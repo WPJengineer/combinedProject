@@ -41,7 +41,7 @@ if (mysqli_query($conn, $sql)) {
                 </div>';
         }
     } else {
-        echo "No product found with ID: ";
+        echo "No product found with that ID";
     }
     
 } else {

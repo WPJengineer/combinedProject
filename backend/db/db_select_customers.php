@@ -33,7 +33,7 @@ if (mysqli_query($conn, $sql)) {
             </div>
             <div id="txtHintCustomer"></div>';
     } else {
-        echo "No customer found with ID: ";
+        echo "No customers found with that ID";
     }
     
 } else {

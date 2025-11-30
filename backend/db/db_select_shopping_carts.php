@@ -34,7 +34,7 @@ if (mysqli_query($conn, $sql)) {
         echo
             '<div class="insertBar">
                 <div class="button">
-                    <a href="./forms/form_order_insert.php">Place Order</a>
+                    <a href="./db/db_order_insert.php">Place Order</a>
                 </div>
             </div>';
         while ($row = mysqli_fetch_assoc($result)) {

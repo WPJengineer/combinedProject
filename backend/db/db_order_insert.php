@@ -4,27 +4,33 @@
 //     header("Location: /student014/shop/backend/forms/form_login.php");
 //     exit();
 // }
+// session_start();
+
+
+
+$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
+require($backend.'header.php');
 
 // Get data
-$customer_id = $_POST['customer_id'];
-$product_id = $_POST['product_id'];
-$quantity = $_POST['quantity'];
-// need to find a way to reset $_POST so that after an F5 doesn't cause isssues with duplicated keys.
-// unset($_POST['product_id']);
-// $_POST = array();
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+$customer_id = $_SESSION['customer_id'];
 
 // Put data in the database
 include('../config/db_config.php');
 
 // create query
-//Insert into Select.
-$sql = "INSERT INTO 014_orders (customer_id, product_id, quantity)
-VALUES ('$customer_id', '$product_id', '$quantity');";
+$sql = "INSERT INTO `014_orders` (product_id, customer_id, quantity)
+SELECT product_id, customer_id, quantity
+FROM `014_shopping_cart`
+WHERE customer_id = $customer_id";
 
 // execute query
 if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+    echo
+        '<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
+            <p>Product ordered successfully</p>
+            <p class="button"><a href="/student014/shop/backend/index.php">Return to Start</a></p>
+        </main>';
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
@@ -32,11 +38,5 @@ if (mysqli_query($conn, $sql)) {
 // close channel after finishing query
 mysqli_close($conn);
 
+require($backend.'footer.php');
 ?>
-
-<!-- go back to start -->
-<form action="/student014/shop/backend/index.php">
-    <p>
-        <input type="submit" value="Return to start">
-    </p>
-</form>

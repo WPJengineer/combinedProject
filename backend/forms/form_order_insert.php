@@ -6,9 +6,9 @@ if (!isset($_SESSION['customer_id'])) {
     header("Location: /student014/shop/backend/forms/form_login.php");
     exit();
 }
-$product_id = $_GET['product_id'];
-$customer_id = $_GET['customer_id'];
-$quantity = $_GET['quantity'];
+// $product_id = $_GET['product_id'];
+$customer_id = $_SESSION['customer_id'];
+// $quantity = $_GET['quantity'];
 
 
 ?>
