@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+$backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
+include($backend.'/functions/functions.php');
 
 ?>
 <!DOCTYPE html>

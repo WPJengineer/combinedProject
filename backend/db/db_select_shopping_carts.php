@@ -31,13 +31,16 @@ if (mysqli_query($conn, $sql)) {
     
     if (mysqli_num_rows($result) > 0) {
     // Fetch and display each row
-        echo
-            '<div class="insertBar">
-                <div class="button">
-                    <a href="./db/db_order_insert.php">Place Order</a>
-                </div>
-            </div>';
+        // echo
+        //     '<div class="insertBar">
+        //         <div class="button">
+        //             <a href="./db/db_order_insert.php">Place Order</a>
+        //         </div>
+        //     </div>';
+        $cartTotal = 0;
         while ($row = mysqli_fetch_assoc($result)) {
+            $subtotal = getSubtotalProduct($row['quantity'], $row['product_unit_price']);
+            $cartTotal += $subtotal;
             echo
                 '<div class="shopping-cart">
                     <div class="flex gap-6">
@@ -52,6 +55,7 @@ if (mysqli_query($conn, $sql)) {
                                 <span id="numQuantity" class="p-2">'.$row['quantity'].'</span>
                                 <input class="btnPlus p-2 hover:cursor-pointer" type="button" value="+" data-product-id="'.$row['product_id'].'" data-customer-id="'.$row['customer_id'].'">
                             </form>
+                            <p class="font-bold">Subtotal: '.$subtotal.'€</p>
                         </div>
                     </div>
                     <div class="button">
@@ -59,6 +63,13 @@ if (mysqli_query($conn, $sql)) {
                     </div>
                 </div>';
         }
+        echo
+            '<div class="flex items-center justify-end gap-5">
+                <p class="font-bold">Subtotal: '.$cartTotal.'€</p>
+                <div class="button">
+                    <a href="./db/db_order_insert.php">Place Order</a>
+                </div>
+            </div>';
         echo '</main>';
     } else {
         echo

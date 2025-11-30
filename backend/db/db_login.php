@@ -13,7 +13,7 @@ $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 
 include($backend.'/config/db_config.php');
 
-$sql = "SELECT customer_id, forename, customer_role
+$sql = "SELECT customer_id, forename, lastname, customer_role
 FROM `014_customers`
 WHERE username = '$username' AND
 password = '$password';";
@@ -26,10 +26,9 @@ if (mysqli_query($conn, $sql)) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['customer_id'] = $row['customer_id'];
         $_SESSION['username'] = $row['forename'];
-        // $role = $row['customer_role'];
+        $_SESSION['userLastname'] = $row['lastname'];
         $_SESSION['customer_role'] = $row['customer_role'];
 
-        // if ($role === "admin") {
         if ($_SESSION['customer_role'] === "admin") {
             // admin so go to admin panel
             header("Location: /student014/shop/backend/index.php");
