@@ -12,6 +12,14 @@ $afacad: 'Afacad';
   src: url('../../assets/fonts/afacad.ttf');
 }
 
+//font sizing.
+$regular-text-mobile: 20px;
+$small-text-mobile: 16px;
+$regular-text-tablet: 24px;
+$small-text-tablet: 20px;
+$regular-text-desktop: 28px;
+$small-text-desktop: 24px;
+
 // styles shadow.
 $box-positive: 4px 2px 2px $dark;
-$box-positive: -2px -2px 1px $dark;
+$box-negative: -2px -2px 1px $dark;

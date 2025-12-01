@@ -1,0 +1,113 @@
+@font-face {
+  font-family: "Afacad";
+  src: url("../../assets/fonts/afacad.ttf");
+}
+.icon {
+  width: 30px;
+}
+
+.logo {
+  width: 200px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #336699;
+  color: #fcfcfc;
+  margin: 10px 20px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #0f0f0f;
+  font-family: "Afacad";
+  font-size: 20px;
+  box-shadow: 4px 2px 2px #0f0f0f;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.button:active {
+  box-shadow: -2px -2px 1px #0f0f0f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vH;
+  font-family: "Afacad";
+  font-size: 20px;
+  color: #0f0f0f;
+}
+
+/*   --- HEADER ---   */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #fcfcfc;
+}
+header .menu {
+  display: none;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background-color: #fcfcfc;
+  padding: 20px;
+  border: 1px solid #0f0f0f;
+}
+header .menu img {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+header .menu ul li {
+  padding: 10px;
+  text-align: center;
+}
+header .menu .buttons {
+  display: flex;
+  flex-direction: column;
+}
+header .icons div:nth-child(1), header .icons div:nth-child(2), header .icons div:nth-child(3), header .icons div:nth-child(4) {
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: #4fb286;
+}
+main .details {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+main section {
+  border: 1px solid #0f0f0f;
+  padding: 20px;
+}
+main section .product {
+  display: flex;
+  justify-content: space-around;
+}
+main section .product .product-details img {
+  width: 150px;
+  aspect-ratio: 4/5;
+}
+
+/*# sourceMappingURL=cart.css.map */
