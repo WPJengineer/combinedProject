@@ -160,10 +160,5 @@ main aside {
 main aside .price {
   text-align: end;
 }
-main aside button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 /*# sourceMappingURL=cart.css.map */
