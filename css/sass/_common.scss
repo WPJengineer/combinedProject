@@ -21,13 +21,105 @@
     font-family: $afacad;
     font-size: $regular-text-mobile;
     box-shadow: $box-positive;
+
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    &:active {
+        box-shadow: $box-negative;
+    }
 }
 
-.button:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+/*   --- HEADER ---   */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: $light;
+
+    .menu {
+        display: none;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 10;
+        // display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        background-color: $light;
+        padding: 20px;
+        border: 1px solid $dark;
+
+        img {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+
+        ul li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+
+    .icons {
+        div:nth-child(1), div:nth-child(2), div:nth-child(3), div:nth-child(4) {
+            display: none;
+        }
+    }
 }
 
-.button:active {
-    box-shadow: $box-negative;
+/*   --- FOOTER ---   */
+
+footer {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background-color: $light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .socials {
+        display: flex;
+        gap: 20px;
+    }
+
+    #copyright {
+        font-size: var(--small-text-mobile);
+    }
+
+    .legal ul {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: var(--small-text-mobile);
+    }
+
+    .legal li {
+        text-align: center;
+    }
+    
+    a {
+        color: $dark;
+    }
+
 }

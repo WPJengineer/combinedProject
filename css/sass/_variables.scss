@@ -5,12 +5,12 @@ $green: #4fb286;
 $blue: #336699;
 
 //fonts.
-$afacad: 'Afacad';
-
 @font-face {
   font-family: 'Afacad';
   src: url('../../assets/fonts/afacad.ttf');
 }
+
+$afacad: 'Afacad';
 
 //font sizing.
 $regular-text-mobile: 20px;

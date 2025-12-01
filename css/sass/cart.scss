@@ -1,6 +1,6 @@
 @use 'variables' as *;
-@use 'mixins';
-@use 'common';
+@use 'mixins' as *;
+@use 'common' as *;
 
 * {
     margin: 0;
@@ -17,56 +17,7 @@ body {
     color: $dark;
 }
 
-/*   --- HEADER ---   */
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    background-color: $light;
-
-    // consider this for mixing so that we can change the font size for each breakpoint.
-    .menu {
-        display: none;
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        z-index: 10;
-        // display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        background-color: $light;
-        // font-family: $afacad;
-        // font-size: $regular-text-mobile;
-        padding: 20px;
-        border: 1px solid $dark;
-
-        img {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-        }
-
-        ul li {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: column;
-        }
-
-    }
-
-    .icons {
-        div:nth-child(1), div:nth-child(2), div:nth-child(3), div:nth-child(4) {
-            display: none;
-        }
-    }
-}
+/*   --- MAIN ---   */
 
 main {
     display: flex;
@@ -80,7 +31,8 @@ main {
     }
 
     section {
-        border : 1px solid $dark;
+        border-top : 1px solid $dark;
+        border-bottom : 1px solid $dark;
         padding: 20px;
 
         .product {
@@ -96,12 +48,36 @@ main {
 
             }
 
-            
+            .btnQuantity {
+                background-color: $light;
+            }
+
+            .btnDelete {
+                display: flex;
+            }
 
         }
 
     }
 
-    
+    aside {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+
+        .price {
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: end;
+            text-align: end;
+        }
+
+        button {
+           display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+    }
 
 }
