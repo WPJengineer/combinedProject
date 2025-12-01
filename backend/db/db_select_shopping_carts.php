@@ -70,7 +70,7 @@ if (mysqli_query($conn, $sql)) {
                     <a href="./db/db_order_insert.php">Place Order</a>
                 </div>
             </div>';
-        echo '</main>';
+        // echo '</main>';
     } else {
         echo
             '<div class="flex flex-col items-center justify-center gap-6" style="flex: 1;">
