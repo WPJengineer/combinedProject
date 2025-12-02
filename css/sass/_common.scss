@@ -10,7 +10,7 @@
 }
 
 .button {
-    @include button-style($bg: $blue, $color: $light);
+    @include button-style;
 }
 
 /*   --- HEADER ---   */
