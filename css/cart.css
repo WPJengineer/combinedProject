@@ -16,7 +16,6 @@
   justify-content: center;
   background-color: #336699;
   color: #fcfcfc;
-  margin: 10px 20px;
   padding: 5px 10px;
   border-radius: 20px;
   border: 1px solid #0f0f0f;
@@ -91,13 +90,13 @@ footer .socials {
   gap: 20px;
 }
 footer #copyright {
-  font-size: var(--small-text-mobile);
+  font-size: 16px;
 }
 footer .legal ul {
   display: flex;
   align-items: center;
   gap: 20px;
-  font-size: var(--small-text-mobile);
+  font-size: 16px;
 }
 footer .legal li {
   text-align: center;
@@ -128,37 +127,105 @@ main {
   background-color: #4fb286;
 }
 main .details {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
+  text-align: center;
 }
 main section {
   border-top: 1px solid #0f0f0f;
   border-bottom: 1px solid #0f0f0f;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 main section .product {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+main section .product .product-details {
+  align-self: center;
 }
 main section .product .product-details img {
-  width: 150px;
+  border: 1px solid #0f0f0f;
+  width: 140px;
   aspect-ratio: 4/5;
 }
-main section .product .btnQuantity {
-  background-color: #fcfcfc;
+main section .product .product-details #product-name {
+  font-size: 24px;
 }
-main section .product .btnDelete {
+main section .product .product-details span {
+  font-size: 28px;
+}
+main section .product .actions {
+  align-self: start;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+main section .product .actions .btnQuantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcfcfc;
+  color: #0f0f0f;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #0f0f0f;
+  font-family: "Afacad";
+  font-size: 20px;
+  box-shadow: 4px 2px 2px #0f0f0f;
+}
+main section .product .actions .btnQuantity:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+main section .product .actions .btnQuantity:active {
+  box-shadow: -2px -2px 1px #0f0f0f;
+}
+main section .product .actions .btnQuantity {
+  gap: 10px;
+}
+main section .product .actions .btnQuantity button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #fcfcfc;
+  color: #0f0f0f;
+  padding: 5px 10px;
+}
+main section .product .actions .btnQuantity button:hover {
+  cursor: pointer;
+}
+main section .product .actions .btnDelete {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+main section .product .actions .btnDelete:hover {
+  cursor: pointer;
+}
+main section .product .price {
+  align-self: start;
+  text-align: center;
+  font-size: 28px;
 }
 main aside {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  gap: 10px;
+  gap: 20px;
 }
-main aside .price {
+main aside .subtotal {
   text-align: end;
+  font-size: 28px;
+}
+main aside button {
+  align-self: center;
 }
 
 /*# sourceMappingURL=cart.css.map */
