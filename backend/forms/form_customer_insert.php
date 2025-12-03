@@ -8,7 +8,7 @@ if (!isset($_SESSION['customer_id'])) {
 }
 
 ?>
-
+<!-- include username and passowrd -->
 <main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="/student014/shop/backend/db/db_customer_insert.php" method="POST">
         <p class="flex justify-center items-center gap-5">

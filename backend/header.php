@@ -32,6 +32,3 @@ include($backend.'/functions/functions.php');
         </nav>
     </header>
 
-
-    <!-- <main class="min-h-screen bg-green"> -->
-

@@ -20,7 +20,8 @@ require($backend.'header.php');
                 <p>
                     <input  class="button" type="submit" value="Log In">
                 </p>
-            </form>';
+            </form>
+            <a class="button" href="/student014/shop/backend/forms/form_register.php">Register</a>';
     } else {
         echo
             '<button class="button" onclick="logOut()">Log Out</button>
