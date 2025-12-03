@@ -12,7 +12,7 @@ SET quantity = $quantity
 WHERE customer_id = $customer_id AND product_id = $product_id;";
 
 
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+// include('./config/db_config.php');
 
 include('../config/db_config.php');
 

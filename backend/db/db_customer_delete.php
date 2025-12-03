@@ -6,13 +6,13 @@
 // }
 
 // Get data
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+include('./config/db_config.php');
 $customer_id = $_POST['customer_id'];
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
 // Put data in the database
-include('../config/db_config.php');
+// include('../config/db_config.php');
 
 // SQL Query
 $sql = "DELETE

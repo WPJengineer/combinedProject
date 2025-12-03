@@ -9,7 +9,7 @@
 $product_id = $_POST['product_id'];
 $product_name = $_POST['product_name'];
 $product_price = $_POST['product_price'];
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+// include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 

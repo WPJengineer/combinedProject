@@ -20,7 +20,7 @@ $product_name = $_GET['product_name'];
     AND s.customer_id =". $_SESSION['customer_id'].";";
 // }
 
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+// include('./config/db_config.php');
 
 include('../config/db_config.php');
 

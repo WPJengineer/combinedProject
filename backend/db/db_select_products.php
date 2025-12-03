@@ -5,7 +5,6 @@
 //     exit();
 // }
 
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
 
 include('./config/db_config.php');
 

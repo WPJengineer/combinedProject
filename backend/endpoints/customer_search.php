@@ -8,7 +8,7 @@ $sql = "SELECT *
 FROM 014_customers
 WHERE forename LIKE '%$customer_name%';";
 
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+// include('./config/db_config.php');
 
 include('../config/db_config.php');
 

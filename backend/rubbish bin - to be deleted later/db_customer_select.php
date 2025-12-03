@@ -2,7 +2,7 @@
 
 // Get data
 $customer_id = $_POST['customer_id'];
-$conn = mysqli_connect('localhost', 'root', '', 'online_shop_db', 3306);
+// include('./config/db_config.php');
 
 // establish connection to database
 include('../config/db_config.php');
