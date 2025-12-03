@@ -12,4 +12,98 @@ function getSubtotalProduct($quantity, $price_per_unit) {
     return $quantity * $price_per_unit;
 }
 
+// function to check inputs in forms.
+function checkInput($input) {
+    if (empty($input)) {
+        echo 'Error input is empty!';
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function checkNames($input) {
+    if (!preg_match('/^[a-zA-Z\s]/', $input)) {
+        echo 'Error input is not valid!';
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// function to check passwords.
+function checkPassword($password, $cornfirmPassword) {
+    if (checkInput($_POST['password'])) {
+        $password = $_POST['password'];
+    } else {
+        echo 'Password field was not correct';
+        header("Location: /student014/shop/backend/forms/form_register.php");
+        exit();
+    }
+
+    if (checkInput($_POST['confirm-password'])) {
+        $confirmPassword = $_POST['confirm-password'];
+    } else {
+        echo 'Confirm password field was not correct';
+        header("Location: /student014/shop/backend/forms/form_register.php");
+        exit();
+    }
+
+    if ($password == $confirmPassword) {
+        return true;
+    } else {
+        echo "Error inputs aren't the same";
+        return false;
+    }
+}
+
+// function to chcek registration form.
+function registrationInputs() {
+    if (checkInput($_POST['forename'])) {
+        $forename = $_POST['forename'];
+        $forename = trim($forename);
+        $forename = htmlspecialchars($forename);
+        if (!checkNames($forename)) {
+            echo 'Forename field was not correct';
+            header("Location: /student014/shop/backend/forms/form_register.php");
+            exit();
+        }
+    } else {
+        echo 'Forename field was not correct';
+        header("Location: /student014/shop/backend/forms/form_register.php");
+        exit();
+    }
+
+    if (checkInput($_POST['lastname'])) {
+        $lastname = $_POST['lastname'];
+        $lastname = trim($lastname);
+        $lastname = htmlspecialchars($lastname);
+        if (!checkNames($lastname)) {
+            echo 'Lastname field was not correct';
+            header("Location: /student014/shop/backend/forms/form_register.php");
+            exit();
+        }
+    } else {
+        echo 'Lastname field was not correct';
+        header("Location: /student014/shop/backend/forms/form_register.php");
+        exit();
+    }
+
+    if (checkInput($_POST['username'])) {
+        $username = $_POST['username'];
+    } else {
+        echo 'Username field was not correct';
+        header("Location: /student014/shop/backend/forms/form_register.php");
+        exit();
+    }
+
+    if (checkPassword($_POST['password'], $_POST['confirm-password'])) {
+        $password = $_POST['password'];
+    } else {
+        echo 'Passwords did not match';
+        header("Location: /student014/shop/backend/forms/form_register.php");
+        exit();
+    }
+}
+
 ?>

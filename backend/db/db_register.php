@@ -1,9 +1,8 @@
 <?php
 
-$forename = $_POST['forename'];
-$lastname = $_POST['lastname'];
-$username = $_POST['username'];
-$password = $_POST['password'];
+include('../functions/functions.php');
+
+registrationInputs();
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 
@@ -14,10 +13,10 @@ FROM `014_customers`
 WHERE username = '$username'";
 
 $result = mysqli_query($conn, $sql);
-
+// issue with duplicated user.
 if (mysqli_num_rows($result) > 0) {
     echo 'user already exists, please either use a different username or login';
-    // header("Location: /student014/shop/backend/db/db_register.php");
+    // header("Location: /student014/shop/backend/forms/form_register.php");
     // exit();
 } else {
     $insert_sql ="INSERT INTO 014_customers (forename, lastname, customer_role, username, password)

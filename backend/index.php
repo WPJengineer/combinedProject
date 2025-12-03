@@ -13,27 +13,13 @@
                 ?>
                 <li class="button"><a href="./shopping_carts.php">Shopping Carts</a></li>
                 <li class="button"><a href="./orders.php">Orders</a></li>
+                <?php
+                if ($_SESSION['customer_role'] == 'admin') {
+                    echo '<li class="button"><a href="./reviews.php">Reviews</a></li>';
+                }
+                ?>
             </ul>
         </nav>
     </div>
 </main>
 <?php require($backend.'footer.php'); ?>
-
-
-
-
-
-
-
-<!--
-
-htmlspecialchars();
-
-only apply to incoming data.
-
-empty() -> to check if value is null.
-
-filter_var($variable, FILTER_VARIABLE_EMAIL) -> 
-preg_match('/^[a-zA-Z\s]/', $variable) -> 
-
--->
