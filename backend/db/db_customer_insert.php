@@ -1,9 +1,5 @@
 <?php
 
-// if (!isset($_SESSION['customer_id'])) {
-//     header("Location: /student014/shop/backend/forms/form_login.php");
-//     exit();
-// }
 
 // Get data
 $customer_id = $_POST['customer_id'];
@@ -15,6 +11,11 @@ require($backend.'header.php');
 
 // Put data in the database
 include('../config/db_config.php');
+
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
 
 // create query
 $sql ="INSERT INTO 014_customers (customer_id, forename, lastname)

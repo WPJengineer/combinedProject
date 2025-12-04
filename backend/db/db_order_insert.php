@@ -1,9 +1,5 @@
 <?php
 
-// if (!isset($_SESSION['customer_id'])) {
-//     header("Location: /student014/shop/backend/forms/form_login.php");
-//     exit();
-// }
 // session_start();
 
 
@@ -20,6 +16,11 @@ $customer_lastname = $_SESSION['userLastname'];
 
 // Put data in the database
 include('../config/db_config.php');
+
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
 
 $order_number = generateOrderNumber($customer_id, $customer_forename, $customer_lastname);
 

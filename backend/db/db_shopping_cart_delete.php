@@ -2,10 +2,6 @@
 
 // session_start();
 
-// if (!isset($_SESSION['customer_id'])) {
-//     header("Location: /student014/shop/backend/forms/form_login.php");
-//     exit();
-// }
 
 // Get data
 // include('./config/db_config.php');
@@ -16,6 +12,11 @@ require($backend.'header.php');
 
 // Put data in the database
 include('../config/db_config.php');
+
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
 
 // SQL Query
 $sql = "DELETE

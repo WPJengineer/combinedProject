@@ -1,10 +1,5 @@
 <?php
 
-// if (!isset($_SESSION['customer_id'])) {
-//     header("Location: /student014/shop/backend/forms/form_login.php");
-//     exit();
-// }
-
 // Get data
 $customer_id = $_POST['customer_id'];
 $customer_forename = $_POST['customer_forename'];
@@ -12,6 +7,11 @@ $customer_lastname = $_POST['customer_lastname'];
 // include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
+
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
 
 // Put data in the database
 include('../config/db_config.php');

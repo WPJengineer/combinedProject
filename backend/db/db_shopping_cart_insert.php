@@ -1,14 +1,5 @@
 <?php
 
-// if (session_status() === PHP_SESSION_NONE) {
-    // session_start();
-// }
-
-// if (!isset($_SESSION['customer_id'])) {
-//     header("Location: /student014/shop/backend/forms/form_login.php");
-//     exit();
-// }
-
 $customer_id = $_POST['customer_id'];
 $product_id = $_POST['product_id'];
 $quantity = $_POST['quantity'];
@@ -17,8 +8,12 @@ $quantity = $_POST['quantity'];
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
-
 include('../config/db_config.php');
+
+if (!isset($_SESSION['customer_id'])) {
+header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
 
 $sql = "INSERT INTO `014_shopping_cart` (customer_id, product_id, quantity)
 VALUES ('$customer_id', '$product_id', '$quantity');";
