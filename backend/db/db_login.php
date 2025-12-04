@@ -5,8 +5,8 @@
 // }
 
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = htmlspecialchars($_POST['username']);
+$password = htmlspecialchars($_POST['password']);
 // include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 // require($backend.'header.php');

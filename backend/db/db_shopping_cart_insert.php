@@ -1,8 +1,8 @@
 <?php
 
-$customer_id = $_POST['customer_id'];
-$product_id = $_POST['product_id'];
-$quantity = $_POST['quantity'];
+$customer_id = htmlspecialchars($_POST['customer_id']);
+$product_id = htmlspecialchars($_POST['product_id']);
+$quantity = htmlspecialchars($_POST['quantity']);
 
 // include('./config/db_config.php');
 

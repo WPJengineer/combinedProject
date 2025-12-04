@@ -3,10 +3,10 @@
 include('../functions/functions.php');
 
 registrationInputs();
-$forename = $_POST['forename'];
-$lastname = $_POST['lastname'];
-$username = $_POST['username'];
-$password = $_POST['password'];
+$forename = ['forename'];
+$lastname = ['lastname'];
+$username = ['username'];
+$password = ['password'];
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 

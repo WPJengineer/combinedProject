@@ -1,9 +1,10 @@
 <?php
 
 // Get data
-$customer_id = $_POST['customer_id'];
-$customer_forename = $_POST['customer_forename'];
-$customer_lastname = $_POST['customer_lastname'];
+$customer_id = htmlspecialchars($_POST['customer_id']);
+$customer_forename = htmlspecialchars($_POST['customer_forename']);
+$customer_lastname = htmlspecialchars($_POST['customer_lastname']);
+
 // include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
