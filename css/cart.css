@@ -5,9 +5,24 @@
 .icon {
   width: 30px;
 }
+@media (min-width: 768px) {
+  .icon {
+    width: 40px;
+  }
+}
 
 .logo {
   width: 200px;
+}
+@media (min-width: 768px) {
+  .logo {
+    width: 300px;
+  }
+}
+@media (min-width: 1024px) {
+  .logo {
+    width: 400px;
+  }
 }
 
 .button {
@@ -29,6 +44,16 @@
 }
 .button:active {
   box-shadow: -2px -2px 1px #0f0f0f;
+}
+@media (min-width: 768px) {
+  .button {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  .button {
+    font-size: 28px;
+  }
 }
 
 /*   --- HEADER ---   */
@@ -65,8 +90,40 @@ header .menu .buttons {
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 768px) {
+  header nav {
+    display: none;
+  }
+}
 header .icons div:nth-child(1), header .icons div:nth-child(2), header .icons div:nth-child(3), header .icons div:nth-child(4) {
   display: none;
+}
+@media (min-width: 768px) {
+  header .icons div:nth-child(1), header .icons div:nth-child(2), header .icons div:nth-child(3), header .icons div:nth-child(4) {
+    display: flex;
+  }
+  header .icons div:nth-child(1) span, header .icons div:nth-child(2) span, header .icons div:nth-child(3) span, header .icons div:nth-child(4) span {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  header .icons div:nth-child(1) img, header .icons div:nth-child(2) img, header .icons div:nth-child(3) img, header .icons div:nth-child(4) img {
+    display: none;
+  }
+  header .icons div:nth-child(1) span, header .icons div:nth-child(2) span, header .icons div:nth-child(3) span, header .icons div:nth-child(4) span {
+    display: flex;
+  }
+}
+@media (min-width: 768px) {
+  header .icons {
+    display: flex;
+    gap: 8px;
+  }
+}
+@media (min-width: 1024px) {
+  header .icons {
+    gap: 40px;
+  }
 }
 
 /*   --- FOOTER ---   */
@@ -85,18 +142,40 @@ footer .links ul {
   align-items: center;
   gap: 20px;
 }
+@media (min-width: 768px) {
+  footer .links ul {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
 footer .socials {
   display: flex;
   gap: 20px;
 }
+@media (min-width: 768px) {
+  footer .socials {
+    gap: 30px;
+  }
+}
 footer #copyright {
   font-size: 16px;
+}
+@media (min-width: 768px) {
+  footer #copyright {
+    font-size: 20px;
+  }
 }
 footer .legal ul {
   display: flex;
   align-items: center;
   gap: 20px;
   font-size: 16px;
+}
+@media (min-width: 768px) {
+  footer .legal ul {
+    gap: 60px;
+    font-size: 20px;
+  }
 }
 footer .legal li {
   text-align: center;
@@ -119,6 +198,16 @@ body {
   font-size: 20px;
   color: #0f0f0f;
 }
+@media (min-width: 768px) {
+  body {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 28px;
+  }
+}
 
 /*   --- MAIN ---   */
 main {
@@ -126,24 +215,43 @@ main {
   flex-direction: column;
   background-color: #4fb286;
 }
-main .details {
+@media (min-width: 1024px) {
+  main {
+    flex-direction: row;
+  }
+}
+main section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (min-width: 1024px) {
+  main section {
+    border-right: 1px solid #0f0f0f;
+    width: 75vw;
+  }
+}
+main section .details {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
   text-align: center;
-}
-main section {
-  border-top: 1px solid #0f0f0f;
+  font-weight: bold;
   border-bottom: 1px solid #0f0f0f;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #4fb286;
+}
+main section .details p:nth-child(1) {
+  justify-self: start;
+  padding-left: 20px;
 }
 main section .product {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  padding: 20px;
 }
 main section .product .product-details {
   align-self: center;
@@ -153,11 +261,41 @@ main section .product .product-details img {
   width: 140px;
   aspect-ratio: 4/5;
 }
+@media (min-width: 768px) {
+  main section .product .product-details img {
+    width: 200px;
+  }
+}
+@media (min-width: 1024px) {
+  main section .product .product-details img {
+    width: 300px;
+  }
+}
 main section .product .product-details #product-name {
   font-size: 24px;
 }
+@media (min-width: 768px) {
+  main section .product .product-details #product-name {
+    font-size: 28px;
+  }
+}
+@media (min-width: 1024px) {
+  main section .product .product-details #product-name {
+    font-size: 32px;
+  }
+}
 main section .product .product-details span {
   font-size: 28px;
+}
+@media (min-width: 768px) {
+  main section .product .product-details span {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  main section .product .product-details span {
+    font-size: 36px;
+  }
 }
 main section .product .actions {
   align-self: start;
@@ -185,6 +323,16 @@ main section .product .actions .btnQuantity:hover {
 }
 main section .product .actions .btnQuantity:active {
   box-shadow: -2px -2px 1px #0f0f0f;
+}
+@media (min-width: 768px) {
+  main section .product .actions .btnQuantity {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  main section .product .actions .btnQuantity {
+    font-size: 28px;
+  }
 }
 main section .product .actions .btnQuantity {
   gap: 10px;
@@ -214,15 +362,52 @@ main section .product .price {
   text-align: center;
   font-size: 28px;
 }
+@media (min-width: 768px) {
+  main section .product .price {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  main section .product .price {
+    font-size: 36px;
+  }
+}
 main aside {
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 20px;
+  border-top: 1px solid #0f0f0f;
+  position: sticky;
+  top: auto;
+  bottom: 0;
+  z-index: 10;
+  background-color: #4fb286;
+}
+@media (min-width: 1024px) {
+  main aside {
+    position: sticky;
+    border: none;
+    top: 0;
+    bottom: auto;
+    height: 100vh;
+    width: 25vw;
+    align-items: center;
+  }
 }
 main aside .subtotal {
   text-align: end;
   font-size: 28px;
+}
+@media (min-width: 768px) {
+  main aside .subtotal {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  main aside .subtotal {
+    font-size: 36px;
+  }
 }
 main aside button {
   align-self: center;

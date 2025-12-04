@@ -15,6 +15,15 @@ body {
     font-family: $afacad;
     font-size: $regular-text-mobile;
     color: $dark;
+
+    @media (min-width: 768px) {
+        font-size: $regular-text-tablet;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: $regular-text-desktop;
+    }
+
 }
 
 /*   --- MAIN ---   */
@@ -24,26 +33,44 @@ main {
     flex-direction: column;
     background-color: $green;
 
-    .details {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        padding: 20px;
-        text-align: center;
-        // font-weight: bold;
+    @media (min-width: 1024px) {
+        flex-direction: row;
     }
 
     section {
-        border-top : 1px solid $dark;
-        border-bottom : 1px solid $dark;
-        padding: 20px;
         display: flex;
         flex-direction: column;
         gap: 20px;
+
+        @media (min-width: 1024px) {
+            border-right: 1px solid $dark;
+            width: 75vw;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid $dark;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: $green;
+
+            p:nth-child(1) {
+                justify-self: start;
+                padding-left: 20px;
+            }
+
+        }
 
         .product {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             align-items: center;
+            padding: 20px;
 
             .product-details {
                 align-self: center;
@@ -52,14 +79,41 @@ main {
                     border: 1px solid $dark;
                     width: 140px;
                     aspect-ratio: 4/5;
+
+                    @media (min-width: 768px) {
+                        width: 200px;
+                    }
+
+                    @media (min-width: 1024px) {
+                        width: 300px;
+                    }
+
                 }
 
                 #product-name {
                     font-size: 24px;
+
+                    @media (min-width: 768px) {
+                        font-size: 28px;
+                    }
+
+                    @media (min-width: 1024px) {
+                        font-size: 32px;
+                    }
+
                 }
 
                 span {
                     font-size: 28px;
+
+                    @media (min-width: 768px) {
+                        font-size: 32px;
+                    }
+
+                    @media (min-width: 1024px) {
+                        font-size: 36px;
+                    }
+
                 }
 
             }
@@ -105,6 +159,15 @@ main {
                 align-self: start;
                 text-align: center;
                 font-size: 28px;
+
+                @media (min-width: 768px) {
+                    font-size: 32px;
+                }
+
+                @media (min-width: 1024px) {
+                    font-size: 36px;
+                }
+
             }
 
         }
@@ -116,10 +179,35 @@ main {
         flex-direction: column;
         padding: 20px;
         gap: 20px;
+        border-top: 1px solid $dark;
+        position: sticky;
+        top: auto;
+        bottom: 0;
+        z-index: 10;
+        background-color: $green;
+
+        @media (min-width: 1024px) {
+            position: sticky;
+            border: none;
+            top: 0;
+            bottom: auto;
+            height: 100vh;
+            width: 25vw;
+            align-items: center;
+        }
 
         .subtotal {
             text-align: end;
             font-size: 28px;
+
+            @media (min-width: 768px) {
+                font-size: 32px;
+            }
+
+            @media (min-width: 1024px) {
+                font-size: 36px;
+            }
+
         }
 
         button {

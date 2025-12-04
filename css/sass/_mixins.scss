@@ -21,4 +21,13 @@
     &:active {
         box-shadow: $box-negative;
     }
+
+    @media (min-width: 768px) {
+        font-size: $regular-text-tablet;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: $regular-text-desktop;
+    }
+
 }
