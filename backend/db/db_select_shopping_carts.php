@@ -47,7 +47,7 @@ if (mysqli_query($conn, $sql)) {
                         <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
                         <div class="flex items-center gap-6">
                             <p>'.$row['product_name'].'</p>
-                            <p>'.$row['product_unit_price'].'€</p>
+                            <p class="unit-price">'.$row['product_unit_price'].'</p>
                             <p>'.$row['forename'].'</p>
                             <p>'.$row['lastname'].'</p>
                             <form class="flex items-center gap-5 border rounded-full border-dark bg-light px-3 py-1">
@@ -55,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
                                 <span id="numQuantity" class="p-2">'.$row['quantity'].'</span>
                                 <input class="btnPlus p-2 hover:cursor-pointer" type="button" value="+" data-product-id="'.$row['product_id'].'" data-customer-id="'.$row['customer_id'].'">
                             </form>
-                            <p class="font-bold">Subtotal: '.$subtotal.'€</p>
+                            <p class="subtotal font-bold">Subtotal: '.$subtotal.'€</p>
                         </div>
                     </div>
                     <div class="button">
