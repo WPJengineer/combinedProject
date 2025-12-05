@@ -24,8 +24,8 @@ if (mysqli_num_rows($result) > 0) {
                 <p>'.$row['lastname'].'</p>
             </div>
             <div class="flex">
-                <a class="button" href="./forms/form_customer_update.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Update</a>
-                <a class="button" href="./forms/form_customer_delete.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'">Delete</a> 
+                <a class="button" href="./forms/form_customer_update.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'&customer_username='.$row['username'].'&password='.$row['password'].'">Update</a>
+                <a class="button" href="./forms/form_customer_delete.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'&customer_username='.$row['username'].'">Delete</a> 
             </div>
         </div>';
   }

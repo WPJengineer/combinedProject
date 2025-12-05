@@ -14,6 +14,7 @@ if (!isset($_SESSION['customer_id'])) {
             $customer_id = $_GET['customer_id'];
             $customer_name = $_GET['customer_name'];
             $customer_lastname = $_GET['customer_lastname'];
+            $customer_username = $_GET['customer_username'];
         ?>
         <p>Are you sure you want to delete this customer?</p>
         <p class="flex justify-center items-center gap-5">
@@ -27,6 +28,10 @@ if (!isset($_SESSION['customer_id'])) {
         <p class="flex justify-center items-center gap-5">
             <label for="customer_lastname">Customer Lastname:</label>
             <input class="textBox" type="text" id="customer_lastname" name="customer_lastname" value="<?php echo $customer_lastname; ?>" readonly>
+        </p>
+        <p class="flex justify-center items-center gap-5">
+            <label for="customer_username">Customer username:</label>
+            <input class="textBox" type="text" id="customer_username" name="customer_username" value="<?php echo $customer_username ?>" readonly>
         </p>
         <div class="flex gap-5">
             <p class="button">

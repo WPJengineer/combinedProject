@@ -15,6 +15,8 @@ if (!isset($_SESSION['customer_id'])) {
             $customer_id = $_GET['customer_id'];
             $customer_name = $_GET['customer_name'];
             $customer_lastname = $_GET['customer_lastname'];
+            $customer_username = $_GET['customer_username'];
+            $password = $_GET['password'];
         ?>
         <p class="flex justify-center items-center gap-5">
             <label for="customer_id">Customer ID:</label>
@@ -22,11 +24,19 @@ if (!isset($_SESSION['customer_id'])) {
         </p>
         <p class="flex justify-center items-center gap-5">
             <label for="customer_forename">Customer forename:</label>
-            <input class="textBox" type="text" id="customer_forename" name="customer_forename" value="<?php echo $customer_name ?>">
+            <input class="textBox" type="text" id="customer_forename" name="customer_forename" value="<?php echo $customer_name ?>" required>
         </p>
         <p class="flex justify-center items-center gap-5">
             <label for="customer_lastname">Customer lastname:</label>
-            <input class="textBox" type="text" id="customer_lastname" name="customer_lastname" value="<?php echo $customer_lastname ?>">
+            <input class="textBox" type="text" id="customer_lastname" name="customer_lastname" value="<?php echo $customer_lastname ?>" required>
+        </p>
+        <p class="flex justify-center items-center gap-5">
+            <label for="customer_username">Customer username:</label>
+            <input class="textBox" type="text" id="customer_username" name="customer_username" value="<?php echo $customer_username ?>" required>
+        </p>
+        <p class="flex justify-center items-center gap-5">
+            <label for="password">Password:</label>
+            <input class="textBox" type="text" id="password" name="password" value="<?php echo $password ?>" required>
         </p>
         <p class="flex justify-center">
             <input class="button" type="submit" value="Update">

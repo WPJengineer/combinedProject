@@ -4,6 +4,8 @@
 $customer_id = htmlspecialchars($_POST['customer_id']);
 $customer_forename = htmlspecialchars($_POST['customer_forename']);
 $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
+$customer_username = htmlspecialchars($_POST['customer_username']);
+$password = htmlspecialchars($_POST['password']);
 
 // include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
@@ -18,19 +20,12 @@ if (!isset($_SESSION['customer_id'])) {
 include('../config/db_config.php');
 
 // SQL Query
-if (($customer_forename == "") && ($customer_lastname != "")) {
-    $sql = "UPDATE 014_customers
-    SET lastname = '$customer_lastname'
-    WHERE customer_id = '$customer_id'";
-} else if (($customer_forename != "") && ($customer_lastname == "")) {
-    $sql = "UPDATE 014_customers
-    SET forename = '$customer_forename'
-    WHERE customer_id = '$customer_id'";
-} else {
-    $sql = "UPDATE 014_customers
-    SET forename = '$customer_forename', lastname = '$customer_lastname'
-    WHERE customer_id = '$customer_id'";
-}
+$sql = "UPDATE `014_customers`
+SET forename = '$customer_forename',
+    lastname = '$customer_lastname',
+    username = '$customer_username',
+    password = '$password'
+WHERE customer_id = '$customer_id'";
 
 // execute query
 if (mysqli_query($conn, $sql)) {
