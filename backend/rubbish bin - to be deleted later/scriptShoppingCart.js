@@ -3,19 +3,32 @@ const endPointShoppingCart = '/student014/shop/backend/endpoints/showQuantity.ph
 const btnMinus = document.querySelectorAll('.btnMinus');
 const btnPlus = document.querySelectorAll('.btnPlus');
 
-// function updateSubtotal(btn, quantity) {
-//   const cart = btn.closest('.shopping-cart');
-//   const priceElement = cart.querySelector('.unit-price');
-//   const subtotalElement = cart.querySelector('.subtotal');
-//   const unitPrice = parseFloat(priceElement.innerText.replace(/[^\d.]/g, ''));
-//   const newSubtotal = unitPrice * quantity;
+function updateSubtotal(btn, quantity) {
+  const cart = btn.closest('.shopping-cart');
+  const priceElement = cart.querySelector('#unit-price');
+  const subtotalElement = cart.querySelector('.subtotal');
+  const unitPrice = parseFloat(priceElement.innerText.replace(/[^\d.]/g, ''));
+  const newSubtotal = unitPrice * quantity;
 
-//   subtotalElement.innerText = 'Subtotal: ' + newSubtotal.toFixed(2) + '€';
-// }
+  subtotalElement.innerText = 'Subtotal: ' + newSubtotal + '€';
+  updateCartTotal();
+}
+
+function updateCartTotal() {
+  const subtotals = document.querySelectorAll('.subtotal');
+  let total = 0;
+
+  subtotals.forEach((subtotal) => {
+    let value = parseFloat(subtotal.innerText.replace(/[^\d.]/g, ''));
+    total += value;
+  });
+
+  document.getElementById('cart-total').innerText = 'Subtotal: ' + total.toFixed(2) + '€'  
+}
 
 btnMinus.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const productId = btn.dataset.productId;
     const customerId = btn.dataset.customerId;
     const quantity = e.target.parentElement;
@@ -23,7 +36,7 @@ btnMinus.forEach(btn => {
     if (numQuantity > 1) {
       numQuantity--;
       quantity.querySelector('#numQuantity').innerText = numQuantity;
-      // updateSubtotal(btn, numQuantity);
+      updateSubtotal(btn, numQuantity);
     }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -45,6 +58,7 @@ btnPlus.forEach(btn => {
     let numQuantity = +quantity.querySelector('#numQuantity').innerText;
     numQuantity++;
     quantity.querySelector('#numQuantity').innerText = numQuantity;
+    updateSubtotal(btn, numQuantity);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

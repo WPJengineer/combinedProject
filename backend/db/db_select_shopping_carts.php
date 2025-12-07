@@ -47,7 +47,7 @@ if (mysqli_query($conn, $sql)) {
                         <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
                         <div class="flex items-center gap-6">
                             <p>'.$row['product_name'].'</p>
-                            <p class="unit-price">'.$row['product_unit_price'].'</p>
+                            <p id="unit-price">'.$row['product_unit_price'].'€</p>
                             <p>'.$row['forename'].'</p>
                             <p>'.$row['lastname'].'</p>
                             <form class="flex items-center gap-5 border rounded-full border-dark bg-light px-3 py-1">
@@ -65,7 +65,7 @@ if (mysqli_query($conn, $sql)) {
         }
         echo
             '<div class="flex items-center justify-end gap-5">
-                <p class="font-bold">Subtotal: '.$cartTotal.'€</p>
+                <p id="cart-total" class="font-bold">Subtotal: '.$cartTotal.'€</p>
                 <div class="button">
                     <a href="./db/db_order_insert.php">Place Order</a>
                 </div>
