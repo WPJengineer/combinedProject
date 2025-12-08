@@ -1,4 +1,5 @@
 <?php
+
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
@@ -19,29 +20,33 @@ $result = mysqli_query($conn, $sql);
 
 if ($result) {
     if (mysqli_num_rows($result) > 0) {
-        echo '<main class="bg-green flex flex-col gap-6" style="flex: 1;">
-                <p>Products ordered</p>';
+        echo '<main class="bg-green flex flex-col gap-6 p-3" style="flex: 1;">
+                <div class="border rounded-2xl p-3 flex flex-col items-center gap-10">
+                    <p class="text-4xl font-bold">Products ordered</p>';
         while($row = mysqli_fetch_assoc($result)) {
-            echo
-                '<div class="w-full flex items-center gap-6">
-                    <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
-                    <p>'.$row['product_name'].'</p>
-                    <p id="unit-price">'.$row['product_unit_price'].'€</p>
-                    <p>'.$row['forename'].'</p>
-                    <p>'.$row['lastname'].'</p>
-                    <p>'.$row['quantity'].'</p>
-                </div>';
+                echo
+                    '<div class="w-full flex items-center gap-3">
+                        <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
+                        <p>'.$row['product_name'].'</p>
+                        <p id="unit-price">'.$row['product_unit_price'].'€</p>
+                        <p>'.$row['forename'].'</p>
+                        <p>'.$row['lastname'].'</p>
+                        <p>'.$row['quantity'].'</p>
+                    </div>';
         }
+        // need get button to go to db_order_insert.
         echo
                 '<p class="button"><a href="">Return to Start</a></p>
+                </div>
             </main>';
     }
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
-require($backend.'footer.php');
 // close channel after finishing query
 mysqli_close($conn);
+
+require($backend.'footer.php');
 
 ?>
