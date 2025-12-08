@@ -49,7 +49,7 @@ if (mysqli_query($conn, $sql)) {
             '<div class="flex items-center justify-end gap-5">
                 <p id="cart-total" class="font-bold">Cart subtotal: '.$cartTotal.'€</p>
                 <div class="button">
-                    <a href="./db/db_order_insert_call.php">Place Order</a>
+                    <a href="/student014/shop/backend/db/db_order_insert_call.php">Place Order</a>
                 </div>
             </div>';
         // echo '</main>';
