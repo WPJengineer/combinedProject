@@ -1,10 +1,5 @@
 <?php
 
-// session_start();
-
-
-
-// include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
@@ -12,7 +7,6 @@ require($backend.'header.php');
 $customer_id = $_SESSION['customer_id'];
 $customer_forename = $_SESSION['username'];
 $customer_lastname = $_SESSION['userLastname'];
-// $cartTotal = $_GET['subtotal'];
 
 // Put data in the database
 include('../config/db_config.php');
@@ -24,10 +18,7 @@ if (!isset($_SESSION['customer_id'])) {
 
 $order_number = generateOrderNumber($customer_id, $customer_forename, $customer_lastname);
 
-// create query
-// check if items exist in database already.
-// if exists it updates if not insert.
-
+// create query - add t orders table
 $sql = "INSERT INTO `014_orders` (order_number, product_id, customer_id, quantity, product_unit_price)
 SELECT '$order_number', sc.product_id, sc.customer_id, sc.quantity, (p.product_unit_price * sc.quantity)
 FROM `014_shopping_cart` AS sc
@@ -36,6 +27,14 @@ WHERE sc.customer_id = $customer_id";
 
 // execute query
 if (mysqli_query($conn, $sql)) {
+    // delete from shopping cart.
+    $deleteFromShoppingCart =
+    "DELETE
+    FROM `014_shopping_cart`
+    WHERE customer_id = $customer_id;";
+
+    mysqli_query($conn, $deleteFromShoppingCart);
+
     echo
         '<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
             <p>Product ordered successfully</p>

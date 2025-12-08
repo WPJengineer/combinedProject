@@ -1,8 +1,6 @@
 <?php
 
-
 // Get data
-// include('./config/db_config.php');
 $customer_id = $_POST['customer_id'];
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
