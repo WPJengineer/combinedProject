@@ -43,7 +43,10 @@ if (mysqli_query($conn, $sql)) {
                         <p>'.$row['quantity'].'</p>
                         <p>'.$row['product_unit_price'].'€</p>
                         <p>'.$row['placed_on'].'</p>
-                        <button class="btnReview button">Review</button>
+                        <button class="btnReview button" onClick="getInfo()">Give review</button>
+                        <script>
+                            
+                        </script>
                         <!--<div class="flex">
                             <img class="star1" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
                             <img class="star2" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
