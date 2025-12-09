@@ -4,6 +4,12 @@ const endPointShoppingCart = '/student014/shop/backend/endpoints/showQuantity.ph
 const btnMinus = document.querySelectorAll('.btnMinus');
 const btnPlus = document.querySelectorAll('.btnPlus');
 const endPointOrder = '/student014/shop/backend/endpoints/orders_search.php';
+// const btnReview1 = document.querySelectorAll('.star1');
+// const btnReview2 = document.querySelectorAll('.star2');
+// const btnReview3 = document.querySelectorAll('.star3');
+// const btnReview4 = document.querySelectorAll('.star4');
+// const btnReview5 = document.querySelectorAll('.star5');
+const btnReview = document.querySelectorAll('.btnReview');
 
 // FUNCTIONS
 
@@ -135,3 +141,40 @@ btnPlus.forEach(btn => {
     xmlhttp.send();
   });
 });
+
+btnReview.forEach(btn => {
+  btn.addEventListener('click',(e) => {
+    // need to get customer id.
+    location.href = '/student014/shop/backend/forms/form_review_insert.php?customer_id="1"';
+  });
+});
+
+// btnReview1.forEach(btn => {
+//   btn.addEventListener('click', (e) => {
+//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
+//   });
+// });
+
+// btnReview2.forEach(btn => {
+//   btn.addEventListener('click', (e) => {
+//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
+//   });
+// });
+
+// btnReview3.forEach(btn => {
+//   btn.addEventListener('click', (e) => {
+//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
+//   });
+// });
+
+// btnReview4.forEach(btn => {
+//   btn.addEventListener('click', (e) => {
+//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
+//   });
+// });
+
+// btnReview5.forEach(btn => {
+//   btn.addEventListener('click', (e) => {
+//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
+//   });
+// });

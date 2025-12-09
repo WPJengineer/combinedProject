@@ -35,7 +35,7 @@ if (mysqli_query($conn, $sql)) {
                 '</div>
             <div id="txtHintProduct"></div>';
     } else {
-        echo "No products found with that ID";
+        echo "No products found";
     }
     
 } else {
