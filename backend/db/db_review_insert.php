@@ -10,6 +10,10 @@ if (!isset($_SESSION['customer_id'])) {
     exit();
 }
 
+$product_id = $_POST['product_id'];
+$customer_id = $_POST['customer_id'];
+print_r($_POST['product_id']);
+
 $sql = "";
 
 

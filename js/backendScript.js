@@ -145,7 +145,7 @@ btnPlus.forEach(btn => {
 btnReview.forEach(btn => {
   btn.addEventListener('click',(e) => {
     // need to get customer id.
-    location.href = '/student014/shop/backend/forms/form_review_insert.php?customer_id="1"';
+    location.href = '/student014/shop/backend/forms/form_review_insert.php?customer_id="1"&product_id="1"';
   });
 });
 
