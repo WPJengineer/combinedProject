@@ -12,10 +12,10 @@ if (!isset($_SESSION['customer_id'])) {
 <main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="../db/db_product_delete.php" method="POST">
         <?php
-            $product_id = $_GET['product_id'];
-            $product_name = $_GET['product_name'];
-            $product_price = $_GET['product_price'];
-            $product_image = $_GET['product_image'];
+            $product_id = $_POST['product_id'];
+            $product_name = $_POST['product_name'];
+            $product_price = $_POST['product_price'];
+            $product_image = $_POST['product_image'];
         ?>
         <p>Are you sure you want to delete this product?</p>
         <input type="hidden" id="product_id" name="product_id" value="<?php echo $product_id ?>">

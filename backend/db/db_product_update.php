@@ -1,6 +1,5 @@
 <?php
 
-
 // Get data
 $product_id = htmlspecialchars($_POST['product_id']);
 $product_name = htmlspecialchars($_POST['product_name']);

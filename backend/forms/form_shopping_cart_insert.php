@@ -2,13 +2,13 @@
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php'); 
-// if (!isset($_SESSION['customer_id'])) {
-//     header("Location: /student014/shop/backend/forms/form_login.php");
-//     exit();
-// }
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: /student014/shop/backend/forms/form_login.php");
+    exit();
+}
 
 // if inserting from shopping_cart should call a separate file if addding from products page to avoid issue with getting product id.
-$product_id = $_GET['product_id'];
+$product_id = $_POST['product_id'];
 $customer_id = $_SESSION['customer_id'];
 
 ?>

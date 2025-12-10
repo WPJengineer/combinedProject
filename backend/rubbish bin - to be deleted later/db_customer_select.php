@@ -1,7 +1,7 @@
 <?php
 
 // Get data
-$customer_id = $_POST['customer_id'];
+$customer_id = htmlspecialchars($_POST['customer_id']);
 // include('./config/db_config.php');
 
 // establish connection to database

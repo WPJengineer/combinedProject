@@ -1,6 +1,5 @@
 <?php
 
-
 // Get data
 $product_id = htmlspecialchars($_POST['product_id']);
 $product_name = htmlspecialchars($_POST['product_name']);
@@ -36,11 +35,5 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 require($backend.'footer.php');
-?>
 
-<!-- go back to start -->
-<!-- <form action="/student014/shop/backend/index.php">
-    <p>
-        <input type="submit" value="Return to start">
-    </p>
-</form> -->
+?>

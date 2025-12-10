@@ -1,10 +1,6 @@
 <?php
 
-// session_start();
-
-
 // Get data
-// include('./config/db_config.php');
 $product_id = htmlspecialchars($_POST['product_id']);
 $customer_id = htmlspecialchars($_POST['customer_id']);
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';

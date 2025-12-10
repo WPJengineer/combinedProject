@@ -1,7 +1,7 @@
 <?php
 
 // Get data
-$customer_id = $_POST['customer_id'];
+$customer_id = htmlspecialchars($_POST['customer_id']);
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
@@ -33,4 +33,5 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 require($backend.'footer.php');
+
 ?>

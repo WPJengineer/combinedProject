@@ -1,9 +1,7 @@
 <?php
 
-
 // Get data
-// include('./config/db_config.php');
-$product_id = $_POST['product_id'];
+$product_id = htmlspecialchars($_POST['product_id']);
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
@@ -34,4 +32,5 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 require($backend.'footer.php');
+
 ?>

@@ -3,10 +3,10 @@
 include('../functions/functions.php');
 
 registrationInputs();
-$forename = ['forename'];
-$lastname = ['lastname'];
-$username = ['username'];
-$password = ['password'];
+$forename = $_POST['forename'];
+$lastname = $_POST['lastname'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 
@@ -33,7 +33,6 @@ if (mysqli_num_rows($result) > 0) {
     } else {
         echo "Error inserting user: " . mysqli_error($conn);
     }
-
 }
 
 mysqli_close($conn);

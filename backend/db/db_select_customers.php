@@ -35,7 +35,6 @@ if (mysqli_query($conn, $sql)) {
     } else {
         echo "No customers found with that ID";
     }
-    
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

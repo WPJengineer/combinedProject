@@ -12,11 +12,11 @@ if (!isset($_SESSION['customer_id'])) {
 <main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
     <form class="flex flex-col gap-6 items-cente" action="../db/db_customer_update.php" method="POST">
         <?php
-            $customer_id = $_GET['customer_id'];
-            $customer_name = $_GET['customer_name'];
-            $customer_lastname = $_GET['customer_lastname'];
-            $customer_username = $_GET['customer_username'];
-            $password = $_GET['password'];
+            $customer_id = htmlspecialchars($_POST['customer_id']);
+            $customer_name = htmlspecialchars($_POST['customer_name']);
+            $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
+            $customer_username = htmlspecialchars($_POST['customer_username']);
+            $password = htmlspecialchars($_POST['password']);
         ?>
         <p class="flex justify-center items-center gap-5">
             <label for="customer_id">Customer ID:</label>

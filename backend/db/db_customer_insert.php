@@ -1,15 +1,13 @@
 <?php
 
-
 // Get data
 $customer_id = htmlspecialchars($_POST['customer_id']);
 $customer_forename = htmlspecialchars($_POST['customer_forename']);
 $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
 $customer_username = htmlspecialchars($_POST['customer_username']);
 $password = htmlspecialchars($_POST['password']);
-$customer_role = $_POST['role'];
+$customer_role = htmlspecialchars($_POST['role']);
 
-// include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 
@@ -29,7 +27,7 @@ VALUES ('$customer_id', '$customer_forename', '$customer_lastname', '$customer_r
 if (mysqli_query($conn, $sql)) {
     echo
         '<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
-            <p>Customer details updated successfully</p>
+            <p>Customer details inserted successfully</p>
             <p class="button"><a href="/student014/shop/backend/customers.php">Return to Start</a></p>
         </main>';
 } else {

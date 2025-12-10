@@ -14,9 +14,9 @@
                 <li class="button"><a href="./shopping_carts.php">Shopping Carts</a></li>
                 <li class="button"><a href="./orders.php">Orders</a></li>
                 <?php
-                if ($_SESSION['customer_role'] == 'admin') {
+                // if ($_SESSION['customer_role'] == 'admin') {
                     echo '<li class="button"><a href="./reviews.php">Reviews</a></li>';
-                }
+                // }
                 ?>
             </ul>
         </nav>

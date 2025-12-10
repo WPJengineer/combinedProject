@@ -2,9 +2,9 @@
 
 session_start();
 
-$product_id = $_GET['product_id'];
-$customer_id = $_GET['customer_id'];
-$quantity = $_GET['quantity'];
+$product_id = htmlspecialchars($_POST['product_id']);
+$customer_id = htmlspecialchars($_POST['customer_id']);
+$quantity = htmlspecialchars($_POST['quantity']);
 
 $sql =
 "UPDATE `014_shopping_cart`

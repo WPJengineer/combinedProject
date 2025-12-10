@@ -6,8 +6,7 @@ if (!isset($_SESSION['customer_id'])) {
 }
 
 // Get data
-$order_id = $_POST['order_id'];
-// include('./config/db_config.php');
+$order_id = htmlspecialchars($_POST['order_id']);
 
 // establish connection to database
 include('../config/db_config.php');

@@ -43,22 +43,18 @@ if (mysqli_query($conn, $sql)) {
                         <p>'.$row['quantity'].'</p>
                         <p>'.$row['product_unit_price'].'€</p>
                         <p>'.$row['placed_on'].'</p>
-                        <button class="btnReview button" onClick="getInfo()">Give review</button>
-                        <script>
-                            
-                        </script>
-                        <!--<div class="flex">
-                            <img class="star1" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
-                            <img class="star2" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
-                            <img class="star3" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
-                            <img class="star4" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
-                            <img class="star5" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
-                        </div>-->
+                        <form action="/student014/shop/backend/forms/form_review_insert.php" method="POST">
+                            <input type="hidden" name="customer_id" value="'.$_SESSION['customer_id'].'">
+                            <input type="hidden" name="product_id" value="'.$row['product_id'].'">
+                            <input type="submit" value="Give Review" class="button">
+                        </form>
                     </div>
                 </div>';
         }
     } else {
-        echo "No product found with that ID";
+        echo '<div class="flex flex-col items-center justify-center gap-6" style="flex: 1;">
+                <p>No products found</p>
+            </div>';
     }
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);

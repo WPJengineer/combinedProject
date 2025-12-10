@@ -11,10 +11,10 @@ if (!isset($_SESSION['customer_id'])) {
 <main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="../db/db_customer_delete.php" method="POST">
         <?php
-            $customer_id = $_GET['customer_id'];
-            $customer_name = $_GET['customer_name'];
-            $customer_lastname = $_GET['customer_lastname'];
-            $customer_username = $_GET['customer_username'];
+            $customer_id = htmlspecialchars($_POST['customer_id']);
+            $customer_name = htmlspecialchars($_POST['customer_name']);
+            $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
+            $customer_username = htmlspecialchars($_POST['customer_username']);
         ?>
         <p>Are you sure you want to delete this customer?</p>
         <p class="flex justify-center items-center gap-5">

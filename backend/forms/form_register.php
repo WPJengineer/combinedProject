@@ -22,7 +22,6 @@ require($backend.'header.php');
             <label for="password">Password:</label>
             <input class="textBox" type="password" id="password" name="password">
         </p>
-        <!-- missing script to check validity of data input and if password match both textboxes -->
         <p>
             <label for="confirm-password">Confirm Password:</label>
             <input class="textBox" type="password" id="confirm-password" name="confirm-password">

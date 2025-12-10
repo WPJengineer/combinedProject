@@ -40,8 +40,15 @@ if (mysqli_query($conn, $sql)) {
                             <p class="subtotal font-bold">Subtotal: '.$subtotal.'€</p>
                         </div>
                     </div>
-                    <div class="button">
-                        <a class="" href="./forms/form_shopping_cart_delete.php?product_id='.$row['product_id'].'&product_name='.$row['product_name'].'&product_price='.$row['product_unit_price'].'&product_image='.$row['product_image'].'&quantity='.$row['quantity'].'">Remove</a> 
+                    <div>
+                        <form method="POST" action="./forms/form_shopping_cart_delete.php">
+                            <input type="hidden" name="product_id" value="'.$row['product_id'].'">
+                            <input type="hidden" name="product_name" value="'.$row['product_name'].'">
+                            <input type="hidden" name="product_price" value="'.$row['product_unit_price'].'">
+                            <input type="hidden" name="product_image" value="'.$row['product_image'].'">
+                            <input type="hidden" name="quantity" value="'.$row['quantity'].'">
+                            <input class="button" type="submit" value="Remove">
+                        </form>
                     </div>
                 </div>';
         }
@@ -52,7 +59,6 @@ if (mysqli_query($conn, $sql)) {
                     <a href="/student014/shop/backend/db/db_order_insert_call.php">Place Order</a>
                 </div>
             </div>';
-        // echo '</main>';
     } else {
         echo
             '<div class="flex flex-col items-center justify-center gap-6" style="flex: 1;">

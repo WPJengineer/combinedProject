@@ -4,12 +4,8 @@ const endPointShoppingCart = '/student014/shop/backend/endpoints/showQuantity.ph
 const btnMinus = document.querySelectorAll('.btnMinus');
 const btnPlus = document.querySelectorAll('.btnPlus');
 const endPointOrder = '/student014/shop/backend/endpoints/orders_search.php';
-// const btnReview1 = document.querySelectorAll('.star1');
-// const btnReview2 = document.querySelectorAll('.star2');
-// const btnReview3 = document.querySelectorAll('.star3');
-// const btnReview4 = document.querySelectorAll('.star4');
-// const btnReview5 = document.querySelectorAll('.star5');
-const btnReview = document.querySelectorAll('.btnReview');
+const stars = document.querySelectorAll('.star');
+const ratingInput = document.getElementById('rating');
 
 // FUNCTIONS
 
@@ -49,8 +45,10 @@ function showCustomer(str) {
           }
       };
   }
-  xmlhttp.open('GET', endPointCustomer + '?customer_name=' + str, true);
-  xmlhttp.send();  
+  xmlhttp.open('POST', endPointCustomer, true);
+  xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  var params = "customer_name=" + encodeURIComponent(str);
+  xmlhttp.send(params);  
 }
 
 function updateSubtotal(btn, quantity) {
@@ -92,6 +90,7 @@ function showOrder(str) {
           }
       };
   }
+  // misiing to make post and not get method to send data
   xmlhttp.open('GET', endPointOrder + '?order_number=' + str, true);
   xmlhttp.send();  
 }
@@ -116,8 +115,13 @@ btnMinus.forEach(btn => {
           quantity.querySelector('#numQuantity').innerText = this.responseText;
         }
     };
-    xmlhttp.open('GET', endPointShoppingCart + '?quantity=' + encodeURIComponent(numQuantity) + '&product_id=' + encodeURIComponent(productId) + '&customer_id=' + encodeURIComponent(customerId), true);
-    xmlhttp.send();
+    xmlhttp.open('POST', endPointShoppingCart, true);
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    const params =
+      'quantity='   + encodeURIComponent(numQuantity) +
+      '&product_id='  + encodeURIComponent(productId) +
+      '&customer_id=' + encodeURIComponent(customerId);
+    xmlhttp.send(params);
     });
 });
 
@@ -137,44 +141,26 @@ btnPlus.forEach(btn => {
           quantity.querySelector('#numQuantity').innerText = this.responseText;
         }
     };
-    xmlhttp.open('GET', endPointShoppingCart + '?quantity=' + encodeURIComponent(numQuantity) + '&product_id=' + encodeURIComponent(productId) + '&customer_id=' + encodeURIComponent(customerId), true);
-    xmlhttp.send();
+    xmlhttp.open('POST', endPointShoppingCart, true);
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    const params =
+      'quantity='   + encodeURIComponent(numQuantity) +
+      '&product_id='  + encodeURIComponent(productId) +
+      '&customer_id=' + encodeURIComponent(customerId);
+    xmlhttp.send(params);
   });
 });
 
-btnReview.forEach(btn => {
-  btn.addEventListener('click',(e) => {
-    // need to get customer id and product_id.
-    location.href = '/student014/shop/backend/forms/form_review_insert.php?customer_id="1"&product_id="1"';
-  });
+stars.forEach(star => {
+  star.addEventListener('click', (e) => {
+    const rating = parseInt(e.target.dataset.value);
+    ratingInput.value = rating;
+    stars.forEach(star => {
+      if (parseInt(star.dataset.value) <= rating) {
+        star.src = "/student014/shop/assets/iconos/icon-star-full.png";
+      } else {
+        star.src = "/student014/shop/assets/iconos/icon-star-empty.png";
+      }
+    });
+  })
 });
-
-// btnReview1.forEach(btn => {
-//   btn.addEventListener('click', (e) => {
-//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
-//   });
-// });
-
-// btnReview2.forEach(btn => {
-//   btn.addEventListener('click', (e) => {
-//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
-//   });
-// });
-
-// btnReview3.forEach(btn => {
-//   btn.addEventListener('click', (e) => {
-//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
-//   });
-// });
-
-// btnReview4.forEach(btn => {
-//   btn.addEventListener('click', (e) => {
-//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
-//   });
-// });
-
-// btnReview5.forEach(btn => {
-//   btn.addEventListener('click', (e) => {
-//     e.currentTarget.src = "/student014/shop/assets/iconos/icon-star-full.png";
-//   });
-// });

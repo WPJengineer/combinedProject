@@ -5,7 +5,6 @@ if (!isset($_SESSION['customer_id'])) {
     exit();
 }
 
-
 include('./config/db_config.php');
 
 $sql = "SELECT *
@@ -35,9 +34,10 @@ if (mysqli_query($conn, $sql)) {
                 '</div>
             <div id="txtHintProduct"></div>';
     } else {
-        echo "No products found";
+        echo '<div class="flex flex-col items-center justify-center gap-6" style="flex: 1;">
+                <p>No products found</p>
+            </div>';
     }
-    
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

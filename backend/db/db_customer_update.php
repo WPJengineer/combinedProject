@@ -7,7 +7,6 @@ $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
 $customer_username = htmlspecialchars($_POST['customer_username']);
 $password = htmlspecialchars($_POST['password']);
 
-// include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 

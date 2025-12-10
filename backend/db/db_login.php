@@ -1,15 +1,10 @@
 <?php
 
-// if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-// }
-
+session_start();
 
 $username = htmlspecialchars($_POST['username']);
 $password = htmlspecialchars($_POST['password']);
-// include('./config/db_config.php');
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
-// require($backend.'header.php');
 
 include($backend.'/config/db_config.php');
 
@@ -47,8 +42,6 @@ if (mysqli_query($conn, $sql)) {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
-
 mysqli_close($conn);
 
-// require($backend.'footer.php');
 ?>

@@ -2,7 +2,7 @@
 
 session_start();
 
-$customer_name = $_GET['customer_name'];
+$customer_name = htmlspecialchars($_POST['customer_name']);
 
 $sql = "SELECT *
 FROM 014_customers
@@ -24,8 +24,21 @@ if (mysqli_num_rows($result) > 0) {
                 <p>'.$row['lastname'].'</p>
             </div>
             <div class="flex">
-                <a class="button" href="./forms/form_customer_update.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'&customer_username='.$row['username'].'&password='.$row['password'].'">Update</a>
-                <a class="button" href="./forms/form_customer_delete.php?customer_id='.$row['customer_id'].'&customer_name='.$row['forename'].'&customer_lastname='.$row['lastname'].'&customer_username='.$row['username'].'">Delete</a> 
+                <form method="POST" action="./forms/form_customer_update.php">
+                    <input type="hidden" name="customer_id" value="'.$row['customer_id'].'">
+                    <input type="hidden" name="customer_name" value="'.$row['forename'].'">
+                    <input type="hidden" name="customer_lastname" value="'.$row['lastname'].'">
+                    <input type="hidden" name="customer_username" value="'.$row['username'].'">
+                    <input type="hidden" name="password" value="'.$row['password'].'">
+                    <input type="submit" value="Update" class="button">
+                </form>
+                <form method="POST" action="./forms/form_customer_delete.php">
+                    <input type="hidden" name="customer_id" value="'.$row['customer_id'].'">
+                    <input type="hidden" name="customer_name" value="'.$row['forename'].'">
+                    <input type="hidden" name="customer_lastname" value="'.$row['lastname'].'">
+                    <input type="hidden" name="customer_username" value="'.$row['username'].'">
+                    <input type="submit" value="Delete" class="button">
+                </form>
             </div>
         </div>';
   }
