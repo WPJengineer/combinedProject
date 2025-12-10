@@ -46,7 +46,7 @@
     }
 
     .textBox {
-        @apply bg-light border rounded-xl focus:outline-blue border-dark;
+        @apply px-5 py-2.5 bg-light border rounded-3xl focus:outline-blue border-dark;
     }
 
     .insertBar {

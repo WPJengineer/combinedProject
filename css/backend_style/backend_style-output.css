@@ -15,7 +15,6 @@
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-bold: 700;
-    --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --radius-3xl: 1.5rem;
     --default-font-family: var(--font-sans);
@@ -383,11 +382,13 @@
     }
   }
   .textBox {
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-3xl);
     border-style: var(--tw-border-style);
     border-width: 1px;
     border-color: var(--color-dark);
     background-color: var(--color-light);
+    padding-inline: calc(var(--spacing) * 5);
+    padding-block: calc(var(--spacing) * 2.5);
     &:focus {
       outline-color: var(--color-blue);
     }

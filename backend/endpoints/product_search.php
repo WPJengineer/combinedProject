@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="flex items-center gap-6">
                     <p>'.$row['product_name'].'</p>
                     <p>'.$row['product_unit_price'].'€</p>
-                    <p>'.$row['product_rating'].'</p>
+                    <p>'.$row['product_rating'].' stars</p>
                 </div>
             </div>';
             
