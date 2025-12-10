@@ -25,9 +25,9 @@ if (mysqli_query($conn, $sql)) {
             $cartTotal += $subtotal;
             echo
                 '<div class="shopping-cart">
-                    <div class="flex gap-6">
+                    <!--<div class="flex gap-6">-->
                         <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
-                        <div class="flex items-center gap-6">
+                        <!--<div class="flex items-center gap-6">-->
                             <p>'.$row['product_name'].'</p>
                             <p id="unit-price">'.$row['product_unit_price'].'€</p>
                             <p>'.$row['forename'].'</p>
@@ -38,8 +38,8 @@ if (mysqli_query($conn, $sql)) {
                                 <input class="btnPlus p-2 hover:cursor-pointer" type="button" value="+" data-product-id="'.$row['product_id'].'" data-customer-id="'.$row['customer_id'].'">
                             </form>
                             <p class="subtotal font-bold">Subtotal: '.$subtotal.'€</p>
-                        </div>
-                    </div>
+                        <!--</div>-->
+                    <!--</div>-->
                     <div>
                         <form method="POST" action="./forms/form_shopping_cart_delete.php">
                             <input type="hidden" name="product_id" value="'.$row['product_id'].'">

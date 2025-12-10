@@ -35,7 +35,7 @@ if (mysqli_query($conn, $sql)) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo 
                 '<div class="orders">
-                    <div class="flex items-center justify-between gap-6">
+                    <!--<div class="flex items-center justify-between gap-6">-->
                         <img class="w-25 border" src="'.$row['product_image'].'" alt="product-image">
                         <p>'.$row['order_number'].'</p>
                         <p>'.$row['product_name'].'</p>
@@ -48,7 +48,7 @@ if (mysqli_query($conn, $sql)) {
                             <input type="hidden" name="product_id" value="'.$row['product_id'].'">
                             <input type="submit" value="Give Review" class="button">
                         </form>
-                    </div>
+                    <!--</div>-->
                 </div>';
         }
     } else {
