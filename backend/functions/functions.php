@@ -32,9 +32,9 @@ function checkNames($input) {
 }
 
 // function to check passwords.
-function checkPassword($password, $cornfirmPassword) {
-    if (checkInput($_POST['password'])) {
-        $password = $_POST['password'];
+function checkPassword($online_password, $cornfirmPassword) {
+    if (checkInput($_POST['online_password'])) {
+        $online_password = $_POST['online_password'];
     } else {
         echo 'Password field was not correct';
         header("Location: /student014/shop/backend/forms/form_register.php");
@@ -49,7 +49,7 @@ function checkPassword($password, $cornfirmPassword) {
         exit();
     }
 
-    if ($password == $confirmPassword) {
+    if ($online_password == $confirmPassword) {
         return true;
     } else {
         echo "Error inputs aren't the same";
@@ -97,8 +97,8 @@ function registrationInputs() {
         exit();
     }
 
-    if (checkPassword($_POST['password'], $_POST['confirm-password'])) {
-        $password = $_POST['password'];
+    if (checkPassword($_POST['online_password'], $_POST['confirm-password'])) {
+        $password = $_POST['online_password'];
     } else {
         echo 'Passwords did not match';
         header("Location: /student014/shop/backend/forms/form_register.php");

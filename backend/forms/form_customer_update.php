@@ -16,7 +16,7 @@ if (!isset($_SESSION['customer_id'])) {
             $customer_name = htmlspecialchars($_POST['customer_name']);
             $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
             $customer_username = htmlspecialchars($_POST['customer_username']);
-            $password = htmlspecialchars($_POST['password']);
+            $online_password = htmlspecialchars($_POST['online_password']);
         ?>
         <p class="flex justify-center items-center gap-5">
             <label for="customer_id">Customer ID:</label>
@@ -35,8 +35,8 @@ if (!isset($_SESSION['customer_id'])) {
             <input class="textBox" type="text" id="customer_username" name="customer_username" value="<?php echo $customer_username ?>" required>
         </p>
         <p class="flex justify-center items-center gap-5">
-            <label for="password">Password:</label>
-            <input class="textBox" type="text" id="password" name="password" value="<?php echo $password ?>" required>
+            <label for="online_password">Password:</label>
+            <input class="textBox" type="text" id="online_password" name="online_password" value="<?php echo $online_password ?>" required>
         </p>
         <p class="flex justify-center">
             <input class="button" type="submit" value="Update">

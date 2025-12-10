@@ -28,8 +28,8 @@ if (!isset($_SESSION['customer_id'])) {
             <input class="textBox" type="text" id="customer_username" name="customer_username">
         </p>
         <p class="flex justify-center items-center gap-5">
-            <label for="password">Password:</label>
-            <input class="textBox" type="password" id="password" name="password">
+            <label for="online_password">Password:</label>
+            <input class="textBox" type="password" id="online_password" name="online_password">
         </p>
         <p class="flex justify-center items-center gap-5">
             <fieldset class="flex gap-4 items-center">

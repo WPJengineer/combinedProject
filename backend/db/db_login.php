@@ -3,7 +3,7 @@
 session_start();
 
 $username = htmlspecialchars($_POST['username']);
-$password = htmlspecialchars($_POST['password']);
+$online_password = htmlspecialchars($_POST['online_password']);
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 
 include($backend.'/config/db_config.php');
@@ -11,7 +11,7 @@ include($backend.'/config/db_config.php');
 $sql = "SELECT customer_id, forename, lastname, customer_role
 FROM `014_customers`;
 WHERE username = '$username' AND
-`password` = '$password'";
+online_password = '$online_password'";
 
 $result = mysqli_query($conn, $sql);
 print_r(mysqli_fetch_all($result, MYSQLI_ASSOC));

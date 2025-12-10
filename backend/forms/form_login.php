@@ -14,8 +14,8 @@ require($backend.'header.php');
                     <input class="textBox" type="text" id="username" name="username">
                 </p>
                 <p>
-                    <label for="password">Password:</label>
-                    <input class="textBox" type="password" id="password" name="password">
+                    <label for="online_password">Password:</label>
+                    <input class="textBox" type="password" id="online_password" name="online_password">
                 </p>
                 <p>
                     <input  class="button" type="submit" value="Log In">

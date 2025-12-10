@@ -5,7 +5,7 @@ $customer_id = htmlspecialchars($_POST['customer_id']);
 $customer_forename = htmlspecialchars($_POST['customer_forename']);
 $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
 $customer_username = htmlspecialchars($_POST['customer_username']);
-$password = htmlspecialchars($_POST['password']);
+$online_password = htmlspecialchars($_POST['online_password']);
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
@@ -23,7 +23,7 @@ $sql = "UPDATE `014_customers`
 SET forename = '$customer_forename',
     lastname = '$customer_lastname',
     username = '$customer_username',
-    password = '$password'
+    online_password = '$online_password'
 WHERE customer_id = '$customer_id'";
 
 // execute query

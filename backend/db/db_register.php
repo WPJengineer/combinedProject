@@ -6,7 +6,7 @@ registrationInputs();
 $forename = $_POST['forename'];
 $lastname = $_POST['lastname'];
 $username = $_POST['username'];
-$password = $_POST['password'];
+$online_password = $_POST['online_password'];
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 
@@ -23,8 +23,8 @@ if (mysqli_num_rows($result) > 0) {
     // header("Location: /student014/shop/backend/forms/form_register.php");
     // exit();
 } else {
-    $insert_sql ="INSERT INTO 014_customers (forename, lastname, customer_role, username, password)
-    VALUES ('$forename', '$lastname', 'customer', '$username', '$password')";
+    $insert_sql ="INSERT INTO 014_customers (forename, lastname, customer_role, username, online_password)
+    VALUES ('$forename', '$lastname', 'customer', '$username', '$online_password')";
 
     if (mysqli_query($conn, $insert_sql)) {
         echo "Registration successful!";

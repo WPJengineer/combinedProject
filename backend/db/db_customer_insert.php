@@ -5,7 +5,7 @@ $customer_id = htmlspecialchars($_POST['customer_id']);
 $customer_forename = htmlspecialchars($_POST['customer_forename']);
 $customer_lastname = htmlspecialchars($_POST['customer_lastname']);
 $customer_username = htmlspecialchars($_POST['customer_username']);
-$password = htmlspecialchars($_POST['password']);
+$online_password = htmlspecialchars($_POST['online_password']);
 $customer_role = htmlspecialchars($_POST['role']);
 
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
@@ -20,8 +20,8 @@ if (!isset($_SESSION['customer_id'])) {
 }
 
 // create query
-$sql ="INSERT INTO 014_customers (customer_id, forename, lastname, customer_role, username, password)
-VALUES ('$customer_id', '$customer_forename', '$customer_lastname', '$customer_role', '$customer_username', '$password')";
+$sql ="INSERT INTO 014_customers (customer_id, forename, lastname, customer_role, username, online_password)
+VALUES ('$customer_id', '$customer_forename', '$customer_lastname', '$customer_role', '$customer_username', '$online_password')";
 
 // execute query
 if (mysqli_query($conn, $sql)) {

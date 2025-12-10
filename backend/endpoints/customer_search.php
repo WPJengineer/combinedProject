@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) > 0) {
                     <input type="hidden" name="customer_name" value="'.$row['forename'].'">
                     <input type="hidden" name="customer_lastname" value="'.$row['lastname'].'">
                     <input type="hidden" name="customer_username" value="'.$row['username'].'">
-                    <input type="hidden" name="password" value="'.$row['password'].'">
+                    <input type="hidden" name="online_password" value="'.$row['online_password'].'">
                     <input type="submit" value="Update" class="button">
                 </form>
                 <form method="POST" action="./forms/form_customer_delete.php">
