@@ -25,7 +25,7 @@ if (!isset($_SESSION['customer_id'])) {
             <img class="star" data-value="5" src="/student014/shop/assets/iconos/icon-star-empty.png" alt="star-icon-empty">
         </div>
         <input type="hidden" name="rating" id="rating" value="1">
-        <textarea class="textBox p-2" id="review" name="review" rows="5" cols="40" placeholder="Write your review here..." required></textarea>
+        <textarea class="textBox" id="review" name="review" rows="5" cols="40" placeholder="Write your review here..." required></textarea>
         <p class="button">
             <input type="submit" value="Add Review">
         </p>

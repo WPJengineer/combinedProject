@@ -18,7 +18,7 @@ if (!isset($_SESSION['customer_id'])) {
         ?>
         <p>Are you sure you want to delete this customer?</p>
         <p class="flex justify-center items-center gap-5">
-            <label for="customerid">Customer ID:</label>
+            <label for="customer_id">Customer ID:</label>
             <input class="textBox" type="text" id="customer_id" name="customer_id" value="<?php echo $customer_id ?>" readonly>
         </p>
         <p class="flex justify-center items-center gap-5">
