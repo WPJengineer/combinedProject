@@ -9,11 +9,12 @@ $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 include($backend.'/config/db_config.php');
 
 $sql = "SELECT customer_id, forename, lastname, customer_role
-FROM `014_customers`
+FROM `014_customers`;
 WHERE username = '$username' AND
-password = '$password';";
+`password` = '$password'";
 
 $result = mysqli_query($conn, $sql);
+print_r(mysqli_fetch_all($result, MYSQLI_ASSOC));
 
 if (mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
