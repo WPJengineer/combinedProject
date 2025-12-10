@@ -4,6 +4,10 @@ session_start();
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 include($backend.'/functions/functions.php');
 
+// $test = $_GET['language'];
+// setcookie('language', $test, time() + 86400);
+// $language = $_COOKIE['language'] ?? 'EN';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +31,16 @@ include($backend.'/functions/functions.php');
                 ?>
                 </li>
                 <li><a href="/student014/shop/backend/forms/form_login.php"><img class="icon" id="btnRoles" src="/student014/shop/assets/iconos/person_24dp_0F0F0F.png" alt="role-icon"></a></li>
+                <!-- <li>
+                    <form action="#" method="GET">
+                        <select name="language" onChange="submitLanguage(this.value)">
+                            <option value=""><?php echo $language; ?></option>
+                            <option value="english">EN</option>
+                            <option value="spanish">ES</option>
+                            <option value="catalan">CA</option>
+                        </select>
+                    </form>
+                </li> -->
                 <li><img class="icon" src="/student014/shop/assets/iconos/search_24dp_OFOFOF.png" alt="search-icon"></li>
             </ul>
         </nav>

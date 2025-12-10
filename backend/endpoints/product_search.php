@@ -53,7 +53,10 @@ if (mysqli_num_rows($result) > 0) {
             } else {
                 echo
                     '<div class="flex">
-                        <a class="button" href="./forms/form_shopping_cart_insert.php?product_id='.$row['product_id'].'">Add to cart</a> 
+                        <form method="POST" action="./forms/form_shopping_cart_insert.php">
+                            <input type="hidden" name="product_id" value="'.$row['product_id'].'">
+                            <input type="submit" value="Add to cart" class="button">
+                        </form> 
                     </div>
                 </div>';
             }
