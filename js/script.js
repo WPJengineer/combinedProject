@@ -66,4 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "/student014/shop/backend/forms/form_login.php";
     });
 
+    // async function getProducts() {
+    //     const url = "remotehost.es/student014/shop/backend/endpoints/product_search.php";
+    //     try {
+    //         const res = await fetch(url);
+    //         const data = await res.json();
+    //         console.log(data);
+    //     } catch (error) {
+    //         console.error(error.message);
+    //     }
+    // }
+    // getProducts();
+
 });

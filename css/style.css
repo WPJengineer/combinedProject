@@ -381,6 +381,10 @@ main section {
 
 .article-card:nth-child(1) {
     background-image: url('../assets/images/1.png');
+    /*
+    const articleCard = document.querySelector('.article-card');
+    articleCard.style.backgroundImage = 'url('<path retrieved from endpoint product_search>')';
+    */
 }
 
 .article-card:nth-child(2) {
