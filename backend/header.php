@@ -7,6 +7,8 @@ include($backend.'/functions/functions.php');
 $language = $_COOKIE['language'] ?? 'EN';
 setcookie('language', $language, time() + 86400);
 
+print_r($language);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,11 +34,11 @@ setcookie('language', $language, time() + 86400);
                 <li><a href="/student014/shop/backend/forms/form_login.php"><img class="icon" id="btnRoles" src="/student014/shop/assets/iconos/person_24dp_0F0F0F.png" alt="role-icon"></a></li>
                 <li>
                     <form action="#" method="GET">
-                        <select name="language">
+                        <select name="language"  onchange="this.form.submit()">
                             <option value=""><?php echo $language; ?></option>
-                            <option value="english">EN</option>
-                            <option value="spanish">ES</option>
-                            <option value="catalan">CA</option>
+                            <option value="EN">EN</option>
+                            <option value="ES">ES</option>
+                            <option value="CA">CA</option>
                         </select>
                     </form>
                 </li>
