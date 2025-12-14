@@ -4,8 +4,13 @@ session_start();
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 include($backend.'/functions/functions.php');
 
-$language = $_COOKIE['language'] ?? 'EN';
-setcookie('language', $language, time() + 86400);
+
+if (isset($_GET['language'])) {
+    setcookie('language', $_GET['language'], time() + 86400, '/');
+    header("Location: " . strtok($_SERVER['REQUEST_URI'], '?'));
+}
+$language = $_GET['language'] ?? ($_COOKIE['language'] ?? 'EN');
+// setcookie('language', $language, time() + 86400, '/');
 
 print_r($language);
 
@@ -33,7 +38,7 @@ print_r($language);
                 </li>
                 <li><a href="/student014/shop/backend/forms/form_login.php"><img class="icon" id="btnRoles" src="/student014/shop/assets/iconos/person_24dp_0F0F0F.png" alt="role-icon"></a></li>
                 <li>
-                    <form action="#" method="GET">
+                    <form action="<?php htmlspecialchars($_SERVER['REQUEST_URI']) ?>" method="GET">
                         <select name="language"  onchange="this.form.submit()">
                             <option value=""><?php echo $language; ?></option>
                             <option value="EN">EN</option>
