@@ -4,7 +4,8 @@
 $product_id = htmlspecialchars($_POST['product_id']);
 $product_name = htmlspecialchars($_POST['product_name']);
 $product_price = htmlspecialchars($_POST['product_price']);
-// include('./config/db_config.php');
+$file = $_FILES['fileToUpload'];
+
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 require($backend.'header.php');
 

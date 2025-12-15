@@ -4,15 +4,12 @@ session_start();
 $backend = $_SERVER['DOCUMENT_ROOT'].'/student014/shop/backend/';
 include($backend.'/functions/functions.php');
 
-
 if (isset($_GET['language'])) {
     setcookie('language', $_GET['language'], time() + 86400, '/');
     header("Location: " . strtok($_SERVER['REQUEST_URI'], '?'));
+    exit();
 }
-$language = $_GET['language'] ?? ($_COOKIE['language'] ?? 'EN');
-// setcookie('language', $language, time() + 86400, '/');
-
-print_r($language);
+$language = $_COOKIE['language'] ?? 'EN';
 
 ?>
 <!DOCTYPE html>
@@ -38,12 +35,11 @@ print_r($language);
                 </li>
                 <li><a href="/student014/shop/backend/forms/form_login.php"><img class="icon" id="btnRoles" src="/student014/shop/assets/iconos/person_24dp_0F0F0F.png" alt="role-icon"></a></li>
                 <li>
-                    <form action="<?php htmlspecialchars($_SERVER['REQUEST_URI']) ?>" method="GET">
+                    <form action="<?php echo htmlspecialchars(strtok($_SERVER['REQUEST_URI'], '?')); ?>" method="GET">
                         <select name="language"  onchange="this.form.submit()">
-                            <option value=""><?php echo $language; ?></option>
-                            <option value="EN">EN</option>
-                            <option value="ES">ES</option>
-                            <option value="CA">CA</option>
+                            <option value="EN" <?= $language === 'EN' ? 'selected' : '' ?>>EN</option>
+                            <option value="ES" <?= $language === 'ES' ? 'selected' : '' ?>>ES</option>
+                            <option value="CA" <?= $language === 'CA' ? 'selected' : '' ?>>CA</option>
                         </select>
                     </form>
                 </li>

@@ -9,7 +9,7 @@ if (!isset($_SESSION['customer_id'])) {
 ?>
 <?php //maybe need option to enter pictures of products.?>
 <main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
-    <form class="flex flex-col gap-6 items-center" action="/student014/shop/backend/db/db_product_insert.php" method="POST">
+    <form class="flex flex-col gap-6 items-center" action="/student014/shop/backend/db/db_product_insert.php" method="POST" enctype="multipart/form-data">
         <p class="flex justify-center items-center gap-5">
             <label for="product_id">Product ID:</label>
             <input class="textBox" type="text" id="product_id" name="product_id">
@@ -21,6 +21,10 @@ if (!isset($_SESSION['customer_id'])) {
         <p class="flex justify-center items-center gap-5">
             <label for="product_price">Product price:</label>
             <input class="textBox" type="number" id="product_price" name="product_price">
+        </p>
+        <p class="flex justify-center items-center gap-5">
+            <label for="fileToUpload">Product Image:</label>
+            <input class="textBox" type="file" name="fileToUpload" id="fileToUpload" required>
         </p>
         <p>
             <input class="button" type="submit" value="Insert">
