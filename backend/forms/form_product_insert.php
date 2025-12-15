@@ -24,7 +24,7 @@ if (!isset($_SESSION['customer_id'])) {
         </p>
         <p class="flex justify-center items-center gap-5">
             <label for="fileToUpload">Product Image:</label>
-            <input class="textBox" type="file" name="fileToUpload" id="fileToUpload" required>
+            <input class="button" type="file" name="fileToUpload" id="fileToUpload" accept=".jpg, .jpeg, .png" required>
         </p>
         <p>
             <input class="button" type="submit" value="Insert">
