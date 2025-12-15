@@ -10,14 +10,13 @@ if (!isset($_SESSION['customer_id'])) {
 // if inserting from shopping_cart should call a separate file if addding from products page to avoid issue with getting product id.
 $product_id = $_POST['product_id'];
 $customer_id = $_SESSION['customer_id'];
+$product_image = $_POST['product_image'];
 
 ?>
 
-
-
-
 <main class="bg-green flex flex-col items-center justify-center gap-6"  style="flex: 1;">
     <form class="flex flex-col gap-6 items-center" action="/student014/shop/backend/db/db_shopping_cart_insert.php" method="POST">
+        <img class="w-25 border" src="<?php echo $product_image; ?>" alt="product-image">
         <p class="flex justify-center items-center gap-5">
             <label for="customer_id">Customer ID:</label>
             <input class="textBox" type="number" id="customer_id" name="customer_id" value="<?php echo $customer_id; ?>" readonly>

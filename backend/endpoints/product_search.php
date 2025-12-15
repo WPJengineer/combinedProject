@@ -32,6 +32,7 @@ if (mysqli_num_rows($result) > 0) {
                     '<div class="flex">
                         <form method="POST" action="./forms/form_shopping_cart_insert.php">
                             <input type="hidden" name="product_id" value="'.$row['product_id'].'">
+                            <input type="hidden" name="product_image" value="'.$row['product_image'].'">
                             <input type="submit" value="Add to cart" class="button">
                         </form>
                         <form method="POST" action="./forms/form_product_update.php">
