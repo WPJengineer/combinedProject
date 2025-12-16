@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getProducts() {
         const grid = document.getElementById("productsGrid");
         if (!grid) return;
-        const url = "https://remotehost.es/student014/shop/backend/endpoints/product_search.php";
+        const url = "https://remotehost.es/student014/shop/backend/endpoints/products_frontend.php";
         try {
             const response = await fetch(url);
 

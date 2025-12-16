@@ -14,11 +14,11 @@ include('../config/db_config.php');
 
 $result = mysqli_query($conn, $sql);
 
-$products = [];
+// $products = [];
 
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
-    $products[] = $row;
+    // $products[] = $row;
     echo
         '<div class="products">
             <div class="flex gap-6">
@@ -65,7 +65,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>';
             }
   }
-  echo json_encode($products);
+//   echo json_encode($products);
 }
 mysqli_close($conn);
 

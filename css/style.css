@@ -379,12 +379,8 @@ main section {
 
 /*     images and number of products hardcoded as examples before intergration of database     */
 
-.article-card:nth-child(1) {
+/* .article-card:nth-child(1) {
     background-image: url('../assets/images/1.png');
-    /*
-    const articleCard = document.querySelector('.article-card');
-    articleCard.style.backgroundImage = 'url('<path retrieved from endpoint product_search>')';
-    */
 }
 
 .article-card:nth-child(2) {
@@ -405,7 +401,7 @@ main section {
 
 .article-card:nth-child(6) {
     background-image: url('../assets/images/6.png');
-}
+} */
 
 .article-card img.heart {
     position: absolute;
