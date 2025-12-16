@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Wishlist</a></li>
-                <li><a href="#">Carrito</a></li>
+                <li class="btnShoppingCart2"><a href="#">Carrito</a></li>
             </ul>
             <div>
                 <button class="button">Entrar</button>
@@ -34,7 +34,7 @@
                 <img class="icon" src="./assets/iconos/wishlist.png" alt="wishlist">
                 <span>Wishlist</span>
             </div>
-            <div class="icon-item">
+            <div class="icon-item btnShoppingCart">
                 <img class="icon" src="./assets/iconos/shopping_cart_24dp_0F0F0F.png" alt="cart">
                 <span>Carrito</span>
             </div>
@@ -105,8 +105,9 @@
                     <button id="btnFilters" class="button">Filtros <img src="./assets/iconos/filter_alt_24dp_0F0F0F.png" alt="filter"></button>
                 </div>
                 <!--images and number of products hardcoded currently before we use javascript in get from database-->
-                <div class="articles">
-                    <article class="article-card">
+                <div class="articles" id="productsGrid">
+                    
+                    <!--<article class="article-card">
                         <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
                         <div class="bottom-overlay">
                             <div>
@@ -177,7 +178,8 @@
                                 <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
                             </div>
                         </div>
-                    </article>
+                    </article>-->
+
                     <div class="menuProduct">
                         <img class="icon" id="btnCloseProduct" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
                         <form action="#" method=""><!--missing method-->
