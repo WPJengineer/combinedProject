@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuFilters = document.querySelector(".menuFilters");
     const btnCloseMenu = document.querySelector("#btnCloseMenu");
     const btnCloseFilters = document.querySelector("#btnCloseFilters");
-    const menuProduct = document.querySelector(".menuProduct");
-    const addProducts = document.querySelectorAll(".cart");
+    const menuProduct = document.querySelectorAll(".menuProduct");
+    // const addProducts = document.querySelectorAll(".cart");
     const btnCloseProduct = document.querySelector("#btnCloseProduct");
     const btnLogin = document.querySelector('.menu div button:nth-child(1)');
     const btnLogin2 = document.querySelector('.user');
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // this will have e.target later to get each product on to the screen.
-    addProducts.forEach(addProduct => {
-        addProduct.addEventListener('click', () => {
-        menuProduct.style.display = "flex";
+    menuProduct.forEach(btn => {
+        btn.addEventListener('click', () => {
+        btn.style.display = "flex";
         });
     });
 
@@ -100,13 +100,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 article.innerHTML = `
                     <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
                     <div class="bottom-overlay">
-                    <div>
-                        <h4>${p.product_name}</h4>
-                        <h3><span>${Number(p.product_unit_price).toFixed(2)}</span>€</h3>
+                        <div>
+                            <h4>${p.product_name}</h4>
+                            <h3><span>${Number(p.product_unit_price).toFixed(2)}</span>€</h3>
+                        </div>
+                        <div>
+                            <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
+                        </div>
                     </div>
-                    <div>
-                        <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
-                    </div>
+                    <div class="menuProduct">
+                        <img class="icon" id="btnCloseProduct" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+                        <form action="#" method=""><!--missing method-->
+                            <div class="product">
+                                <div>
+                                    <img src="${p.product_image}" alt="foto-producto">
+                                    <button class="num-products"><span>-</span><span>1</span><span>+</span></button>
+                                    <p class="price"><span>${Number(p.product_unit_price).toFixed(2)}</span>€</p>
+                                </div>
+                                <p>${p.product_name}</p>
+                            </div>
+                            <div class="color">
+                                <p>Selecciona color</p>
+                                <div>
+                                    <button></button>
+                                    <button></button>
+                                    <button></button>
+                                    <button></button>
+                                    <button></button>
+                                </div>
+                            </div>
+                            <div class="size">
+                                <p>Selecciona tu talla</p>
+                                <div>
+                                    <button>XS</button>
+                                    <button>S</button>
+                                    <button>M</button>
+                                    <button>L</button>
+                                    <button>XL</button>
+                                    <button>2XL</button>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="button">Añadir a la cesta</button>
+                                <button class="button">Comprar ahora</button>
+                            </div>
+                        </form>
                     </div>
                 `;
 
