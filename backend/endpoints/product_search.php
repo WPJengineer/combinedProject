@@ -8,6 +8,8 @@ $sql = "SELECT *
 FROM 014_products
 WHERE product_name LIKE '%$product_name%';";
 
+// $sql .= "AND "
+
 // include('./config/db_config.php');
 
 include('../config/db_config.php');

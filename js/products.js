@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnHome = document.getElementById('btnHome');
     const btnHome2 = document.getElementById('btnHome2');
     const btnLogo = document.getElementById('btnLogo');
+    const btnShoppingCart = document.querySelector('.btnShoppingCart');
+    const btnShoppingCart2 = document.querySelector('.btnShoppingCart2');
+    const btnLogin = document.querySelector('.btnLogin');
+    const btnLogin2 = document.querySelector('.user');
     let total = parseInt(quantity.textContent, 10);
     const SCROLL_AMOUNT = 300;
 
@@ -128,6 +132,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnLogo.addEventListener('click', () => {
         window.location.href = "../index.html";
+    });
+
+    btnShoppingCart.addEventListener('click', () => {
+        window.location.href = "./shopping_cart.html";
+    });
+
+    btnShoppingCart2.addEventListener('click', () => {
+        window.location.href = "./shopping_cart.html";
+    });
+
+    btnLogin.addEventListener('click', () => {
+        window.location.href = "/student014/shop/backend/forms/form_login.php";
+    });
+
+    btnLogin2.addEventListener('click', () => {
+        window.location.href = "/student014/shop/backend/forms/form_login.php";
     });
 
 });
