@@ -96,99 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             visibleCount = 0;
             grid.innerHTML = "";
             renderProducts();
-
-            // const products = await response.json();
-
-            // grid.innerHTML = "";
-
-            // for (const p of products) {
-            //     const article = document.createElement("article");
-            //     article.className = "article-card";
-
-            //     article.dataset.id = p.product_id;
-
-            //     article.style.backgroundImage = `url("${p.product_image}")`;
-
-            //     article.innerHTML = `
-            //         <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
-            //         <div class="bottom-overlay">
-            //             <div>
-            //                 <h4>${p.product_name}</h4>
-            //                 <h3><span>${Number(p.product_unit_price).toFixed(2)}</span>€</h3>
-            //             </div>
-            //             <div>
-            //                 <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
-            //             </div>
-            //         </div>
-            //         <div class="menuProduct">
-            //             <form action="#" method=""><!--missing method-->
-            //                 <img class="icon btnCloseProduct" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
-            //                 <div class="product">
-            //                     <div>
-            //                         <img src="${p.product_image}" alt="foto-producto">
-            //                         <button class="num-products"><span>-</span><span>1</span><span>+</span></button>
-            //                         <p class="price"><span>${Number(p.product_unit_price).toFixed(2)}</span>€</p>
-            //                     </div>
-            //                     <p>${p.product_name}</p>
-            //                 </div>
-            //                 <div class="color">
-            //                     <p>Selecciona color</p>
-            //                     <div>
-            //                         <button></button>
-            //                         <button></button>
-            //                         <button></button>
-            //                         <button></button>
-            //                         <button></button>
-            //                     </div>
-            //                 </div>
-            //                 <div class="size">
-            //                     <p>Selecciona tu talla</p>
-            //                     <div>
-            //                         <button>XS</button>
-            //                         <button>S</button>
-            //                         <button>M</button>
-            //                         <button>L</button>
-            //                         <button>XL</button>
-            //                         <button>2XL</button>
-            //                     </div>
-            //                 </div>
-            //                 <div class="buttons">
-            //                     <button class="button">Añadir a la cesta</button>
-            //                     <button class="button">Comprar ahora</button>
-            //                 </div>
-            //             </form>
-            //         </div>
-            //     `;
-
-            //     const menuProduct = article.querySelector(".menuProduct");
-            //     const btnCloseProduct = article.querySelector(".btnCloseProduct");
-            //     const addProducts = article.querySelector(".cart");
-
-            //     addProducts.addEventListener("click", (e) => {
-            //         e.stopPropagation();
-            //         menuProduct.classList.add("is-open");
-            //         document.body.classList.add("modal-open");
-            //     });
-
-            //     btnCloseProduct.addEventListener("click", (e) => {
-            //         e.stopPropagation();
-            //         menuProduct.classList.remove("is-open");
-            //         document.body.classList.remove("modal-open");
-            //     });
-
-            //     article.addEventListener("click", (e) => {
-            //         if (e.target.classList.contains("icon")) return;
-            //         // window.location.href = `./views/products.html?id=${article.dataset.id}`;
-            //         window.location.href = `./views/products.html`;
-            //     });
-
-            //     menuProduct.addEventListener("click", (e) => e.stopPropagation());
-            //     menuProduct.querySelector("form").addEventListener("click", (e) => e.stopPropagation());
-
-
-            //     grid.appendChild(article);
-            // }
-
         } catch (error) {
             console.error("Failed to fetch products:", error);
         }
@@ -273,7 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
             article.addEventListener("click", (e) => {
                 if (e.target.classList.contains("icon")) return;
                 window.location.href = `./views/products.html?id=${article.dataset.id}`;
-                // window.location.href = `./views/products.html`;
             });
 
             menuProduct.addEventListener("click", (e) => e.stopPropagation());
