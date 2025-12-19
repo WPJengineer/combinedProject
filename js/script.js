@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         <div class="product">
                                             <div>
                                                 <img src="${p.product_image}" alt="foto-producto">
-                                                <button class="num-products"><span>-</span><span>1</span><span>+</span></button>
+                                                <button class="num-products"><span class="btnMinus">-</span><span class="quantity">1</span><span class="btnPlus">+</span></button>
                                                 <p class="price"><span>${Number(p.product_unit_price).toFixed(2)}</span>€</p>
                                             </div>
                                             <p>${p.product_name}</p>
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                             </div>
                                         </div>
                                         <div class="buttons">
-                                            <button class="button">Añadir a la cesta</button>
+                                            <button class="addToCart button">Añadir a la cesta</button>
                                             <button class="button">Comprar ahora</button>
                                         </div>
                                     </form>
@@ -164,6 +164,63 @@ document.addEventListener('DOMContentLoaded', () => {
             const menuProduct = article.querySelector(".menuProduct");
             const btnCloseProduct = article.querySelector(".btnCloseProduct");
             const addProducts = article.querySelector(".cart");
+            const btnMinus = article.querySelector('.btnMinus');
+            const btnPlus = article.querySelector('.btnPlus');
+            const quantity = article.querySelector('.quantity');
+            let total = parseInt(quantity.textContent, 10);
+            const addToCart = article.querySelector('.addToCart');
+
+            addToCart.addEventListener('click', (e) => {
+                e.preventDefault();
+                const quantity = +article.querySelector('.quantity').textContent;
+                //missing to chcek if logged in and add to shopping cart in backend.
+                const cart = getGuestCart();
+                const existingIndex = cart.findIndex(
+                    item => String(item.product_id) === String(p.product_id)
+                );
+            
+                if (existingIndex >= 0) {
+                    cart[existingIndex].quantity += quantity;
+                } else {
+                    cart.push({
+                        product_id: p.product_id,
+                        product_name: p.product_name,
+                        product_unit_price: Number(p.product_unit_price),
+                        product_image: p.product_image,
+                        quantity: quantity
+                    });
+                }
+            
+                saveGuestCart(cart);
+                //either close tab or redirect.
+                // window.location.href = '';
+            });
+
+            function getGuestCart() {
+                try {
+                    const items = localStorage.getItem("guestCart") ? JSON.parse(localStorage.getItem("guestCart")) : [];
+                    return Array.isArray(items) ? items : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function saveGuestCart(cart) {
+                localStorage.setItem("guestCart", JSON.stringify(cart));
+            }
+
+            btnMinus.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (total <= 1) return;
+                total--;
+                quantity.textContent = total;
+            });
+        
+            btnPlus.addEventListener('click', (e) => {
+                e.preventDefault();
+                total++;
+                quantity.textContent = total;
+            });
 
             addProducts.addEventListener("click", (e) => {
                 e.stopPropagation();

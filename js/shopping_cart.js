@@ -10,24 +10,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnLogin2 = document.querySelector('.user');
     let cart = [];
 
+
     //FUNCTIONS
 
-    async function getShoppingCart() {
-        // const cart = getGuestCart();
-        //check for logged in or not
-        //if logged in get info from backend
-        //if not logged in get info from localStorage
-        // if (cart.length === 0) return;
-        const shoppingCart = document.getElementById("shopping_cart");
+    function getGuestCart() {
         try {
-            const url = "https://remotehost.es/student014/shop/backend/endpoints/shopping_cart_frontend.php";
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
+            const raw = localStorage.getItem("guestCart");
+            const items = raw ? JSON.parse(raw) : [];
+            return Array.isArray(items) ? items : [];
+        } catch {
+            return [];
+        }
+    }
+
+    async function getShoppingCart() {
+
+        const shoppingCart = document.getElementById("shopping_cart");
+
+        try {
+            const user = await getSessionUser();
+            if (user.loggedIn) {
+                const url = "https://remotehost.es/student014/shop/backend/endpoints/shopping_cart_frontend.php";
+                const response = await fetch(url, { credentials: "include" });
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                const items = await response.json();
+                shoppingCart.innerHTML = "";
+                renderCart(items, shoppingCart);
+                return;
             }
-            const items = await response.json();
-            shoppingCart.innerHTML = "";
-            renderCart(items, shoppingCart);
+
+            const guestItems = getGuestCart();
+            if (guestItems.length === 0) {
+                shoppingCart.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+            renderCart(guestItems, shoppingCart);
         } catch (error) {
             console.error("Failed to fetch shopping cart:", error);
         }
