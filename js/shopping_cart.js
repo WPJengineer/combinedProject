@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const items = await response.json();
                 shoppingCart.innerHTML = "";
                 renderCart(items, shoppingCart);
+                attachListeners();
                 return;
             }
 
@@ -46,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 shoppingCart.innerHTML = "<p>Your cart is empty.</p>";
                 return;
             }
+            shoppingCart.innerHTML = "";
             renderCart(guestItems, shoppingCart);
+            attachListeners();
         } catch (error) {
             console.error("Failed to fetch shopping cart:", error);
         }
@@ -66,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = item.product_image;
             // this is prepared for when we use the categories
             // const tags = [
-            //     "M",
+            //     item.size,
             //     "Unisex",
             //     item.color
             // ].filter(Boolean).join(" ");
@@ -77,25 +80,106 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="actions">
                             <div class="btnQuantity">
-                                <button class="qty-minus" type="button">-</button>
-                                <span class="qty">${qty}</span>
-                                <button class="qty-plus" type="button">+</button>
+                                <button class="btnMinus">-</button>
+                                <span class="quantity">${qty}</span>
+                                <button class="btnPlus">+</button>
                             </div>
                             <div class="btnDelete">
                                 <img class="icon delete" src="../assets/iconos/delete_24dp_OFOFOF.png" alt="delete-icon">
                             </div>
                         </div>
                         <div class="price">
-                            <span>${(price * qty).toFixed(2)}€</span>
+                            <span class="product-subtotal">${(price * qty).toFixed(2)}€</span>
                         </div>
                         <div class="product-details">
                             <p class="product-name">${name}</p>
                             <p class="product-tags">Tags</p>
-                            <span>${price.toFixed(2)}€</span>
+                            <span class="product-price">${price.toFixed(2)}€</span>
                         </div>
                     </div>`;
         }).join("");
         container.insertAdjacentHTML("beforeend", html);
+    }
+
+    function attachListeners() {
+        document.querySelectorAll("#shopping_cart .product").forEach(product => {
+            const productId = product.dataset.productId;
+
+            const quantity = product.querySelector(".quantity");
+            const btnPlus = product.querySelector(".btnPlus");
+            const btnMinus = product.querySelector(".btnMinus");
+            const btnDelete = product.querySelector(".btnDelete");
+
+            btnPlus.addEventListener("click", () => {
+                const newTotal = Number(quantity.textContent) + 1;
+                quantity.textContent = newTotal;
+                updateQuantity(productId, newTotal);
+                updateSubtotal(product);
+                updateTotal();
+            });
+        
+            btnMinus.addEventListener("click", () => {
+                const qty = Number(quantity.textContent);
+                if (qty <= 1) return;
+                const newTotal = qty - 1;
+                quantity.textContent = newTotal;
+                updateQuantity(productId, newTotal);
+                updateSubtotal(product);
+                updateTotal();
+            });
+        
+            btnDelete.addEventListener("click", () => {
+                product.remove();
+                removeFromGuestCart(productId);
+                updateTotal();
+                const container = document.getElementById("shopping_cart");
+                if (container.querySelectorAll(".product").length === 0) {
+                    container.innerHTML = "<p>Your cart is empty.</p>";
+                }
+            });
+        });
+        updateTotal();
+    }
+
+    function updateQuantity(productId, quantity) {
+        const cart = getGuestCart();
+        const index = cart.findIndex(i => String(i.product_id) === String(productId));
+        if (index >= 0) {
+            cart[index].quantity = quantity;
+            localStorage.setItem("guestCart", JSON.stringify(cart));
+        }
+    }
+
+    function removeFromGuestCart(productId) {
+        const cart = getGuestCart();
+        const updatedCart = cart.filter(
+            item => String(item.product_id) !== String(productId)
+        );
+
+        if (updatedCart.length === 0) {
+            localStorage.removeItem("guestCart");
+        } else {
+            localStorage.setItem("guestCart", JSON.stringify(updatedCart));
+        }
+    }
+
+    function updateSubtotal(product) {
+        const quantity = +product.querySelector('.quantity').textContent;
+        const unitText = product.querySelector('.product-price')?.textContent || "0€";
+        const unitPrice = +unitText.replace("€", "").trim() || 0;
+        const subtotal = product.querySelector('.product-subtotal');
+        if (subtotal) {
+            subtotal.textContent = (quantity * unitPrice).toFixed(2) + "€";
+        }
+    }
+
+    function updateTotal() {
+       let total = 0;
+        document.querySelectorAll(".product-subtotal").forEach(product => {
+            total += +product.textContent.replace("€", "").trim();
+        });
+        const shoppingCartTotal = document.querySelector(".subtotal span");
+        if (shoppingCartTotal) shoppingCartTotal.textContent = total.toFixed(2) + "€";
     }
 
     //EVENTS

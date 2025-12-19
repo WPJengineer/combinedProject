@@ -6,79 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuFilters = document.querySelector(".menuFilters");
     const btnCloseMenu = document.querySelector("#btnCloseMenu");
     const btnCloseFilters = document.querySelector("#btnCloseFilters");
-    // const menuProduct = document.querySelectorAll(".menuProduct");
-    // const addProducts = document.querySelectorAll(".cart");
-    // const btnCloseProduct = document.querySelector("#btnCloseProduct");
     const btnLogin = document.querySelector('.btnLogin');
     const btnLogin2 = document.querySelector('.user');
     const btnShoppingCart = document.querySelector('.btnShoppingCart');
     const btnShoppingCart2 = document.querySelector('.btnShoppingCart2');
-    // const selectProduct = document.querySelectorAll('.article-card');
     const btnShowMore = document.querySelector(".mostrar");
     let allProducts = [];
     let visibleCount = 0;
     const PAGE_SIZE = 6;
 
-    // selectProduct.forEach(card => {
-    //     card.addEventListener('click', (e) => {
-    //         if (e.target.classList.contains("icon")) return;
-    //         window.location.href = "./views/products.html";
-    //     });
-    // });
-
-    btnMenu.addEventListener('click', () => {
-        menuPrincipal.style.display = "flex";
-    });
-
-    btnFilters.addEventListener('click', () => {
-        menuFilters.style.display = "flex";
-    });
-
-    // this will have e.target later to get each product on to the screen.
-    // menuProduct.forEach(btn => {
-    //     btn.addEventListener('click', () => {
-    //     btn.style.display = "flex";
-    //     });
-    // });
-
-    btnCloseMenu.addEventListener('click', () => {
-        menuPrincipal.style.display = "none";
-    });
-
-    btnCloseFilters.addEventListener('click', () => {
-        menuFilters.style.display = "none";
-    });
-
-    // to avoid issue with disappearing filters menu after resizing to desktop
-    window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768) {
-            menuPrincipal.style.display = "";
-        }
-
-        if (window.innerWidth >= 992) {
-            menuFilters.style.display = "";
-        }
-    });
-
-    // btnCloseProduct.addEventListener('click', () => {
-    //     menuProduct.style.display = "none";
-    // });
-
-    btnLogin.addEventListener('click', () => {
-        window.location.href = "/student014/shop/backend/forms/form_login.php";
-    });
-
-    btnLogin2.addEventListener('click', () => {
-        window.location.href = "/student014/shop/backend/forms/form_login.php";
-    });
-
-    btnShoppingCart.addEventListener('click', () => {
-        window.location.href = "./views/shopping_cart.html";
-    });
-
-    btnShoppingCart2.addEventListener('click', () => {
-        window.location.href = "./views/shopping_cart.html";
-    });
+    //FUNCTIONS
 
     async function getProducts() {
         const grid = document.getElementById("productsGrid");
@@ -192,8 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             
                 saveGuestCart(cart);
-                //either close tab or redirect.
-                // window.location.href = '';
+                closeMenuTab();
             });
 
             function getGuestCart() {
@@ -230,9 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             btnCloseProduct.addEventListener("click", (e) => {
                 e.stopPropagation();
+                closeMenuTab();
+            });
+
+            function closeMenuTab() {
                 menuProduct.classList.remove("is-open");
                 document.body.classList.remove("modal-open");
-            });
+            }
 
             article.addEventListener("click", (e) => {
                 if (e.target.classList.contains("icon")) return;
@@ -258,6 +198,52 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".mostrar").style.display = "none";
         }
     }
+
+    //EVENTS
+
+
+    btnMenu.addEventListener('click', () => {
+        menuPrincipal.style.display = "flex";
+    });
+
+    btnFilters.addEventListener('click', () => {
+        menuFilters.style.display = "flex";
+    });
+
+    btnCloseMenu.addEventListener('click', () => {
+        menuPrincipal.style.display = "none";
+    });
+
+    btnCloseFilters.addEventListener('click', () => {
+        menuFilters.style.display = "none";
+    });
+
+    // to avoid issue with disappearing filters menu after resizing to desktop
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+            menuPrincipal.style.display = "";
+        }
+
+        if (window.innerWidth >= 992) {
+            menuFilters.style.display = "";
+        }
+    });
+
+    btnLogin.addEventListener('click', () => {
+        window.location.href = "/student014/shop/backend/forms/form_login.php";
+    });
+
+    btnLogin2.addEventListener('click', () => {
+        window.location.href = "/student014/shop/backend/forms/form_login.php";
+    });
+
+    btnShoppingCart.addEventListener('click', () => {
+        window.location.href = "./views/shopping_cart.html";
+    });
+
+    btnShoppingCart2.addEventListener('click', () => {
+        window.location.href = "./views/shopping_cart.html";
+    });
 
     btnShowMore.addEventListener("click", () => {
         renderProducts();

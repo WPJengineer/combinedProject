@@ -24,10 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnLogin = document.querySelector('.btnLogin');
     const btnLogin2 = document.querySelector('.user');
     let total = parseInt(quantity.textContent, 10);
+    const addToCart = document.querySelector('.addToCart');
     const SCROLL_AMOUNT = 300;
-
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
+    let productData = null;
 
     if (!productId) {
         console.error("No product id provided");
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const products = await response.json();
             const product = products.find(p => String(p.product_id) === String(productId));
             if (!product) throw new Error("Product not found");
+            productData = product;
             renderProduct(product);
 
         } catch (err) {
@@ -61,7 +63,46 @@ document.addEventListener('DOMContentLoaded', () => {
             p.product_description ?? "";
     }
 
+    function getGuestCart() {
+        try {
+            const items = localStorage.getItem("guestCart") ? JSON.parse(localStorage.getItem("guestCart")) : [];
+            return Array.isArray(items) ? items : [];
+        } catch {
+            return [];
+        }
+    }
 
+    function saveGuestCart(cart) {
+        localStorage.setItem("guestCart", JSON.stringify(cart));
+    }
+
+
+
+    addToCart.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!productData) return;
+        const quantity = +document.querySelector('.quantity').textContent;
+        //missing to chcek if logged in and add to shopping cart in backend.
+        const cart = getGuestCart();
+        const existingIndex = cart.findIndex(
+            item => String(item.product_id) === String(productData.product_id)
+        );
+    
+        if (existingIndex >= 0) {
+            cart[existingIndex].quantity += quantity;
+        } else {
+            cart.push({
+                product_id: productData.product_id,
+                product_name: productData.product_name,
+                product_unit_price: Number(productData.product_unit_price),
+                product_image: productData.product_image,
+                quantity: quantity
+            });
+        }
+    
+        saveGuestCart(cart);
+        window.location.href = '../index.html';
+    });
 
     btnMenu.addEventListener('click', () => {
         menuHeader.style.display = "flex";
@@ -149,5 +190,5 @@ document.addEventListener('DOMContentLoaded', () => {
     btnLogin2.addEventListener('click', () => {
         window.location.href = "/student014/shop/backend/forms/form_login.php";
     });
-
+    
 });

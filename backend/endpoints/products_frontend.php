@@ -2,12 +2,14 @@
 
 header("Content-Type: application/json");
 
-// $product_name = $_GET['product_name'];
-
 $sql = "SELECT *
 FROM 014_products
--- WHERE product_name LIKE '%$product_name%'
 ;";
+
+if (isset($_GET['id']) && $_GET['id'] !== '') {
+  $product_id = $_GET['id'];
+  $sql .= " WHERE product_id = $product_id";
+}
 
 include('../config/db_config.php');
 
