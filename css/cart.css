@@ -127,6 +127,9 @@ header .icons div:nth-child(1), header .icons div:nth-child(2), header .icons di
     display: flex;
   }
 }
+header .icons:hover {
+  cursor: pointer;
+}
 @media (min-width: 768px) {
   header .icons {
     display: flex;

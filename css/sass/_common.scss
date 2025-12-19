@@ -105,12 +105,16 @@ header {
                 img {
                     display: none;
                 }
-                
+
                 span {
                     display: flex;
                 }
             }
 
+        }
+
+        &:hover {
+            cursor: pointer;
         }
 
         @media (min-width: 768px) {
