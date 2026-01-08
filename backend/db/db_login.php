@@ -36,9 +36,10 @@ if (mysqli_query($conn, $sql)) {
         }
 
         //for trials and then iteragrated properly later
-        $log = $backend . '/logs/log.txt';
+        $log = $backend . 'logs/log.txt';
         $handle = fopen($log, 'a');
-        fwrite($handle, "\n" . $_SESSION['customer_id'] . " " . $username . " " . "logged in" . " " . date() . " " . time());
+        $message = "\n" . $_SESSION['customer_id'] . " " . $username . " " . "logged in" . " " . date() . " " . time();
+        fwrite($handle, $message);
         fclose($handle);
         
     } else  {
