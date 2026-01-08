@@ -25,6 +25,17 @@ if (mysqli_query($conn, $sql)) {
         $_SESSION['userLastname'] = $row['lastname'];
         $_SESSION['customer_role'] = $row['customer_role'];
 
+        //for trials and then intergrated properly later
+        $log = $backend . 'logs/log.txt';
+        $handle = fopen($log, 'a');
+        if (!$handle) {
+            echo "Cannot open log file";
+        } else {
+            $message = "\n" . $_SESSION['customer_id'] . " " . $username . " " . "logged in" . " " . date('Y-m-d H:i:s');
+            fwrite($handle, $message);
+            fclose($handle);
+        }
+
         if ($_SESSION['customer_role'] === "admin") {
             // admin so go to admin panel
             header("Location: /student014/shop/backend/index.php");
@@ -34,13 +45,6 @@ if (mysqli_query($conn, $sql)) {
             header("Location: /student014/shop/backend/products.php");
             exit();
         }
-
-        //for trials and then iteragrated properly later
-        $log = $backend . 'logs/log.txt';
-        $handle = fopen($log, 'a');
-        $message = "\n" . $_SESSION['customer_id'] . " " . $username . " " . "logged in" . " " . date() . " " . time();
-        fwrite($handle, $message);
-        fclose($handle);
         
     } else  {
         echo 
