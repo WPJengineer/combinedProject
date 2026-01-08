@@ -34,6 +34,12 @@ if (mysqli_query($conn, $sql)) {
             header("Location: /student014/shop/backend/products.php");
             exit();
         }
+
+        //for trials and then iteragrated properly later
+        $log = 'log.txt';
+        $handle = fopen($log, 'a');
+        fwrite($handle, "\n" . $_SESSION['customer_id'] . " " . $username . " " . "logged in" . " " . date() . " " . time());
+        fclose($handle);
         
     } else  {
         echo 
