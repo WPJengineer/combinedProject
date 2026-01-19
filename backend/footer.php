@@ -1,11 +1,11 @@
 <footer class="bg-light text-center p-6">
     <div class="copyright">&copy; 2025 TeamWear. All Rights Reserved.</div>
-    <div>
-        <button onclick="getLocalWeather();">click me</button>
+    <!-- <div>
+        <button onclick="getLocation(); getLocalWeather();">click me</button>
     </div>
     <script>
+        const apiKey = 'zpka_0c52a288c0d7420b9a9acf1bc51cf5d0_8a04fb91';
         function getLocation() {
-            const apiKey = 'zpka_0c52a288c0d7420b9a9acf1bc51cf5d0_8a04fb91';
             const options = {method: 'GET', headers: {Authorization: 'Bearer ' + apiKey}};
             fetch('https://dataservice.accuweather.com/locations/v1/cities/search?q=maó', options)
                 .then(response => response.json())
@@ -21,7 +21,7 @@
                 .catch(err => console.error(err));
         }
         
-    </script>
+    </script> -->
 </footer>
 <script src="/student014/shop/js/backendScript.js"></script>
 </body>

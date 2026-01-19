@@ -18,6 +18,7 @@
                     echo '<li class="button"><a href="./reviews.php">Reviews</a></li>';
                 // }
                 ?>
+                <li class="button"><a href="./sandbox.php">Sandbox</a></li>
             </ul>
         </nav>
     </div>
