@@ -16,10 +16,19 @@
 // curl_close($ch);
 // echo $result;
 
-//  http://localhost/student022/sandbox/apiSandbox/endpointSendVendorJosh.php
+// make a function that runs all in a for loop to retrieve all products from all the urls.
 
-$url = 'https://remotehost.es/student022/sandbox/apiSandbox/endpointSendVendorJosh.php';
-$apiKey = '10203040F';
+// nicki
+// $url = 'https://remotehost.es/student022/sandbox/apiSandbox/endpointSendVendorJosh.php';
+// $apiKey = '10203040F';
+// josep
+$url = 'https://remotehost.es/student012/shop/backend/endpoints/seller_products.php';
+$apiKey = '12345josep';
+// alan
+// $url = 'https://remotehost.es/student024/Shop/backend/endpoints/sellers/sellers_products.php';
+// $apiKey = 'e888b918-330e-43c5-a103-111d57a4a28f';
+
+
 $ch = curl_init();
 $data = array(
 	'apiKey' => $apiKey
@@ -39,7 +48,17 @@ if ($result === false) {
     exit('Sorry! An error occurred.');
 }
 curl_close($ch);
-echo $result;
+// echo $result;
+
+$test = json_decode($result, true);
+foreach ($test as $key => $value) {
+    // print_r($value);
+    print_r($value["product_id"] . "\n");
+    print_r($value["image_path"] . "\n");
+    print_r($value["product_name"] . "\n");
+    print_r($value["description"] . "\n");
+    print_r($value["unit_price"] . "\n");
+}
 
 
 ?>
