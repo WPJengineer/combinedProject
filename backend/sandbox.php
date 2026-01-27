@@ -19,14 +19,15 @@
 // make a function that runs all in a for loop to retrieve all products from all the urls.
 
 //josh
-// $url = 'https://remotehost.es/student022/backend/endpoint/product_seller.php';
+$url = 'https://remotehost.es/student014/shop/backend/endpoints/product_seller.php';
+$apiKey = '12345josh';
 
 // niki
 // $url = 'https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php';
 // $apiKey = '10203040F';
 // josep
-$url = 'https://remotehost.es/student012/shop/backend/endpoints/seller_products.php';
-$apiKey = '12345josep';
+// $url = 'https://remotehost.es/student012/shop/backend/endpoints/seller_products.php';
+// $apiKey = '12345josep';
 // alan
 // $url = 'https://remotehost.es/student024/Shop/backend/endpoints/sellers/sellers_products.php';
 // $apiKey = 'e888b918-330e-43c5-a103-111d57a4a28f';
