@@ -18,8 +18,11 @@
 
 // make a function that runs all in a for loop to retrieve all products from all the urls.
 
-// nicki
-// $url = 'https://remotehost.es/student022/sandbox/apiSandbox/endpointSendVendorJosh.php';
+//josh
+// $url = 'https://remotehost.es/student022/backend/endpoint/product_seller.php';
+
+// niki
+// $url = 'https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php';
 // $apiKey = '10203040F';
 // josep
 $url = 'https://remotehost.es/student012/shop/backend/endpoints/seller_products.php';
@@ -32,6 +35,7 @@ $apiKey = '12345josep';
 $ch = curl_init();
 $data = array(
 	'apiKey' => $apiKey
+    // 'api_key' => $apiKey // alan apikey.
 );
 $payload = json_encode($data);
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -48,17 +52,22 @@ if ($result === false) {
     exit('Sorry! An error occurred.');
 }
 curl_close($ch);
-// echo $result;
+echo $result;
 
-$test = json_decode($result, true);
-foreach ($test as $key => $value) {
-    // print_r($value);
-    print_r($value["product_id"] . "\n");
-    print_r($value["image_path"] . "\n");
-    print_r($value["product_name"] . "\n");
-    print_r($value["description"] . "\n");
-    print_r($value["unit_price"] . "\n");
-}
+// $keys = ['product_name','product_price'];
+// $new_array=[];
+// $test = json_decode($result, true);
+// foreach ($test as $key => $value) {
+//     if(in_array($key,$keys)) {
+//     $new_array[$key]=$value;
+//     }
+
+//     print_r("product id: " . $value["product_id"] . " ");
+//     print_r("product name: " . $value["product_name"] . " ");
+//     print_r("product price: " . $value["unit_price"] . " ");
+// }
+
+// json_encode($new_array, JSON_PRETTY_PRINT, JSON_UNESCAPED_UNICODE)
 
 
 ?>
