@@ -20,7 +20,7 @@
 
 //josh
 $url = 'https://remotehost.es/student014/shop/backend/endpoints/product_seller.php';
-$apiKey = '12345josh';
+$apiKey = '12345josep';
 
 // niki
 // $url = 'https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php';
@@ -33,19 +33,18 @@ $apiKey = '12345josh';
 // $apiKey = 'e888b918-330e-43c5-a103-111d57a4a28f';
 
 
-$ch = curl_init();
+$ch = curl_init($url);
 $data = array(
 	'apiKey' => $apiKey
-    // 'api_key' => $apiKey // alan apikey.
 );
 $payload = json_encode($data);
-curl_setopt($ch, CURLOPT_URL, $url);
+// curl_setopt($ch, CURLOPT_URL, $url);
 
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'X-API-KEY: ' . $apiKey));
 // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 $result = curl_exec($ch);
 if ($result === false) {
