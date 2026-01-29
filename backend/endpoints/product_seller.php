@@ -2,51 +2,15 @@
 
 header("Content-Type: application/json");
 
-// $url = 'https://remotehost.es/student022/backend/sandbox.php';
-
-// $raw = file_get_contents("php://input");
-// $data = json_decode($raw, true);
-
-// $key = $data['apiKey'];
-
-// echo $key;
-
-// Get apiKey
 $apiKey = $_SERVER['HTTP_X_API_KEY'] ?? null;
 
-// echo $apiKey;
-
-// $data = array(
-// 	'apiKey' => $apiKey
-// );
-
-// $ch = curl_init($url);
-// // curl_setopt($ch,CURLOPT_URL, $url);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// // curl_setopt($ch, CURLOPT_POST, true);
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-// $result = curl_exec($ch);
-// curl_close($ch);
-
-// echo $result;
-
-// $apiKey =
-// $_SERVER['HTTP_APIKEY'] ??
-// '12345josh';
-// $_POST['apiKey'];
-// $test = $_POST['apiKey'];
-// echo $test;
-
-// echo json_encode([
-//     'received_api_key' => $apiKey
-// ]);
-// exit;
-
-$headers = getallheaders();
-echo json_encode($headers);
-exit;
-
+if (!$apiKey) {
+  http_response_code(401);
+  echo json_encode([
+    "error" => "Missing X-API-KEY header"
+  ]);
+  exit;
+}
 
 $sql = "SELECT product_id
 FROM `014_seller_products`
@@ -67,4 +31,23 @@ if (mysqli_num_rows($result) > 0) {
 echo json_encode($products);
 mysqli_close($conn);
 exit;
+ // -----------------------------
+
+ // trial
+// header('Content-Type: application/json; charset=utf-8');
+// require_once('../config/db_config.php');
+
+// $apiKey = $_SERVER['HTTP_X_API_KEY'] ?? '';
+
+// $stmt = mysqli_prepare($conn, "SELECT seller_id, seller_name, api_key FROM 014_sellers WHERE api_key = ?");
+// mysqli_stmt_bind_param($stmt, "s", $apiKey);
+// mysqli_stmt_execute($stmt);
+// $res = mysqli_stmt_get_result($stmt);
+// $seller = mysqli_fetch_assoc($res);
+
+// echo json_encode([
+//   "received_api_key" => $apiKey,
+//   "matched_seller" => $seller
+// ]);
+// exit;
 ?>

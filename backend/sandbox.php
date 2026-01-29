@@ -20,7 +20,7 @@
 
 //josh
 $url = 'https://remotehost.es/student014/shop/backend/endpoints/product_seller.php';
-$apiKey = '12345josep';
+$apiKey = '12345josh';
 
 // niki
 // $url = 'https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php';
@@ -41,7 +41,7 @@ $payload = json_encode($data);
 // curl_setopt($ch, CURLOPT_URL, $url);
 
 curl_setopt($ch, CURLOPT_POST, true);
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'X-API-KEY: ' . $apiKey));
@@ -69,5 +69,28 @@ echo $result;
 
 // json_encode($new_array, JSON_PRETTY_PRINT, JSON_UNESCAPED_UNICODE)
 
+// -----------------------------------
 
+// trial
+// $url = "https://remotehost.es/student014/shop/backend/endpoints/product_seller.php";
+// $apiKey = "12345josh";
+
+// $ch = curl_init($url);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_HTTPGET, true);
+// curl_setopt($ch, CURLOPT_HTTPHEADER, [
+//     "X-API-KEY: $apiKey",
+//     "Accept: application/json"
+// ]);
+
+// $response = curl_exec($ch);
+
+// if ($response === false) {
+//     echo "cURL error: " . curl_error($ch);
+// } else {
+//     echo $response;
+// }
+
+// curl_close($ch);
 ?>
