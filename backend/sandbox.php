@@ -16,81 +16,54 @@
 // curl_close($ch);
 // echo $result;
 
+// ----------------- weather api to be resolved later.
+
 // make a function that runs all in a for loop to retrieve all products from all the urls.
 
-//josh
-$url = 'https://remotehost.es/student014/shop/backend/endpoints/product_seller.php';
-$apiKey = '12345josh';
-
-// niki
-// $url = 'https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php';
-// $apiKey = '10203040F';
-// josep
-// $url = 'https://remotehost.es/student012/shop/backend/endpoints/seller_products.php';
-// $apiKey = '12345josep';
 // alan
 // $url = 'https://remotehost.es/student024/Shop/backend/endpoints/sellers/sellers_products.php';
 // $apiKey = 'e888b918-330e-43c5-a103-111d57a4a28f';
 
 
-$ch = curl_init($url);
-$data = array(
-	'apiKey' => $apiKey
-);
-$payload = json_encode($data);
-// curl_setopt($ch, CURLOPT_URL, $url);
-
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'X-API-KEY: ' . $apiKey));
-// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-$result = curl_exec($ch);
-if ($result === false) {
-    error_log('cURL Error: ' . curl_error($ch));
-    exit('Sorry! An error occurred.');
-}
-curl_close($ch);
-echo $result;
-
-// $keys = ['product_name','product_price'];
-// $new_array=[];
-// $test = json_decode($result, true);
-// foreach ($test as $key => $value) {
-//     if(in_array($key,$keys)) {
-//     $new_array[$key]=$value;
-//     }
-
-//     print_r("product id: " . $value["product_id"] . " ");
-//     print_r("product name: " . $value["product_name"] . " ");
-//     print_r("product price: " . $value["unit_price"] . " ");
-// }
 
 // json_encode($new_array, JSON_PRETTY_PRINT, JSON_UNESCAPED_UNICODE)
 
 // -----------------------------------
 
 // trial
-// $url = "https://remotehost.es/student014/shop/backend/endpoints/product_seller.php";
-// $apiKey = "12345josh";
 
-// $ch = curl_init($url);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// curl_setopt($ch, CURLOPT_HTTPGET, true);
-// curl_setopt($ch, CURLOPT_HTTPHEADER, [
-//     "X-API-KEY: $apiKey",
-//     "Accept: application/json"
-// ]);
 
-// $response = curl_exec($ch);
+// niki
+// $apiKeyNiki = '10203040F';
+// $url = "https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php?apikey=$apiKeyNiki";
+// $apiKey = "12345josep";
+$apiKeyJosep = "525b16b0-2b14-49b6-b4ed-3646c299c0ef";
+// $url = "https://remotehost.es/student014/shop/backend/endpoints/product_seller.php?apikey=$apiKeyp";
+// josep
+$url = "https://remotehost.es/student012/shop/backend/endpoints/seller_products.php?apikey=$apiKeyJosep";
 
-// if ($response === false) {
-//     echo "cURL error: " . curl_error($ch);
-// } else {
-//     echo $response;
-// }
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-// curl_close($ch);
+$result = curl_exec($ch);
+
+if ($result === false) {
+    echo "cURL error: " . curl_error($ch);
+} else {
+    $keys = ['product_id','product_name','unit_price','image_path'];
+    $new_array=[];
+    $test = json_decode($result, true);
+    foreach ($test as $key => $value) {
+        if(in_array($key,$keys)) {
+            $new_array[$key]=$value;
+        }
+
+        print_r("product id: " . $value["product_id"] . " ");
+        print_r("product name: " . $value["product_name"] . " ");
+        print_r("product price: " . $value["unit_price"] . " ");
+}
+}
+
+curl_close($ch);
 ?>
