@@ -30,8 +30,9 @@
 
 // -----------------------------------
 
-// trial
-
+// need to put into an array so we can use a for loop to go through all of our suppliers to get fetch their products
+// option to either hardcore here in php or better approach is go fetch all from the database and fill out that array.
+// because each supplier has a different scheme for their naming convention have to build function for each supplier and call that function when we have that supplier as the key of the array.
 
 // niki
 // $apiKeyNiki = '10203040F';
@@ -51,18 +52,19 @@ $result = curl_exec($ch);
 if ($result === false) {
     echo "cURL error: " . curl_error($ch);
 } else {
-    $keys = ['product_id','product_name','unit_price','image_path'];
-    $new_array=[];
-    $test = json_decode($result, true);
-    foreach ($test as $key => $value) {
-        if(in_array($key,$keys)) {
-            $new_array[$key]=$value;
-        }
+    echo $result;
+    // $keys = ['product_id','product_name','unit_price','image_path'];
+    // $new_array=[];
+    // $test = json_decode($result, true);
+    // foreach ($test as $key => $value) {
+    //     if(in_array($key,$keys)) {
+    //         $new_array[$key]=$value;
+    //     }
 
-        print_r("product id: " . $value["product_id"] . " ");
-        print_r("product name: " . $value["product_name"] . " ");
-        print_r("product price: " . $value["unit_price"] . " ");
-}
+    //     print_r("product id: " . $value["product_id"] . " ");
+    //     print_r("product name: " . $value["product_name"] . " ");
+    //     print_r("product price: " . $value["unit_price"] . " ");
+// }
 }
 
 curl_close($ch);
