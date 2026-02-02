@@ -47,7 +47,15 @@ $apiKey = $_GET['apikey'];
 //   exit;
 // }
 
-$sql = "SELECT *
+$sql = "SELECT
+    product_id AS product_id,
+	  product_name AS product_name,
+    product_image AS product_image, 
+    product_unit_price AS product_price,
+    product_desc AS product_desc,
+    product_color AS product_color,
+	  stock AS product_stock,
+	  size AS product_size
 FROM `014_products`
 WHERE product_id IN (
     SELECT p.product_id

@@ -53,7 +53,7 @@ if ($result === false) {
     echo "cURL error: " . curl_error($ch);
 } else {
     echo $result;
-    // $keys = ['product_id','product_name','unit_price','image_path'];
+    // $keys = ['product_id','product_name','product_image','product_price','product_desc','product_color','product_stock','product_size'];
     // $new_array=[];
     // $test = json_decode($result, true);
     // foreach ($test as $key => $value) {
