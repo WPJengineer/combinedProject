@@ -33,6 +33,25 @@
 // need to put into an array so we can use a for loop to go through all of our suppliers to get fetch their products
 // option to either hardcore here in php or better approach is go fetch all from the database and fill out that array.
 // because each supplier has a different scheme for their naming convention have to build function for each supplier and call that function when we have that supplier as the key of the array.
+// header('Content-Type: application/json; charset=utf-8');
+include('./config/db_config.php');
+
+$sql = "SELECT *
+FROM `014_sellers`;";
+
+$result = mysqli_query($conn, $sql);
+
+$sellers = [];
+
+if (mysqli_num_rows($result) > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+    $sellers[] = $row;
+  }
+}
+
+echo json_encode($sellers);
+
+mysqli_close($conn);
 
 // niki
 // $apiKeyNiki = '10203040F';
