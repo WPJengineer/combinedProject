@@ -37,41 +37,67 @@
 include('./config/db_config.php');
 
 $sql = "SELECT *
-FROM `014_sellers`;";
+FROM `014_vendors`;";
 
 $result = mysqli_query($conn, $sql);
 
-$sellers = [];
+$vendors = [];
 
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
-    $sellers[] = $row;
+    $vendors[] = $row;
   }
 }
 
-echo json_encode($sellers);
+foreach ($vendors as $vendor) {
+
+  // echo json_encode($vendor["vendor_id"]);
+  // echo json_encode($vendor["vendor_name"]);
+  $apiKey = json_encode($vendor["api_key"]);
+  // echo stripslashes(json_encode($vendor["api_key"]));
+  // echo stripslashes(json_encode($vendor["api_endpoint_products"]));
+  $url = stripslashes(json_encode($vendor["api_endpoint_products"]))
+  //  . "?apikey=$apiKey"
+   ;
+  echo $url;
+  getProductsFromSuppliers($apiKey, $url);
+}
 
 mysqli_close($conn);
+
+function getProductsFromSuppliers($apiKey, $url) {
+  $ch = curl_init($url);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $result = curl_exec($ch);
+
+  if ($result === false) {
+    echo "cURL error: " . curl_error($ch);
+  } else {
+    echo $result;
+  }
+  curl_close($ch);
+}
 
 // niki
 // $apiKeyNiki = '10203040F';
 // $url = "https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php?apikey=$apiKeyNiki";
 // $apiKey = "12345josep";
-$apiKeyJosep = "525b16b0-2b14-49b6-b4ed-3646c299c0ef";
+// $apiKeyJosep = "525b16b0-2b14-49b6-b4ed-3646c299c0ef";
 // $url = "https://remotehost.es/student014/shop/backend/endpoints/product_seller.php?apikey=$apiKeyp";
 // josep
-$url = "https://remotehost.es/student012/shop/backend/endpoints/seller_products.php?apikey=$apiKeyJosep";
+// $url = "https://remotehost.es/student012/shop/backend/endpoints/seller_products.php?apikey=$apiKeyJosep";
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// $ch = curl_init($url);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-$result = curl_exec($ch);
+// $result = curl_exec($ch);
 
-if ($result === false) {
-    echo "cURL error: " . curl_error($ch);
-} else {
-    echo $result;
+// if ($result === false) {
+//     echo "cURL error: " . curl_error($ch);
+// } else {
+    // echo $result;
     // $keys = ['product_id','product_name','product_image','product_price','product_desc','product_color','product_stock','product_size'];
     // $new_array=[];
     // $test = json_decode($result, true);
@@ -84,7 +110,7 @@ if ($result === false) {
     //     print_r("product name: " . $value["product_name"] . " ");
     //     print_r("product price: " . $value["unit_price"] . " ");
 // }
-}
+// }
 
-curl_close($ch);
+// curl_close($ch);
 ?>
