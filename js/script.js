@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnShoppingCart = document.querySelector('.btnShoppingCart');
     const btnShoppingCart2 = document.querySelector('.btnShoppingCart2');
     const btnShowMore = document.querySelector(".mostrar");
+    const btnDwec = document.querySelector(".btnDwec");
     let allProducts = [];
     let visibleCount = 0;
     const PAGE_SIZE = 6;
@@ -249,4 +250,8 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProducts();
     });
 
+
+    btnDwec.addEventListener('click', () => {
+        window.location.href = "../joc-dwec/index.html";
+    })
 });
