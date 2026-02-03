@@ -252,6 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     btnDwec.addEventListener('click', () => {
-        window.location.href = "../joc-dwec/index.html";
+        window.location.href = "/student014/shop/joc-dwec";
     })
 });
