@@ -51,11 +51,9 @@ if (mysqli_num_rows($result) > 0) {
 
 foreach ($vendors as $vendor) {
   // echo json_encode($vendor["vendor_id"]);
-  // echo json_encode($vendor["vendor_name"]);
+  echo json_encode($vendor["vendor_name"]);
   $apiKey = $vendor["api_key"];
-  echo $apiKey;
-  $url = $vendor["api_endpoint_products"];
-  // echo $url;
+  $url = $vendor["api_endpoint_products"] . "?apikey=" . $apiKey;
   getProductsFromSuppliers($apiKey, $url);
   echo "**************************";
 }
