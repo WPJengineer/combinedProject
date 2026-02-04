@@ -70,6 +70,9 @@ function getProductsFromSuppliers($apiKey, $url) {
     echo "cURL error: " . curl_error($ch);
   } else {
     echo $result;
+    // code goes here to add info to database.
+    $sql = "INSERT INTO ()
+    VALUES ()";
   }
   curl_close($ch);
 }
