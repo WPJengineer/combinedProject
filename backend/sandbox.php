@@ -50,17 +50,14 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 foreach ($vendors as $vendor) {
-
   // echo json_encode($vendor["vendor_id"]);
   // echo json_encode($vendor["vendor_name"]);
-  $apiKey = json_encode($vendor["api_key"]);
-  // echo stripslashes(json_encode($vendor["api_key"]));
-  // echo stripslashes(json_encode($vendor["api_endpoint_products"]));
-  $url = stripslashes(json_encode($vendor["api_endpoint_products"]))
-  //  . "?apikey=$apiKey"
-   ;
-  echo $url;
+  $apiKey = $vendor["api_key"];
+  echo $apiKey;
+  $url = $vendor["api_endpoint_products"];
+  // echo $url;
   getProductsFromSuppliers($apiKey, $url);
+  echo "**************************";
 }
 
 mysqli_close($conn);

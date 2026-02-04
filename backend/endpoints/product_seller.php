@@ -5,14 +5,6 @@ require_once('../config/db_config.php');
 
 $apiKey = $_GET['apikey'];
 
-// if (!$apiKey) {
-//   http_response_code(403);
-//   echo json_encode([
-//     "error" => "Emotional Damage!"
-//   ]);
-//   exit;
-// }
-
 $sql = "SELECT
     product_id AS product_id,
 	  product_name AS product_name,
@@ -33,8 +25,6 @@ WHERE product_id IN (
     )
 );";
 
-
-
 $result = mysqli_query($conn, $sql);
 
 $products = [];
@@ -49,8 +39,6 @@ if (mysqli_num_rows($result) > 0) {
     "error" => "Emotional Damage!"
   ]);
 }
-
-
 
 echo json_encode($products);
 mysqli_close($conn);
