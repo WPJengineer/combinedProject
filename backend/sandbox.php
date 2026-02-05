@@ -61,7 +61,7 @@ function getProductsFromSuppliers($conn, $vendorId, $apiKey, $url) {
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $result = curl_exec($ch);
-
+echo $result;
   if ($result === false) {
     echo "cURL error: " . curl_error($ch);
   } else {
@@ -71,7 +71,7 @@ function getProductsFromSuppliers($conn, $vendorId, $apiKey, $url) {
     $stmt = $conn->prepare($sql);
 
     foreach ($products as $product) {
-      $productName = $product['product_name'] ?? $product['product_img'] ?? null;
+      $productName = $product['product_name'] ?? null;
       $productPrice = $product['product_price'] ?? 0;
       $productImage = $product['product_image'] ?? null;
       $productDesc = $product['product_desc'] ?? null;
@@ -101,38 +101,4 @@ function getProductsFromSuppliers($conn, $vendorId, $apiKey, $url) {
   curl_close($ch);
 }
 
-// niki
-// $apiKeyNiki = '10203040F';
-// $url = "https://remotehost.es/student022/backend/apis/suppliers/api_endpoint_call_products.php?apikey=$apiKeyNiki";
-// $apiKey = "12345josep";
-// $apiKeyJosep = "525b16b0-2b14-49b6-b4ed-3646c299c0ef";
-// $url = "https://remotehost.es/student014/shop/backend/endpoints/product_seller.php?apikey=$apiKeyp";
-// josep
-// $url = "https://remotehost.es/student012/shop/backend/endpoints/seller_products.php?apikey=$apiKeyJosep";
-
-// $ch = curl_init($url);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-// $result = curl_exec($ch);
-
-// if ($result === false) {
-//     echo "cURL error: " . curl_error($ch);
-// } else {
-    // echo $result;
-    // $keys = ['product_id','product_name','product_image','product_price','product_desc','product_color','product_stock','product_size'];
-    // $new_array=[];
-    // $test = json_decode($result, true);
-    // foreach ($test as $key => $value) {
-    //     if(in_array($key,$keys)) {
-    //         $new_array[$key]=$value;
-    //     }
-
-    //     print_r("product id: " . $value["product_id"] . " ");
-    //     print_r("product name: " . $value["product_name"] . " ");
-    //     print_r("product price: " . $value["unit_price"] . " ");
-// }
-// }
-
-// curl_close($ch);
 ?>

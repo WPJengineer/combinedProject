@@ -5,6 +5,9 @@ require_once('../config/db_config.php');
 
 $apiKey = $_GET['apikey'];
 
+$sql = "
+";
+
 // has to be an insert into orders table after we check the apikey corresponds to a seller.
 $sql = "";
 

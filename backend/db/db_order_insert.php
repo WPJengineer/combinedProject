@@ -27,7 +27,21 @@ WHERE sc.customer_id = $customer_id";
 
 // need to send order of products from suppliers to suppliers here.
 // vendor_id 0 is local customers.
+$sendOrder =
+            "SELECT o.product_id, product_quantity, customer_forename, customer_surname, customer_nif, customer_email, customer_phone, customer_address, customer_location, customer_country, customer_zip
+            FROM `014_orders` AS o
+            INNER JOIN `014_products` AS p ON o.product_id = p.product_id
+            WHERE p.vendor_id <> 0;";
 
+$result = mysqli_query($conn, $sendOrder);
+
+$order = [];
+
+if (mysqli_num_rows($result) > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+    $order[] = $row;
+  }
+}
 
 // execute query
 if (mysqli_query($conn, $sql)) {
