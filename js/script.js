@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
             article.className = "article-card";
             article.dataset.id = p.product_id;
             article.style.backgroundImage = `url("${p.product_image}")`;
-            article.innerHTML = `<img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+            article.innerHTML = `<button>
+                                    <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+                                </button>
                                 <div class="bottom-overlay">
                                     <div>
                                         <h4>${p.product_name}</h4>

@@ -61,6 +61,11 @@ header {
     background-color: var(--light);
 }
 
+header button {
+    border: none;
+    background-color: var(--light);
+}
+
 .icons {
     display: flex;
 }
@@ -69,7 +74,7 @@ header {
     display: none;
 }
 
-.icons img:nth-child(1), .icons img:nth-child(2), .icons img:nth-child(3), .icons img:nth-child(4) {
+.icons .icon-item img:nth-child(1), .icons .icon-item img:nth-child(2), .icons .icon-item img:nth-child(3), .icons .icon-item img:nth-child(4) {
     display: none;
 }
 
@@ -87,6 +92,10 @@ header {
 
 .icon-item:hover {
     cursor: pointer;
+}
+
+header a {
+    color: var(--dark);
 }
 
 /*     MENU HEADER     */
@@ -519,7 +528,7 @@ footer a {
 
 @media (min-width: 768px) {
 
-    .icons img:nth-child(1), .icons img:nth-child(2), .icons img:nth-child(3), .icons img:nth-child(4) {
+    .icons .icon-item img:nth-child(1), .icons .icon-item img:nth-child(2), .icons .icon-item img:nth-child(3), .icons .icon-item img:nth-child(4) {
         display: initial;
     }
 
@@ -535,7 +544,7 @@ footer a {
         width: 40px;
     }
 
-    header nav {
+    button {
         display: none;
     }
 
@@ -616,7 +625,7 @@ footer a {
     }
 
     .icons .icon-item img {
-        display: none;
+        display: none !important;
     }
 
     .icons .icon-item span {
