@@ -30,9 +30,6 @@
 
 // -----------------------------------
 
-// need to put into an array so we can use a for loop to go through all of our suppliers to get fetch their products
-// option to either hardcore here in php or better approach is go fetch all from the database and fill out that array.
-// because each supplier has a different scheme for their naming convention have to build function for each supplier and call that function when we have that supplier as the key of the array.
 // header('Content-Type: application/json; charset=utf-8');
 include('./config/db_config.php');
 
@@ -50,17 +47,16 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 foreach ($vendors as $vendor) {
-  // echo json_encode($vendor["vendor_id"]);
-  echo json_encode($vendor["vendor_name"]);
+  // echo json_encode($vendor["vendor_name"]);
+  $vendorId = $vendor["vendor_id"];
   $apiKey = $vendor["api_key"];
   $url = $vendor["api_endpoint_products"] . "?apikey=" . $apiKey;
-  getProductsFromSuppliers($apiKey, $url);
-  echo "**************************";
+  getProductsFromSuppliers($conn, $vendorId, $apiKey, $url);
 }
 
 mysqli_close($conn);
 
-function getProductsFromSuppliers($apiKey, $url) {
+function getProductsFromSuppliers($conn, $vendorId, $apiKey, $url) {
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -69,10 +65,38 @@ function getProductsFromSuppliers($apiKey, $url) {
   if ($result === false) {
     echo "cURL error: " . curl_error($ch);
   } else {
-    echo $result;
-    // code goes here to add info to database.
-    $sql = "INSERT INTO ()
-    VALUES ()";
+    $products = json_decode($result, true);
+    $sql = "INSERT INTO `014_products` (product_name, product_unit_price, product_image, product_desc, stock, size, product_color, vendor_id, product_code)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+
+    foreach ($products as $product) {
+      $productName = $product['product_name'] ?? $product['product_img'] ?? null;
+      $productPrice = $product['product_price'] ?? 0;
+      $productImage = $product['product_image'] ?? null;
+      $productDesc = $product['product_desc'] ?? null;
+      $productStock = $product['product_stock'] ?? 0;
+      $productSize = $product['product_size'] ?? null;
+      $productColor = $product['product_color'] ?? null;
+      $productCode = $product['product_id'] ?? null;
+      // $sql = "INSERT INTO `014_products` (product_name, product_unit_price, product_image, product_desc, stock, size, product_color, vendor_id, product_code)
+      // VALUES ('$productName', '$productPrice', '$productImage', '$productDesc', '$productStock', '$productSize', '$productColor', '$vendorId', '$productCode');";
+      // mysqli_query($conn, $sql);
+      $stmt->bind_param(
+        "sdssissii",
+        $productName,
+        $productPrice,
+        $productImage,
+        $productDesc,
+        $productStock,
+        $productSize,
+        $productColor,
+        $vendorId,
+        $productCode
+      );
+    
+      $stmt->execute();
+    }
   }
   curl_close($ch);
 }

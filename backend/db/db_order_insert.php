@@ -25,6 +25,9 @@ FROM `014_shopping_cart` AS sc
 INNER JOIN `014_products` AS p ON p.product_id = sc.product_id
 WHERE sc.customer_id = $customer_id";
 
+// need to send order of products from suppliers to suppliers here.
+
+
 // execute query
 if (mysqli_query($conn, $sql)) {
     // delete from shopping cart.
