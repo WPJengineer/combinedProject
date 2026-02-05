@@ -10,13 +10,27 @@ function App() {
   const [eleccionDos, setEleccionDos] = useState(null);
   const [deshabilitado, setDeshabilitado] = useState(false);
 
+  // need to get this from our assets.
   const imagenesCartas = [
-    { "src": "/img/white.png", "encontrada": false },
-    { "src": "/img/orange.png", "encontrada": false  },
-    { "src": "/img/grey.png", "encontrada": false  },
-    { "src": "/img/black.png", "encontrada": false  },
-    { "src": "/img/green.png", "encontrada": false  },
-    { "src": "/img/hat.png", "encontrada": false  }
+    { "src": "/img/bug.png", "encontrada": false },
+    { "src": "/img/dark.png", "encontrada": false  },
+    { "src": "/img/dragon.png", "encontrada": false  },
+    { "src": "/img/electric.png", "encontrada": false  },
+    { "src": "/img/fairy.png", "encontrada": false  },
+    { "src": "/img/fighting.png", "encontrada": false  },
+    { "src": "/img/fire.png", "encontrada": false  },
+    { "src": "/img/flying.png", "encontrada": false  },
+    { "src": "/img/ghost.png", "encontrada": false  },
+    { "src": "/img/grass.png", "encontrada": false  },
+    { "src": "/img/ground.png", "encontrada": false  },
+    { "src": "/img/ice.png", "encontrada": false  },
+    { "src": "/img/normal.png", "encontrada": false  },
+    { "src": "/img/poison.png", "encontrada": false  },
+    { "src": "/img/psychic.png", "encontrada": false  },
+    { "src": "/img/rock.png", "encontrada": false  },
+    { "src": "/img/steel.png", "encontrada": false  },
+    { "src": "/img/water.png", "encontrada": false  },
+    { "src": "/img/stellar.png", "encontrada": false  }
   ];
 
   const barajar = () => {

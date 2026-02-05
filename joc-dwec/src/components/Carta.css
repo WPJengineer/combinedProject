@@ -12,6 +12,13 @@
 .carta .delante {
   transform: rotateY(90deg);
   position: absolute;
+  border-radius: 100%;
+}
+
+.volteada {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .volteada .delante {
