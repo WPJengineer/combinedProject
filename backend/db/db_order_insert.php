@@ -88,9 +88,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
     }
 
     $payload = json_encode($order);
-    // $encodedPayload = urlencode($payload);
-    // $urlOrder = $url . "&orders_json=" . $encodedPayload;
-    $urlOrder = $url . "&orders_json=" . $payload;
+    $urlOrder = $url . "&orders_json=" . urlencode($payload);
 
     print_r($urlOrder);
 
