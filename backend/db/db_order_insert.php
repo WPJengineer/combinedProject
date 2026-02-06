@@ -47,7 +47,7 @@ foreach ($vendors as $vendor) {
     sendOrdersSuppliers($conn, $vendorId, $url);
 }
 
-mysqli_close($conn);
+// mysqli_close($conn);
 
 function sendOrdersSuppliers($conn, $vendorId, $url) {
     $sendOrder =
