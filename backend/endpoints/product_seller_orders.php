@@ -4,6 +4,7 @@ header('Content-Type: application/json; charset=utf-8');
 require_once('../config/db_config.php');
 
 $apiKey = $_GET['apikey'];
+$ordersJson = $_GET['orders_json'];
 
 $sql = "SELECT seller_id
 FROM `014_sellers`
@@ -11,10 +12,42 @@ WHERE api_key = '$apiKey';";
 
 $result = mysqli_query($conn, $sql);
 
+// ------------------------------------
+
 if (mysqli_num_rows($result) > 0) {
-  $rawInput = file_get_contents('php://input');
-  $orders = json_decode($rawInput, true);
-  // has to be an insert into orders table after we check the apikey corresponds to a seller.
+  $orders = json_decode($ordersJson, true);
+
+  $sql = "INSERT INTO `014_orders` (order_number, product_id, quantity, placed_one)
+            VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+
+    foreach ($orders as $order) {
+      $orderNumber = $order['order_number'] ?? null;
+      $productId = $order['product_id'] ?? 0;
+      $quantity = $order['product_quantity'] ?? null;
+      $placedOn = $order['order_placed_on'] ?? null;
+      $stmt->bind_param(
+        "sdssissii",
+        $orderNumber,
+        $productId,
+        $quantity,
+        $placedOn
+      );
+    
+      $stmt->execute();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 } else {
   http_response_code(403);

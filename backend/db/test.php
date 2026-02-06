@@ -19,39 +19,27 @@ if (!isset($_SESSION['customer_id'])) {
 $order_number = generateOrderNumber($customer_id, $customer_forename, $customer_lastname);
 
 // create query - add t orders table
-$sql = "INSERT INTO `014_orders` (order_number, product_id, customer_id, vendor_id, quantity, product_unit_price)
-SELECT '$order_number', sc.product_id, sc.customer_id, p.vendor_id, sc.quantity, (p.product_unit_price * sc.quantity)
-FROM `014_shopping_cart` AS sc
-INNER JOIN `014_products` AS p ON p.product_id = sc.product_id
-WHERE sc.customer_id = $customer_id";
+// $sql = "INSERT INTO `014_orders` (order_number, product_id, customer_id, vendor_id, quantity, product_unit_price)
+// SELECT '$order_number', sc.product_id, sc.customer_id, p.vendor_id, sc.quantity, (p.product_unit_price * sc.quantity)
+// FROM `014_shopping_cart` AS sc
+// INNER JOIN `014_products` AS p ON p.product_id = sc.product_id
+// WHERE sc.customer_id = $customer_id";
 
 // ------------------------------------
 
 // need to send order of products from suppliers to suppliers here.
 // vendor_id 0 is local customers.
-$data = "SELECT *
-FROM `014_vendors`;";
 
-$result = mysqli_query($conn, $data);
 
-$vendors = [];
 
-if (mysqli_num_rows($result) > 0) {
-  while ($row = mysqli_fetch_assoc($result)) {
-    $vendors[] = $row;
-  }
-}
+    $apiKey = '12345josep';
+    $url = "https://remotehost.es/student014/shop/backend/endpoints/product_seller_orders.php" . "?apikey=" . $apiKey;
+    sendOrdersSuppliers($conn, $url);
 
-foreach ($vendors as $vendor) {
-    $vendorId = $vendor["vendor_id"];
-    $apiKey = $vendor["api_key"];
-    $url = $vendor["api_endpoint_orders"] . "?apikey=" . $apiKey;
-    sendOrdersSuppliers($conn, $vendorId, $url);
-}
 
 // mysqli_close($conn);
 
-function sendOrdersSuppliers($conn, $vendorId, $url) {
+function sendOrdersSuppliers($conn, $url) {
     $sendOrder =
             "SELECT 
                 o.order_number AS order_number,
@@ -71,12 +59,9 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
             INNER JOIN `014_products` AS p ON o.product_id = p.product_id
             INNER JOIN `014_customers` AS c ON o.customer_id = c.customer_id
             INNER JOIN `014_customer_address` AS ca ON c.customer_id = ca.customer_id
-            INNER JOIN `014_address` AS a ON ca.address_id = a.address_id
-            WHERE p.vendor_id <> 0
-                AND p.vendor_id = '$vendorId';";
+            INNER JOIN `014_address` AS a ON ca.address_id = a.address_id;";
 
     $result = mysqli_query($conn, $sendOrder);
-    // $order = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     $order = [];
 
@@ -87,21 +72,16 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
     } else {
         return;
     }
-// if(!empty($order):)
+
     $payload = json_encode($order);
     $urlOrder = $url . "&orders_json=" . $payload;
+
+    echo $order;
+    print_r( $urlOrder);
 
     $ch = curl_init($urlOrder);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-    // curl_setopt($ch, CURLOPT_POST, true);
-    // curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    //     "Content-Type: application/json",
-    //     "Accept: application/json",
-    //     "Content-Length: " . strlen($payload)
-    // ]);
-    // curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 
     $response = curl_exec($ch);
 
@@ -115,23 +95,23 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
 // ----------------------------------------------------
 
 // execute query
-if (mysqli_query($conn, $sql)) {
-    // delete from shopping cart.
-    $deleteFromShoppingCart =
-    "DELETE
-    FROM `014_shopping_cart`
-    WHERE customer_id = $customer_id;";
+// if (mysqli_query($conn, $sql)) {
+//     // delete from shopping cart.
+//     $deleteFromShoppingCart =
+//     "DELETE
+//     FROM `014_shopping_cart`
+//     WHERE customer_id = $customer_id;";
 
-    mysqli_query($conn, $deleteFromShoppingCart);
+//     mysqli_query($conn, $deleteFromShoppingCart);
 
-    echo
-        '<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
-            <p>Product ordered successfully</p>
-            <p class="button"><a href="/student014/shop/backend/index.php">Return to Start</a></p>
-        </main>';
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+//     echo
+//         '<main class="bg-green flex flex-col items-center justify-center gap-6" style="flex: 1;">
+//             <p>Product ordered successfully</p>
+//             <p class="button"><a href="/student014/shop/backend/index.php">Return to Start</a></p>
+//         </main>';
+// } else {
+//     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// }
 
 // close channel after finishing query
 mysqli_close($conn);
