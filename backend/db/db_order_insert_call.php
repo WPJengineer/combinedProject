@@ -38,17 +38,10 @@ if ($result) {
                         <p class="font-bold">Subtotal: '.$subtotal.'€</p>
                     </div>';
         }
-        // echo
-        //         '<div class="flex items-center gap-6">
-        //             <p class="font-bold">Cart subtotal: '.$cartTotal.'€</p>
-        //             <p class="button"><a href="/student014/shop/backend/db/db_order_insert.php">Complete order</a></p>
-        //         </div>
-        //         </div>
-        //     </main>';
         echo
                 '<div class="flex items-center gap-6">
                     <p class="font-bold">Cart subtotal: '.$cartTotal.'€</p>
-                    <p class="button"><a href="/student014/shop/backend/db/test.php">Complete order</a></p>
+                    <p class="button"><a href="/student014/shop/backend/db/db_order_insert.php">Complete order</a></p>
                 </div>
                 </div>
             </main>';

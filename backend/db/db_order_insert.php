@@ -55,7 +55,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
     $sendOrder =
             "SELECT 
                 o.order_number AS order_number,
-                o.product_id AS product_id,
+                p.product_code AS product_code,
                 o.quantity AS product_quantity,
                 o.placed_on AS order_placed_on,
                 c.forename AS customer_forename,
@@ -76,7 +76,6 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
                 AND p.vendor_id = '$vendorId';";
 
     $result = mysqli_query($conn, $sendOrder);
-    // $order = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     $order = [];
 
@@ -87,21 +86,17 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
     } else {
         return;
     }
-// if(!empty($order):)
+
     $payload = json_encode($order);
+    // $encodedPayload = urlencode($payload);
+    // $urlOrder = $url . "&orders_json=" . $encodedPayload;
     $urlOrder = $url . "&orders_json=" . $payload;
 
-    $ch = curl_init($urlOrder);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    print_r($urlOrder);
 
-    // curl_setopt($ch, CURLOPT_POST, true);
-    // curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    //     "Content-Type: application/json",
-    //     "Accept: application/json",
-    //     "Content-Length: " . strlen($payload)
-    // ]);
-    // curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+    $ch = curl_init($urlOrder);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     $response = curl_exec($ch);
 

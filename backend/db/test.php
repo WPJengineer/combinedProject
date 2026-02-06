@@ -33,7 +33,7 @@ $order_number = generateOrderNumber($customer_id, $customer_forename, $customer_
 
 
     $apiKey = '12345josep';
-    $url = "https://remotehost.es/student014/shop/backend/endpoints/product_seller_orders.php" . "?apikey=" . $apiKey;
+    $url = "https://remotehost.es/student012/shop/backend/endpoints/seller_orders.php" . "?apikey=" . $apiKey;
     sendOrdersSuppliers($conn, $url);
 
 
@@ -74,9 +74,10 @@ function sendOrdersSuppliers($conn, $url) {
     }
 
     $payload = json_encode($order);
-    $urlOrder = $url . "&orders_json=" . $payload;
+    $encodedPayload = urlencode($payload);
+    $urlOrder = $url . "&orders_json=" . $encodedPayload;
 
-    echo $order;
+    // echo $order;
     print_r( $urlOrder);
 
     $ch = curl_init($urlOrder);
@@ -85,9 +86,9 @@ function sendOrdersSuppliers($conn, $url) {
 
     $response = curl_exec($ch);
 
-    if ($response === false) {
-        error_log("cURL error for vendor {$vendorId}: " . curl_error($ch));
-    }
+    // if ($response === false) {
+    //     error_log("cURL error for vendor {$vendorId}: " . curl_error($ch));
+    // }
 
     curl_close($ch);
 }
