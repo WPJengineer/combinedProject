@@ -27,21 +27,88 @@ WHERE sc.customer_id = $customer_id";
 
 // need to send order of products from suppliers to suppliers here.
 // vendor_id 0 is local customers.
-$sendOrder =
-            "SELECT o.product_id, product_quantity, customer_forename, customer_surname, customer_nif, customer_email, customer_phone, customer_address, customer_location, customer_country, customer_zip
-            FROM `014_orders` AS o
-            INNER JOIN `014_products` AS p ON o.product_id = p.product_id
-            WHERE p.vendor_id <> 0;";
+$sql = "SELECT *
+FROM `014_vendors`;";
 
-$result = mysqli_query($conn, $sendOrder);
+$result = mysqli_query($conn, $sql);
 
-$order = [];
+$vendors = [];
 
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
-    $order[] = $row;
+    $vendors[] = $row;
   }
 }
+
+foreach ($vendors as $vendor) {
+    $vendorId = $vendor["vendor_id"];
+    $apiKey = $vendor["api_key"];
+    $url = $vendor["api_endpoint_orders"] . "?apikey=" . $apiKey;
+    sendOrdersSuppliers($conn, $vendorId, $url);
+}
+
+mysqli_close($conn);
+
+function sendOrdersSuppliers($conn, $vendorId, $url) {
+    $sendOrder =
+            "SELECT 
+                o.order_number AS order_number,
+                o.product_id AS product_id,
+                o.quantity AS product_quantity,
+                o.placed_on AS order_placed_on,
+                c.forename AS customer_forename,
+                c.lastname AS customer_surname,
+                c.nif AS customer_nif,
+                c.email AS customer_email,
+                c.phone_number AS customer_phone,
+                a.address AS customer_address,
+                a.city AS customer_location,
+                a.country AS customer_country,
+                a.zip_code AS customer_zip
+            FROM `014_orders` AS o
+            INNER JOIN `014_products` AS p ON o.product_id = p.product_id
+            INNER JOIN `014_customers` AS c ON o.customer_id = c.customer_id
+            INNER JOIN `014_customer_address` AS ca ON c.customer_id = ca.customer_id
+            INNER JOIN `014_address` AS a ON ca.address_id = a.address_id
+            WHERE p.vendor_id <> 0
+                AND p.vendor_id = '$vendorId';";
+
+    $result = mysqli_query($conn, $sendOrder);
+
+    $order = [];
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $order[] = $row;
+        }
+    } else {
+        return;
+    }
+
+    $payload = json_encode($order, JSON_UNESCAPED_UNICODE);
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Content-Type: application/json",
+        "Accept: application/json",
+        "Content-Length: " . strlen($payload)
+    ]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+    $response = curl_exec($ch);
+
+    if ($response === false) {
+        error_log("cURL error for vendor {$vendorId}: " . curl_error($ch));
+    }
+
+    curl_close($ch);
+}
+
+// ----------------------------------------------------
 
 // execute query
 if (mysqli_query($conn, $sql)) {

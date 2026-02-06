@@ -5,20 +5,17 @@ require_once('../config/db_config.php');
 
 $apiKey = $_GET['apikey'];
 
-$sql = "
-";
-
-// has to be an insert into orders table after we check the apikey corresponds to a seller.
-$sql = "";
+$sql = "SELECT seller_id
+FROM `014_sellers`
+WHERE api_key = '$apiKey';";
 
 $result = mysqli_query($conn, $sql);
 
-$products = [];
-
 if (mysqli_num_rows($result) > 0) {
-  while ($row = mysqli_fetch_assoc($result)) {
-    $products[] = $row;
-  }
+  $rawInput = file_get_contents('php://input');
+  $orders = json_decode($rawInput, true);
+  // has to be an insert into orders table after we check the apikey corresponds to a seller.
+
 } else {
   http_response_code(403);
   echo json_encode([
@@ -26,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
   ]);
 }
 
-echo json_encode($products);
+echo json_encode($orders);
 mysqli_close($conn);
 
 ?>

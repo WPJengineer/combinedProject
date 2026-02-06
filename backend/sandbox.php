@@ -61,7 +61,7 @@ function getProductsFromSuppliers($conn, $vendorId, $apiKey, $url) {
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $result = curl_exec($ch);
-echo $result;
+  echo $result;
   if ($result === false) {
     echo "cURL error: " . curl_error($ch);
   } else {
