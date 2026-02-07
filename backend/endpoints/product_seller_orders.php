@@ -3,8 +3,8 @@
 header('Content-Type: application/json; charset=utf-8');
 require_once('../config/db_config.php');
 
-$apiKey = $_GET['apikey'];
-$ordersJson = $_GET['orders_json'];
+$apiKey = $_GET['apikey'] ?? null;
+$ordersJson = $_GET['orders_json'] ?? null;
 
 $sql = "SELECT seller_id
 FROM `014_sellers`
@@ -15,39 +15,38 @@ $result = mysqli_query($conn, $sql);
 // ------------------------------------
 
 if (mysqli_num_rows($result) > 0) {
-  $orders = json_decode($ordersJson, true);
+  $orders = json_decode(urldecode($ordersJson), true);
 
   $sql = "INSERT INTO `014_orders` (order_number, product_id, quantity, placed_one)
-            VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
+            VALUES (?, ?, ?, NOW())";
 
-    foreach ($orders as $order) {
-      $orderNumber = $order['order_number'] ?? null;
-      $productId = $order['product_id'] ?? 0;
-      $quantity = $order['product_quantity'] ?? null;
-      $placedOn = $order['order_placed_on'] ?? null;
-      $stmt->bind_param(
-        "sdssissii",
-        $orderNumber,
-        $productId,
-        $quantity,
-        $placedOn
-      );
-    
-      $stmt->execute();
+  $stmt = $conn->prepare($sql);
+
+  $inserted = 0;
+  $errors = [];
+
+  foreach ($orders as $order) {
+    $orderNumber = $order['order_number'] ?? null;
+    $productId = $order['product_id'] ?? 0;
+    $quantity = $order['product_quantity'] ?? null;
+    // $placedOn = $order['order_placed_on'] ?? null;
+    $stmt->bind_param(
+      "sii",
+      $orderNumber,
+      $productId,
+      $quantity
+      // $placedOn
+    );
+  
+    $stmt->execute();
+
+    if ($stmt->execute()) {
+        $inserted++;
+    } else {
+        $errors[] = $stmt->error;
     }
 
-
-
-
-
-
-
-
-
-
-
-
+  }
 
 } else {
   http_response_code(403);
@@ -56,7 +55,12 @@ if (mysqli_num_rows($result) > 0) {
   ]);
 }
 
-echo json_encode($orders);
+echo json_encode([
+  "success" => $inserted > 0,
+  "inserted" => $inserted,
+  "errors" => $errors
+]);
+
 mysqli_close($conn);
 
 ?>

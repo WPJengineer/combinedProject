@@ -17,7 +17,7 @@ if (!isset($_SESSION['customer_id'])) {
 }
 
 $order_number = generateOrderNumber($customer_id, $customer_forename, $customer_lastname);
-
+// -------------INSERTA CODI DINS EL MEU BASE DE DADES
 // create query - add t orders table
 $sql = "INSERT INTO `014_orders` (order_number, product_id, customer_id, vendor_id, quantity, product_unit_price)
 SELECT '$order_number', sc.product_id, sc.customer_id, p.vendor_id, sc.quantity, (p.product_unit_price * sc.quantity)
@@ -29,6 +29,7 @@ WHERE sc.customer_id = $customer_id";
 
 // need to send order of products from suppliers to suppliers here.
 // vendor_id 0 is local customers.
+// ---------------PILLA ELS IDS DEL SUPPLIERS PER DESPRES MANDAR
 $data = "SELECT *
 FROM `014_vendors`;";
 
@@ -42,6 +43,7 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
+// ---------------FA UN LOOP PER MANDAR ORDERS A CADASCUN DELS SUPPLIER (CREC QUE TENC QUE RETORNAR AIXO)
 foreach ($vendors as $vendor) {
     $vendorId = $vendor["vendor_id"];
     $apiKey = $vendor["api_key"];
@@ -52,6 +54,7 @@ foreach ($vendors as $vendor) {
 // mysqli_close($conn);
 
 function sendOrdersSuppliers($conn, $vendorId, $url) {
+    // ---------------CONSTRUEIX JSON PER ENVIAR
     $sendOrder =
             "SELECT 
                 o.order_number AS order_number,
@@ -79,6 +82,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
 
     $order = [];
 
+    // ---------------SI EXISTEIX ORDER QUE NO LOCAL CONSTRUEIX EL ORDER I SINO HO IGNORA
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $order[] = $row;
@@ -87,6 +91,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
         return;
     }
 
+    // ---------------PREPARA JSON PER MANDAR A TRAVES DE URL VIA GET
     $payload = json_encode($order);
     $urlOrder = $url . "&orders_json=" . urlencode($payload);
 
@@ -107,6 +112,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
 
 // ----------------------------------------------------
 
+// ---------------AIXO JA ES DEL MEU PROPI BASE DE DADES QUE DESPRES DE INSERIR I ENVIAR HO ESBORRA DEL CARRET DE COMPRES
 // execute query
 if (mysqli_query($conn, $sql)) {
     // delete from shopping cart.
