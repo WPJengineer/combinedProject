@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Carta from './components/Carta';
+import Timer from './components/Timer';
 
 function App() {
 
   const [cartas, setCartas] = useState([]);
-  const [turnos, setTurnos] = useState(0);
+  // const [turnos, setTurnos] = useState(0);
   const [eleccionUno, setEleccionUno] = useState(null);
   const [eleccionDos, setEleccionDos] = useState(null);
   const [deshabilitado, setDeshabilitado] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
+  const [restartKey, setRestartKey] = useState(0);
 
   // need to get this from our assets.
   const imagenesCartas = [
@@ -39,7 +42,8 @@ function App() {
       .map((carta) => ({...carta, id: Math.random()}))
 
     setCartas(cartasBarajadas);
-    setTurnos(0);
+    setIsRunning(true);
+    setRestartKey((k) => k + 1);
   };
 
   const handleEleccion = (carta) => {
@@ -74,7 +78,6 @@ function App() {
   const resetear = () => {
     setEleccionUno(null);
     setEleccionDos(null);
-    setTurnos(turnosPrevios => turnosPrevios + 1);
     setDeshabilitado(false);
   }
 
@@ -96,7 +99,15 @@ function App() {
           ))
         }
       </div>
-        <div><p>Turno: {turnos}</p></div>
+        <div>
+          <Timer
+          isRunning={isRunning}
+          restartKey={restartKey}
+          onFinish={() => {
+            setIsRunning(false);
+            // show pop up saying we lost.
+          }} />
+        </div>
 
     </div>
   )
