@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Carta from './components/Carta';
 import Timer from './components/Timer';
+import PopUp from './components/PopUp';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
   const [deshabilitado, setDeshabilitado] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [restartKey, setRestartKey] = useState(0);
+  const [resultGame, setResultGame] = useState(false);
 
   // need to get this from our assets.
   const imagenesCartas = [
@@ -87,6 +89,10 @@ function App() {
     setDeshabilitado(false);
   }
 
+  // missing to add that if all cards are shown then pass to PopUp resultGame = true, also if timer runs out we pass resultGame = true.
+  // if timer runs out then show lose to game.
+  // if timer is > 0s and all cards shown then game win.
+
   return (
     <div className="App">
       <h1 class="title">MEMORY APP</h1>
@@ -114,7 +120,10 @@ function App() {
           ))
         }
       </div>
-        
+      
+      <PopUp resultGame={}>
+
+      </PopUp>
 
     </div>
   )
