@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
+import './Timer.css';
 
 function formatMMSS(seconds) {
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;
-  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  return `${String(m)}:${String(s).padStart(2, "0")}`;
 }
 
 export default function Timer({ isRunning, restartKey, onFinish }) {
-  const [timeLeft, setTimeLeft] = useState(120);
+  const [timeLeft, setTimeLeft] = useState(60);
 
   // Reset to 2:00 when barajar is clicked
   useEffect(() => {
     if (isRunning) {
-      setTimeLeft(120);
+      setTimeLeft(60);
     }
   }, [restartKey, isRunning]);
 
@@ -34,8 +35,8 @@ export default function Timer({ isRunning, restartKey, onFinish }) {
 
   return (
     <div className="timer">
-      <p>Time remaining</p>
-      <p>{formatMMSS(timeLeft)}</p>
+      <p>Tiempo restante:</p>
+      <p id="clock">{formatMMSS(timeLeft)}</p>
     </div>
   );
 }

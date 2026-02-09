@@ -37,7 +37,13 @@ function App() {
   ];
 
   const barajar = () => {
-    const cartasBarajadas = [...imagenesCartas, ...imagenesCartas]
+    // picks out 15 pairs of our array that can contain more than 15 total.
+    const seleccion = [...imagenesCartas]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 15);
+
+    //randomises their positions in the grid.
+    const cartasBarajadas = [...seleccion, ...seleccion]
       .sort(() => Math.random() -0.5)
       .map((carta) => ({...carta, id: Math.random()}))
 
@@ -83,7 +89,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Memory App</h1>
+      <h1 class="title">MEMORY APP</h1>
+      <div>
+        <Timer
+        isRunning={isRunning}
+        restartKey={restartKey}
+        onFinish={() => {
+          setIsRunning(false);
+          // show pop up saying we lost.
+        }} />
+      </div>
       <button onClick={barajar}>Nueva Partida</button>
 
       <div className="grid-carta">
@@ -99,15 +114,7 @@ function App() {
           ))
         }
       </div>
-        <div>
-          <Timer
-          isRunning={isRunning}
-          restartKey={restartKey}
-          onFinish={() => {
-            setIsRunning(false);
-            // show pop up saying we lost.
-          }} />
-        </div>
+        
 
     </div>
   )

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Afacad";
+  src: url("/fonts/afacad.ttf");
+}
+
+* {
+    font-family: "afacad";
+    /* background-color: blanchedalmond; */
+    background-color: rgb(60, 60, 60);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

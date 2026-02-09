@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+p {
+    font-size: 24px;
+    color: #fcfcfc;
+}
+
+#clock {
+    font-size: 30px;
+}
