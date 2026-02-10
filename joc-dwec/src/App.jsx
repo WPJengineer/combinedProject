@@ -7,13 +7,13 @@ import PopUp from './components/PopUp';
 function App() {
 
   const [cartas, setCartas] = useState([]);
-  // const [turnos, setTurnos] = useState(0);
   const [eleccionUno, setEleccionUno] = useState(null);
   const [eleccionDos, setEleccionDos] = useState(null);
   const [deshabilitado, setDeshabilitado] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [restartKey, setRestartKey] = useState(0);
-  const [resultGame, setResultGame] = useState(false);
+  // 'idle' before start, 'playing' after shuffle, then 'win' or 'lose'
+  const [gameStatus, setGameStatus] = useState('idle');
 
   // need to get this from our assets.
   const imagenesCartas = [
@@ -38,24 +38,36 @@ function App() {
     { "src": "/img/stellar.png", "encontrada": false  }
   ];
 
+  //still an issu with restarting.
   const barajar = () => {
+    // start game immediately
+    setGameStatus('playing');
+    setIsRunning(true);
+
+    // resets all states
+    setEleccionUno(null);
+    setEleccionDos(null);
+    setDeshabilitado(false);
+
     // picks out 15 pairs of our array that can contain more than 15 total.
     const seleccion = [...imagenesCartas]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 15);
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 15)
+      .map((c) => ({ ...c, encontrada: false }));
 
     //randomises their positions in the grid.
     const cartasBarajadas = [...seleccion, ...seleccion]
       .sort(() => Math.random() -0.5)
-      .map((carta) => ({...carta, id: Math.random()}))
+      .map((carta) => ({...carta, id: Math.random()}));
 
     setCartas(cartasBarajadas);
     setIsRunning(true);
+    setGameStatus('playing');
     setRestartKey((k) => k + 1);
   };
 
   const handleEleccion = (carta) => {
-    console.log(carta);
+    // console.log(carta);
     eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta);
   }
 
@@ -81,7 +93,7 @@ function App() {
     }
   }, [eleccionUno, eleccionDos]);
 
-  console.log(cartas);
+  // console.log(cartas);
 
   const resetear = () => {
     setEleccionUno(null);
@@ -89,21 +101,30 @@ function App() {
     setDeshabilitado(false);
   }
 
-  // missing to add that if all cards are shown then pass to PopUp resultGame = true, also if timer runs out we pass resultGame = true.
-  // if timer runs out then show lose to game.
-  // if timer is > 0s and all cards shown then game win.
+    useEffect(() => {
+      if (gameStatus !== 'playing') return;
+      if (cartas.length === 0) return;
+
+      const allFound = cartas.every((c) => c.encontrada === true);
+      if (allFound) {
+        setGameStatus('win');
+        setIsRunning(false);
+      }
+    }, [cartas, gameStatus]);
 
   return (
     <div className="App">
-      <h1 class="title">MEMORY APP</h1>
+      <h1 className="title">MEMORY APP</h1>
       <div>
         <Timer
-        isRunning={isRunning}
-        restartKey={restartKey}
-        onFinish={() => {
-          setIsRunning(false);
-          // show pop up saying we lost.
-        }} />
+          isRunning={isRunning}
+          restartKey={restartKey}
+          onFinish={() => {
+            setIsRunning(false);
+            // show pop up saying we lost.
+            setGameStatus((prev) => (prev === 'win' ? 'win' : 'lose'));
+          }}
+        />
       </div>
       <button onClick={barajar}>Nueva Partida</button>
 
@@ -115,15 +136,17 @@ function App() {
               key={carta.id}
               handleEleccion={handleEleccion}
               volteada={carta===eleccionUno || carta===eleccionDos || carta.encontrada}
-              deshabilitado={deshabilitado}
+              deshabilitado={deshabilitado || gameStatus !== 'playing'}
             />
           ))
         }
       </div>
       
-      <PopUp resultGame={}>
-
-      </PopUp>
+      <PopUp
+        gameStatus={gameStatus}
+        onClose={() => setGameStatus('idle')}
+        onRestart={barajar}
+      />
 
     </div>
   )
