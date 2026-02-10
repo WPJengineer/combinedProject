@@ -122,6 +122,7 @@ function App() {
           onFinish={() => {
             setIsRunning(false);
             // show pop up saying we lost.
+            // gamestatus might not be updating to lose when timer hits 0.
             setGameStatus((prev) => (prev === 'win' ? 'win' : 'lose'));
           }}
         />

@@ -10,7 +10,7 @@ function formatMMSS(seconds) {
 export default function Timer({ isRunning, restartKey, onFinish }) {
   const [timeLeft, setTimeLeft] = useState(60);
 
-  // Reset to 2:00 when barajar is clicked
+  // Reset to 1:00 when barajar is clicked
   useEffect(() => {
     if (isRunning) {
       setTimeLeft(60);
