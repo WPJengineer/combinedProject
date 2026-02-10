@@ -16,7 +16,7 @@ export default function Timer({ isRunning, restartKey, onFinish }) {
       setTimeLeft(60);
   }, [restartKey]);
 
-  // Countdown ONLY when running
+  // Countdown when game state is running
   useEffect(() => {
     if (!isRunning) return;
 
@@ -34,6 +34,7 @@ export default function Timer({ isRunning, restartKey, onFinish }) {
     return () => clearInterval(interval);
   }, [isRunning, timeLeft, onFinish]);
 
+  // apply red warning colour to timer when tim eis getting low.
   const lowTime = timeLeft <= 10;
 
   return (

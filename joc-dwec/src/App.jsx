@@ -40,10 +40,6 @@ function App() {
 
   //still an issu with restarting.
   const barajar = () => {
-    // start game immediately
-    setGameStatus('playing');
-    setIsRunning(true);
-
     // resets all states
     setEleccionUno(null);
     setEleccionDos(null);
@@ -67,11 +63,8 @@ function App() {
   };
 
   const handleEleccion = (carta) => {
-    // console.log(carta);
     eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta);
   }
-
-  // console.log(cartas);
 
   useEffect(() => {
     if (eleccionUno && eleccionDos) {
@@ -93,24 +86,23 @@ function App() {
     }
   }, [eleccionUno, eleccionDos]);
 
-  // console.log(cartas);
-
   const resetear = () => {
     setEleccionUno(null);
     setEleccionDos(null);
     setDeshabilitado(false);
   }
 
-    useEffect(() => {
-      if (gameStatus !== 'playing') return;
-      if (cartas.length === 0) return;
+  // checks to see if we have found all the pairs so we can call the pop-up component.
+  useEffect(() => {
+    if (gameStatus !== 'playing') return;
+    if (cartas.length === 0) return;
 
-      const allFound = cartas.every((c) => c.encontrada === true);
-      if (allFound) {
-        setGameStatus('win');
-        setIsRunning(false);
-      }
-    }, [cartas, gameStatus]);
+    const allFound = cartas.every((c) => c.encontrada === true);
+    if (allFound) {
+      setGameStatus('win');
+      setIsRunning(false);
+    }
+  }, [cartas, gameStatus]);
 
   return (
     <div className="App">

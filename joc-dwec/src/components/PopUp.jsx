@@ -3,6 +3,7 @@ import './PopUp.css'
 
 export default function PopUp({ gameStatus, onClose, onRestart }) {
 
+  // chceks status of the gaem when called and either showws game win or game loss.
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export default function PopUp({ gameStatus, onClose, onRestart }) {
 
   const isWin = gameStatus === 'win';
 
+  // new game starts directly a new game by calling barajar and close just closes popup.
   return (
     <div className="popup-overlay">
       <div className="popup">
