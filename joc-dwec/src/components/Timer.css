@@ -12,3 +12,7 @@ p {
 #clock {
     font-size: 30px;
 }
+
+.danger {
+    color: red;
+}

@@ -114,15 +114,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">MEMORY APP</h1>
+      <h1 className="title">PAREJAS OCULTAS</h1>
       <div>
         <Timer
           isRunning={isRunning}
           restartKey={restartKey}
           onFinish={() => {
             setIsRunning(false);
-            // show pop up saying we lost.
-            // gamestatus might not be updating to lose when timer hits 0.
             setGameStatus((prev) => (prev === 'win' ? 'win' : 'lose'));
           }}
         />
