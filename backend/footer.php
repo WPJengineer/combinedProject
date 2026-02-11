@@ -1,5 +1,5 @@
 <footer class="bg-light text-center p-6">
-    <div class="copyright">&copy; 2026-2027 TeamWear. All Rights Reserved.</div>
+    <div class="copyright">&copy; 2026 TeamWear. All Rights Reserved.</div>
     <!-- <div>
         <button onclick="getLocation(); getLocalWeather();">click me</button>
     </div>
@@ -23,7 +23,6 @@
         
     </script> -->
 </footer>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="/student014/shop/js/backendScript.js"></script>
 </body>
 </html>

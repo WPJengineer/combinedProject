@@ -76,7 +76,8 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
             INNER JOIN `014_customer_address` AS ca ON c.customer_id = ca.customer_id
             INNER JOIN `014_address` AS a ON ca.address_id = a.address_id
             WHERE p.vendor_id <> 0
-                AND p.vendor_id = '$vendorId';";
+                AND p.vendor_id = '$vendorId'
+                AND '$order_number';";
 
     $result = mysqli_query($conn, $sendOrder);
 
