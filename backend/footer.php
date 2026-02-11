@@ -23,6 +23,7 @@
         
     </script> -->
 </footer>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="/student014/shop/js/backendScript.js"></script>
 </body>
 </html>
