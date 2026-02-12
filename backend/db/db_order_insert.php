@@ -82,11 +82,15 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
     $result = mysqli_query($conn, $sendOrder);
 
     $order = [];
+    $emailAddress = "";
+    $name = "";
 
     // ---------------SI EXISTEIX ORDER QUE NO LOCAL CONSTRUEIX EL ORDER I SINO HO IGNORA
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $order[] = $row;
+            $emailAddress = $row['customer_email'];
+            $name = $row['customer_forename'];
         }
     } else {
         return;
@@ -109,6 +113,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
     }
 
     curl_close($ch);
+    include("../forms/send_email.php");
 }
 
 // ----------------------------------------------------

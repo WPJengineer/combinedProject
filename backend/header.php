@@ -43,7 +43,26 @@ $language = $_COOKIE['language'] ?? 'EN';
                         </select>
                     </form>
                 </li>
-                <li><img class="icon" src="/student014/shop/assets/iconos/search_24dp_OFOFOF.png" alt="search-icon"></li>
+                <li>
+                    <select class="button p-5 bg-light text-dark" onchange="if (this.value) window.location.href=this.value;">
+                        <option value="">Select page</option>
+                        <option value="/student014/shop/backend/products.php">Products</option>
+                        <?php
+                        if ($_SESSION['customer_role'] == 'admin') {
+                            echo '
+                                <option value="/student014/shop/backend/customers.php">Customers</option>
+                                <option value="/student014/shop/backend/db/retrieve_vendor_products.php">Retrieve Products</option>
+                                <option value="/student014/shop/backend/graphs/monthly_income_graph.php">Graphs</option>
+                            ';
+                        }
+                        ?>
+                        <option value="/student014/shop/backend/shopping_carts.php">Shopping Cart</option>
+                        <option value="/student014/shop/backend/orders.php">Orders</option>
+                        <option value="/student014/shop/backend/reviews.php">Reviews</option>
+                        <!-- <option value="/student014/shop/backend/manuals.php">Manuals</option> -->
+                    </select>
+                </li>
+                <li></li>
             </ul>
         </nav>
     </header>

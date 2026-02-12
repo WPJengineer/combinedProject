@@ -25,13 +25,14 @@ try {
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
   $mail->setFrom('no-reply@remotehost.es', 'RemoteHost');
 
-  $mail->addAddress('jkelly20940@iesjoanramis.org', 'josh');
-  $mail->addAttachment($_SERVER['DOCUMENT_ROOT']."/student014/shop/assets/images/logo.png", "logo.png");
+  $mail->addAddress($email, $name);
+  // $mail->addAttachment($_SERVER['DOCUMENT_ROOT']."/student014/shop/assets/images/logo.png", "logo.png");
   $mail->CharSet = 'UTF-8';
   $mail->Encoding = 'base64';
   $mail->isHTML(true);
   $mail->Subject = 'Trial sending email';
-  $mail->Body = '<h1>Soy spam</h1><img src="https://remotehost.es/student014/shop/assets/images/logo.png" alt="image"/>';
+  $mail->Body = '<h1>Soy spam</h1>
+                 <p>Order send</p>';
   // $mail->AltBody = 'Texto como elemento de texto simple';
   $mail->send();
 
