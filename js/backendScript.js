@@ -95,23 +95,6 @@ function showOrder(str) {
   xmlhttp.send();  
 }
 
-// function plotGraph() {
-//   // i need to fetch these from my database
-//   const months = ["January", "February",  "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-//   const subtotals = [100,100,100,100,100,100,100,100,100,100,100,100];
-
-//   const data = [{
-//   x:months,
-//   y:subtotals,
-//   type:"bar",
-//   orientation:"v",
-//   marker: {color:"rgba(0,0,255,0.6)"}
-//   }];
-//   const layout = {title:"Monthly income for 2025"};
-//   console.log("hello");
-//   Plotly.newPlot("myPlot", data, layout);
-// }
-
 // EVENTS
 
 btnMinus.forEach(btn => {

@@ -48,12 +48,12 @@ foreach ($vendors as $vendor) {
     $vendorId = $vendor["vendor_id"];
     $apiKey = $vendor["api_key"];
     $url = $vendor["api_endpoint_orders"] . "?apikey=" . $apiKey;
-    sendOrdersSuppliers($conn, $vendorId, $url);
+    sendOrdersSuppliers($conn, $vendorId, $url, $order_number);
 }
 
 // mysqli_close($conn);
 
-function sendOrdersSuppliers($conn, $vendorId, $url) {
+function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
     // ---------------CONSTRUEIX JSON PER ENVIAR
     $sendOrder =
             "SELECT 
@@ -101,6 +101,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url) {
     $urlOrder = $url . "&orders_json=" . urlencode($payload);
 
     print_r($urlOrder);
+    print_r($emailAddress);
 
     $ch = curl_init($urlOrder);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);

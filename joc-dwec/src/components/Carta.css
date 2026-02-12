@@ -28,7 +28,7 @@
 /* this delay causes bug */
 .carta .detras {
   transition: all ease-in 0.1s;
-  /* transition-delay: 0.1; */
+  /* transition-delay: 0.2; */
 }
 
 .volteada .detras {

@@ -11,9 +11,10 @@ $sql = "SELECT o.order_number, o.product_id, p.product_name, p.product_image, CO
         FROM `014_orders` AS o
         INNER JOIN `014_products` AS p ON o.product_id = p.product_id
         INNER JOIN `014_customers` AS c ON o.customer_id = c.customer_id
-        WHERE o.customer_id =". $_SESSION['customer_id'].";";
+        
+        ";
 
-
+// WHERE o.customer_id =". $_SESSION['customer_id'].";
 
 
 // execute query

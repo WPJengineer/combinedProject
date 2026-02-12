@@ -25,7 +25,7 @@ try {
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
   $mail->setFrom('no-reply@remotehost.es', 'RemoteHost');
 
-  $mail->addAddress($email, $name);
+  $mail->addAddress($emailAddress, $name);
   // $mail->addAttachment($_SERVER['DOCUMENT_ROOT']."/student014/shop/assets/images/logo.png", "logo.png");
   $mail->CharSet = 'UTF-8';
   $mail->Encoding = 'base64';

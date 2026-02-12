@@ -9,7 +9,7 @@ if (!isset($_SESSION['customer_id'])) {
 
 include('../config/db_config.php');
 
-$sql2025 = "SELECT total_subtotal FROM view_monthly_income_2025;";
+$sql2025 = "SELECT total_subtotal FROM `014_view_monthly_income_2025`;";
 
 $result = mysqli_query($conn, $sql2025);
 
@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-$sql2026 = "SELECT total_subtotal FROM view_monthly_income_2026;";
+$sql2026 = "SELECT total_subtotal FROM `014_view_monthly_income_2026`;";
 
 $result = mysqli_query($conn, $sql2026);
 
@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-$sqlProducts2025 = "SELECT product_name, total_revenue FROM view_income_per_product_2025;";
+$sqlProducts2025 = "SELECT product_name, total_revenue FROM `014_view_income_per_product_2025`;";
 
 $result = mysqli_query($conn, $sqlProducts2025);
 
@@ -47,7 +47,7 @@ if (mysqli_num_rows($result) > 0) {
   }
 }
 
-$sqlProducts2026 = "SELECT product_name, total_revenue FROM view_income_per_product_2026;";
+$sqlProducts2026 = "SELECT product_name, total_revenue FROM `014_view_income_per_product_2026`;";
 
 $result = mysqli_query($conn, $sqlProducts2026);
 

@@ -12,8 +12,6 @@ WHERE api_key = '$apiKey';";
 
 $result = mysqli_query($conn, $sql);
 
-// ------------------------------------
-
 if (mysqli_num_rows($result) > 0) {
   $orders = json_decode(urldecode($ordersJson), true);
 
@@ -29,13 +27,11 @@ if (mysqli_num_rows($result) > 0) {
     $orderNumber = $order['order_number'] ?? null;
     $productId = $order['product_id'] ?? 0;
     $quantity = $order['product_quantity'] ?? null;
-    // $placedOn = $order['order_placed_on'] ?? null;
     $stmt->bind_param(
       "sii",
       $orderNumber,
       $productId,
       $quantity
-      // $placedOn
     );
   
     $stmt->execute();
