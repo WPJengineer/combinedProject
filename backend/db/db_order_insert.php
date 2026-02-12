@@ -76,21 +76,25 @@ function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
             INNER JOIN `014_customer_address` AS ca ON c.customer_id = ca.customer_id
             INNER JOIN `014_address` AS a ON ca.address_id = a.address_id
             WHERE p.vendor_id <> 0
-                AND p.vendor_id = '$vendorId'
-                AND '$order_number';";
+                AND p.vendor_id = 2 AND ''
+                ";
+// AND p.vendor_id = '$vendorId'
+                // AND '$order_number';
+
+                // problem is building the url its joins them all together
 
     $result = mysqli_query($conn, $sendOrder);
 
     $order = [];
-    $emailAddress = "";
-    $name = "";
+    // $emailAddress = "";
+    // $name = "";
 
     // ---------------SI EXISTEIX ORDER QUE NO LOCAL CONSTRUEIX EL ORDER I SINO HO IGNORA
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $order[] = $row;
-            $emailAddress = $row['customer_email'];
-            $name = $row['customer_forename'];
+            // $emailAddress = $row['customer_email'];
+            // $name = $row['customer_forename'];
         }
     } else {
         return;
@@ -101,7 +105,8 @@ function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
     $urlOrder = $url . "&orders_json=" . urlencode($payload);
 
     print_r($urlOrder);
-    print_r($emailAddress);
+    echo $urlOrder;
+    // print_r($emailAddress);
 
     $ch = curl_init($urlOrder);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
@@ -114,7 +119,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
     }
 
     curl_close($ch);
-    include("../forms/send_email.php");
+    // include("../forms/send_email.php");
 }
 
 // ----------------------------------------------------
