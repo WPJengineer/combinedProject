@@ -59,7 +59,7 @@ $language = $_COOKIE['language'] ?? 'EN';
                         <option value="/student014/shop/backend/shopping_carts.php">Shopping Cart</option>
                         <option value="/student014/shop/backend/orders.php">Orders</option>
                         <option value="/student014/shop/backend/reviews.php">Reviews</option>
-                        <!-- <option value="/student014/shop/backend/manuals.php">Manuals</option> -->
+                        <option value="/student014/shop/backend/manuals/manuals.php">Manuals</option>
                     </select>
                 </li>
                 <li></li>

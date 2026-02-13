@@ -25,6 +25,10 @@ FROM `014_shopping_cart` AS sc
 INNER JOIN `014_products` AS p ON p.product_id = sc.product_id
 WHERE sc.customer_id = $customer_id";
 
+if (!mysqli_query($conn, $sql)) {
+  die("Insert failed: " . mysqli_error($conn));
+}
+
 // ------------------------------------
 
 // need to send order of products from suppliers to suppliers here.
@@ -46,8 +50,11 @@ if (mysqli_num_rows($result) > 0) {
 // ---------------FA UN LOOP PER MANDAR ORDERS A CADASCUN DELS SUPPLIER (CREC QUE TENC QUE RETORNAR AIXO)
 foreach ($vendors as $vendor) {
     $vendorId = $vendor["vendor_id"];
+    // echo $vendorId;
     $apiKey = $vendor["api_key"];
+    // echo $apiKey;
     $url = $vendor["api_endpoint_orders"] . "?apikey=" . $apiKey;
+    // echo $url;
     sendOrdersSuppliers($conn, $vendorId, $url, $order_number);
 }
 
@@ -76,12 +83,8 @@ function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
             INNER JOIN `014_customer_address` AS ca ON c.customer_id = ca.customer_id
             INNER JOIN `014_address` AS a ON ca.address_id = a.address_id
             WHERE p.vendor_id <> 0
-                AND p.vendor_id = 2 AND ''
-                ";
-// AND p.vendor_id = '$vendorId'
-                // AND '$order_number';
-
-                // problem is building the url its joins them all together
+                AND p.vendor_id = $vendorId
+                AND o.order_number = '$order_number';";
 
     $result = mysqli_query($conn, $sendOrder);
 
@@ -97,6 +100,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
             // $name = $row['customer_forename'];
         }
     } else {
+        // echo "no results";
         return;
     }
 
@@ -104,8 +108,10 @@ function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
     $payload = json_encode($order);
     $urlOrder = $url . "&orders_json=" . urlencode($payload);
 
-    print_r($urlOrder);
-    echo $urlOrder;
+    // echo $url;
+    // print_r( $order);
+    // print_r($urlOrder);
+    // echo $urlOrder;
     // print_r($emailAddress);
 
     $ch = curl_init($urlOrder);
@@ -126,7 +132,7 @@ function sendOrdersSuppliers($conn, $vendorId, $url, $order_number) {
 
 // ---------------AIXO JA ES DEL MEU PROPI BASE DE DADES QUE DESPRES DE INSERIR I ENVIAR HO ESBORRA DEL CARRET DE COMPRES
 // execute query
-if (mysqli_query($conn, $sql)) {
+// if (mysqli_query($conn, $sql)) {
     // delete from shopping cart.
     $deleteFromShoppingCart =
     "DELETE
@@ -140,9 +146,9 @@ if (mysqli_query($conn, $sql)) {
             <p>Product ordered successfully</p>
             <p class="button"><a href="/student014/shop/backend/index.php">Return to Start</a></p>
         </main>';
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+// } else {
+//     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// }
 
 // close channel after finishing query
 mysqli_close($conn);
