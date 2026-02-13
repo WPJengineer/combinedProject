@@ -37,7 +37,7 @@ if (mysqli_num_rows($result) > 0) {
 
   foreach ($orders as $order) {
     $orderNumber = $order['order_number'] ?? null;
-    $productId = $order['product_id'] ?? 0;
+    $productId = $order['product_code'] ?? 0;
     $quantity = $order['product_quantity'] ?? null;
     $stmt->bind_param(
       "sii",
