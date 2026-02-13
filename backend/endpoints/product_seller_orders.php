@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: application/json; charset=utf-8');
-require_once('../config/db_config.php');
+require('../config/db_config.php');
 
 $apiKey = $_GET['apikey'] ?? null;
 $ordersJson = $_GET['orders_json'] ?? null;
@@ -18,17 +18,28 @@ if (!$ordersJson) {
   exit;
 }
 
-$sql = "SELECT seller_id
-FROM `014_sellers`
-WHERE api_key = '$apiKey';";
+$stmt = $conn->prepare("SELECT seller_id FROM `014_sellers` WHERE api_key = ?");
+  $stmt->bind_param("s", $apiKey);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-$result = mysqli_query($conn, $sql);
+  if ($result->num_rows === 0) {
+      http_response_code(403);
+      echo json_encode(["error" => "Invalid API key"]);
+      exit;
+  }
 
-if (mysqli_num_rows($result) > 0) {
-  $orders = json_decode(urldecode($ordersJson), true);
+// $sql = "SELECT seller_id
+// FROM `014_sellers`
+// WHERE api_key = '$apiKey';";
 
-  $sqlInsert = "INSERT INTO `014_orders` (order_number, product_id, quantity, placed_one)
-            VALUES (?, ?, ?, NOW())";
+// $result = mysqli_query($conn, $sql);
+
+// if (mysqli_num_rows($result) > 0) {
+  $orders = json_decode($ordersJson, true);
+
+  $sqlInsert = "INSERT INTO `014_orders` (order_number, customer_id, product_id, vendor_id, quantity)
+            VALUES (?, ?, ?, ?, ?)";
 
   $stmt = $conn->prepare($sqlInsert);
 
@@ -36,37 +47,41 @@ if (mysqli_num_rows($result) > 0) {
   $errors = [];
 
   foreach ($orders as $order) {
-    $orderNumber = $order['order_number'] ?? null;
-    $productId = $order['product_code'] ?? 0;
-    $quantity = $order['product_quantity'] ?? null;
+    // $orderNumber = $order['order_number'] ?? null;
+    $orderNumber = 'JOSEP';
+    $customerId = 100;
+    $productId = (int)$order['product_code'];
+    $vendorId = 2;
+    $quantity = (int)$order['product_quantity'];
     $stmt->bind_param(
-      "sii",
+      "siiii",
       $orderNumber,
+      $customerId,
       $productId,
+      $vendorId,
       $quantity
     );
   
-    $stmt->execute();
+    // $stmt->execute();
 
     if ($stmt->execute()) {
         $inserted++;
     } else {
       $errors[] = [
-        "index" => $i,
         "error" => $stmt->error,
         "order_number" => $orderNumber,
-        "product_id" => $productId
+        "product_code" => $productId
       ];
     }
 
   }
 
-} else {
-  http_response_code(403);
-  echo json_encode([
-    "error" => "Invalid API key"
-  ]);
-}
+// } else {
+//   http_response_code(403);
+//   echo json_encode([
+//     "error" => "Invalid API key"
+//   ]);
+// }
 
 echo json_encode([
   "success" => $inserted > 0,
