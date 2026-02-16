@@ -12,6 +12,7 @@
     --accessibility-scale: 1;
     --accessibility-line-scale: 1;
     --accessibility-word-spacing: 0em;
+    --accessibility-letter-spacing: 0em;
 }
 
 * {
@@ -56,6 +57,7 @@
 body {
   line-height: calc(1.4 * var(--accessibility-line-scale));
   word-spacing: var(--accessibility-word-spacing);
+  letter-spacing: var(--accessibility-letter-spacing);
 }
 
 /*     HEADER     */

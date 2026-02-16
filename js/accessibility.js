@@ -58,3 +58,76 @@ $('[data-accessibility="word-inc"]').on('click', function () {
     `Word spacing ${newSpacing.toFixed(2)}em`
   );
 });
+
+$('[data-accessibility="letter-inc"]').on('click', function () {
+  const root = document.documentElement;
+  let currentScale = parseFloat(getComputedStyle(root)
+    .getPropertyValue('--accessibility-letter-spacing'));
+  let newSpacing = currentScale + 0.02;
+  if (newSpacing > 0.2) {
+    newSpacing = 0.2;
+  }
+  root.style.setProperty(
+    '--accessibility-letter-spacing',
+    newSpacing + 'em'
+  );
+  $('#accessibility-status').text(
+    `Letter spacing ${newSpacing.toFixed(2)}em`
+  );
+});
+
+$('[data-accessibility="greys"]').on('click', function () {
+
+  const $html = $('html');
+  const isActive = $html.hasClass('accessibility-grey');
+
+  if (isActive) {
+    $html.removeClass('accessibility-grey');
+    $(this).attr('aria-pressed', 'false');
+    $('#accessibility-status').text('Grayscale disabled');
+  } else {
+    $html.addClass('accessibility-grey');
+    $(this).attr('aria-pressed', 'true');
+    $('#accessibility-status').text('Grayscale enabled');
+  }
+
+});
+
+
+
+
+$('[data-accessibility="contrast-dark"]').on('click', function () {
+  const $html = $('html');
+  const isOn = $html.hasClass('accessibility-contrast-dark');
+
+  $html.removeClass('accessibility-contrast-light');
+
+  if (isOn) {
+    $html.removeClass('accessibility-contrast-dark');
+    $('[data-accessibility="contrast-dark"]').attr('aria-pressed', 'false');
+    $('#accessibility-status').text('Dark contrast disabled');
+  } else {
+    $html.addClass('accessibility-contrast-dark');
+    $('[data-accessibility="contrast-dark"]').attr('aria-pressed', 'true');
+    $('[data-accessibility="contrast-light"]').attr('aria-pressed', 'false');
+    $('#accessibility-status').text('Dark contrast enabled');
+  }
+});
+
+$('[data-accessibility="contrast-light"]').on('click', function () {
+  const $html = $('html');
+  const isOn = $html.hasClass('accessibility-contrast-light');
+
+  $html.removeClass('accessibility-contrast-dark');
+
+  if (isOn) {
+    $html.removeClass('accessibility-contrast-light');
+    $('[data-accessibility="contrast-light"]').attr('aria-pressed', 'false');
+    $('#accessibility-status').text('Light contrast disabled');
+  } else {
+    $html.addClass('accessibility-contrast-light');
+    $('[data-accessibility="contrast-light"]').attr('aria-pressed', 'true');
+    $('[data-accessibility="contrast-dark"]').attr('aria-pressed', 'false');
+    $('#accessibility-status').text('Light contrast enabled');
+  }
+});

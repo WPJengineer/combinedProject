@@ -85,60 +85,63 @@
 
   }
 
+  #accessibility-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
+  }
+
 }
 
-/* .sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0, 0, 0, 0);
-  white-space: nowrap; border: 0;
-}
-
-
-:root {
-  --a11y-font-scale: 1;
-}
-
-
-html {
-  font-size: calc(16px * var(--a11y-font-scale));
+.accessibility-grey {
+  filter: grayscale(100%);
 }
 
 
-.a11y-contrast {
+/*
+.accessibility-underline a {
+  text-decoration: underline !important;
+}*/
+
+
+
+html.accessibility-contrast-dark,
+html.accessibility-contrast-dark body {
   background: #000 !important;
   color: #fff !important;
 }
 
-.a11y-contrast a { color: #0ff !important; }
-.a11y-contrast button,
-.a11y-contrast input,
-.a11y-contrast select,
-.a11y-contrast textarea {
+html.accessibility-contrast-dark a {
+  color: #00ffff !important;
+}
+
+html.accessibility-contrast-dark button,
+html.accessibility-contrast-dark input,
+html.accessibility-contrast-dark select,
+html.accessibility-contrast-dark textarea {
   background: #000 !important;
   color: #fff !important;
   border: 2px solid #fff !important;
 }
 
+html.accessibility-contrast-light,
+html.accessibility-contrast-light body {
+  background: #fff !important;
+  color: #000 !important;
+}
 
-.a11y-underline a {
+html.accessibility-contrast-light a {
+  color: #0000ee !important;
   text-decoration: underline !important;
 }
 
-
-.a11y-reduce-motion *,
-.a11y-reduce-motion *::before,
-.a11y-reduce-motion *::after {
-  animation-duration: 0.01ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.01ms !important;
-  scroll-behavior: auto !important;
+html.accessibility-contrast-light button,
+html.accessibility-contrast-light input,
+html.accessibility-contrast-light select,
+html.accessibility-contrast-light textarea {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
 }
-
-
-.a11y-panel {
-  border: 1px solid #ccc;
-  padding: 0.75rem;
-  max-width: 360px;
-} */
