@@ -95,17 +95,9 @@
 
 }
 
-.accessibility-grey {
+html.accessibility-grey {
   filter: grayscale(100%);
 }
-
-
-/*
-.accessibility-underline a {
-  text-decoration: underline !important;
-}*/
-
-
 
 html.accessibility-contrast-dark,
 html.accessibility-contrast-dark body {
@@ -144,4 +136,16 @@ html.accessibility-contrast-light textarea {
   background: #fff !important;
   color: #000 !important;
   border: 2px solid #000 !important;
+}
+
+html.saturation-high {
+  filter: saturate(200%);
+}
+
+html.saturation-low {
+  filter: saturate(50%);
+}
+
+.underline {
+  text-decoration: underline;
 }

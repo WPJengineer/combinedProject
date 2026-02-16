@@ -1,9 +1,9 @@
-$(document).on("click", "#accessibility-btn", function () {
-  $("#accessibility-panel").css("display", "flex");
+$(document).on('click', '#accessibility-btn', function () {
+  $('#accessibility-panel').css("display", "flex");
 });
 
-$(document).on("click", "#btnCloseMenu", function () {
-  $("#accessibility-panel").css("display", "none");
+$(document).on('click', '#btnCloseMenu', function () {
+  $('#accessibility-panel').css("display", "none");
 });
 
 $('[data-accessibility="font-inc"]').on('click', function () {
@@ -93,9 +93,6 @@ $('[data-accessibility="greys"]').on('click', function () {
 
 });
 
-
-
-
 $('[data-accessibility="contrast-dark"]').on('click', function () {
   const $html = $('html');
   const isOn = $html.hasClass('accessibility-contrast-dark');
@@ -131,3 +128,43 @@ $('[data-accessibility="contrast-light"]').on('click', function () {
     $('#accessibility-status').text('Light contrast enabled');
   }
 });
+
+$('[data-accessibility="saturation-high"]').on('click', function () {
+
+  const $html = $('html');
+  const isActive = $html.hasClass('saturation-high');
+
+  if (isActive) {
+    $html.removeClass('saturation-high');
+    $(this).attr('aria-pressed', 'false');
+    $('#accessibility-status').text('High Saturation disabled');
+  } else {
+    $html.addClass('saturation-high');
+    $(this).attr('aria-pressed', 'true');
+    $('#accessibility-status').text('High Saturation enabled');
+  }
+
+});
+
+$('[data-accessibility="saturation-low"]').on('click', function () {
+
+  const $html = $('html');
+  const isActive = $html.hasClass('saturation-low');
+
+  if (isActive) {
+    $html.removeClass('saturation-low');
+    $(this).attr('aria-pressed', 'false');
+    $('#accessibility-status').text('Low Saturation disabled');
+  } else {
+    $html.addClass('saturation-low');
+    $(this).attr('aria-pressed', 'true');
+    $('#accessibility-status').text('Low Saturation enabled');
+  }
+
+});
+
+$('[data-accessibility="underline"]').on('click', function () {
+  $('a').toggleClass("underline");
+});
+
+$().on()

@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../css/tailwind/products-output.css">
   <title>Products</title>
   <link rel="icon" href="../assets/iconos/icon-TW.jpg" type="jpg">
+<link rel="stylesheet" href="../css/accessibility.css">
 </head>
 <body class="text-xl text-dark font-afacad md:text-2xl lg:text-[28px]">
   <header class="flex items-center justify-between px-5 bg-light">
@@ -109,6 +110,32 @@
                 <img class="arrow-icon" id="btnRight" src="../assets/iconos/navigate_next_24dp_OFOFOF.png" alt="right-arrow-icon">
             </div>
         </div>
+        <button id="accessibility-btn" aria-controls="accessibility-panel" aria-expanded="false" aria-haspopup="dialog" aria-label="Accessibility options">
+            <img src="../assets/iconos/accessibility.png" alt="">
+        </button>
+        <div id="accessibility-panel" class="accessibility-panel"  aria-labelledby="accessibility-title" role="dialog" aria-hidden="true">
+            <div class="title">
+                <h2 id="accessibility-title">Opciones de Accesibilidad</h2>
+                <button type="button" aria-label="Close accessibility panel">
+                    <img class="icon" id="btnCloseMenu" src="../assets/iconos/close_24dp_0F0F0F.png" alt="">
+                </button>
+            </div>
+            <div class="accessibility-options" role="group" aria-labelledby="accessibility-title">
+                <button type="button" data-accessibility="font-inc">Incrementar fuente</button>
+                <button type="button" data-accessibility="font-dec">Decrementar fuente</button>
+                <button type="button" data-accessibility="line-inc">Incrementar espacio lineas</button>
+                <button type="button" data-accessibility="word-inc">Incrementar espacio palabras</button>
+                <button type="button" data-accessibility="letter-inc">Incrementar espacio letras</button>
+                <button type="button" data-accessibility="greys" aria-pressed="false">Colores en gris</button>
+                <button type="button" data-accessibility="contrast-dark" aria-pressed="false">Contraste oscuro</button>
+                <button type="button" data-accessibility="contrast-light" aria-pressed="false">Contraste claro</button>
+                <button type="button" data-accessibility="saturation-high" aria-pressed="false">Saturación alta</button>
+                <button type="button" data-accessibility="saturation-low" aria-pressed="false">Saturación baja</button>
+                <button type="button" data-accessibility="underline" aria-pressed="false">Subrayar links</button>
+                <button type="button" data-accessibility="reset">Reset</button>
+            </div>
+            <p id="accessibility-status" aria-live="polite"></p>
+        </div>
     </main>
     <footer class="pt-2.5 pb-7.5 bg-light flex flex-col items-center gap-5 md:gap-7.5">
         <img class="logo" src="../assets/images/logo.png" alt="logo">
@@ -135,6 +162,8 @@
             </ul>
         </nav>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/accessibility.js"></script>
     <script src="../js/sessionScript.js"></script>
     <script src="../js/products.js"></script>
 </body>
