@@ -448,6 +448,11 @@ main section {
     font-size: calc(20 * 1px * var(--accessibility-scale));
 }
 
+.bottom-overlay button {
+    background-color: rgba(51, 102, 153, 0.8);
+    border: none;
+}
+
 /*     MOSTRAR MAS PRODUCTOS     */
 
 .show-more {
@@ -525,9 +530,9 @@ footer a {
         width: 40px;
     }
 
-    /* button {
+    header button {
         display: none;
-    } */
+    }
 
     .articles {
         grid-template-columns: repeat(2, 1fr);

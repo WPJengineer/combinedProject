@@ -118,12 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // btnBlack.addEventListener('click', () => productImage.src = "../assets/images/25.png");
-    // btnWhite.addEventListener('click', () => productImage.src = "../assets/images/1.png");
-    // btnOrange.addEventListener('click', () => productImage.src = "../assets/images/9.png");
-    // btnGrey.addEventListener('click', () => productImage.src = "../assets/images/17.png");
-    // btnGreen.addEventListener('click', () => productImage.src = "../assets/images/33.png");
-
     selectSizeBtn.forEach(btn => {
         btn.addEventListener('click', () => {
             const isSelected = btn.classList.contains('bg-dark');

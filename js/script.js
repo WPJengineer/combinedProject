@@ -50,48 +50,48 @@ document.addEventListener('DOMContentLoaded', () => {
             article.className = "article-card";
             article.dataset.id = p.product_id;
             article.style.backgroundImage = `url("${p.product_image}")`;
-            article.innerHTML = `<button>
-                                    <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="heart" class="icon heart">
+            article.innerHTML = `<button type="button" class="wishlistBtn" aria-label="Añadir ${p.product_name} a favoritos" aria-pressed="false">
+                                    <img src="./assets/iconos/favorite_border_24dp_OFOFOF.png" alt="" class="icon heart">
                                 </button>
                                 <div class="bottom-overlay">
                                     <div>
-                                        <h4>${p.product_name}</h4>
+                                        <h4 id="product-name-${p.product_id}">${p.product_name}</h4>
                                         <h3><span>${Number(p.product_unit_price).toFixed(2)}</span>€</h3>
                                     </div>
-                                    <div>
-                                        <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="shopping-cart" class="icon cart">
-                                    </div>
+                                    <button type="button" class="openProductBtn" aria-haspopup="dialog" aria-controls="product-dialog-${p.product_id}" aria-label="Ver detalles y comprar ${p.product_name}">
+                                        <img src="./assets/iconos/shopping_cart_24dp_FCFCFC.png" alt="" class="icon cart">
+                                    </button>
                                 </div>
-                                <div class="menuProduct">
-                                    <form action="#" method=""><!--missing method-->
-                                        <img class="icon btnCloseProduct" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+                                <div class="menuProduct" id="product-dialog-${p.product_id}" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="product-title-${p.product_id}">
+                                    <form>
+                                        <img role="button" class="icon btnCloseProduct" aria-label="Cerrar detalles de ${p.product_name}" src="./assets/iconos/close_24dp_0F0F0F.png" alt="">
                                         <div class="product">
-                                            <div>
-                                                <img src="${p.product_image}" alt="foto-producto">
-                                                <button class="num-products"><span class="btnMinus">-</span><span class="quantity">1</span><span class="btnPlus">+</span></button>
+                                            <div role="button">
+                                                <img src="${p.product_image}" alt="${p.product_name}">
+                                                <button class="num-products" aria-label="Cantidad"><span class="btnMinus" role="button" aria-label="Disminuir cantidad">-</span><span class="quantity" aria-live="polite">1</span><span class="btnPlus" role="button" aria-label="Aumentar cantidad">+</span></button>
                                                 <p class="price"><span>${Number(p.product_unit_price).toFixed(2)}</span>€</p>
                                             </div>
                                             <p>${p.product_name}</p>
                                         </div>
-                                        <div class="color">
+                                        <div class="color" role="radiogroup" aria-label="Selecciona color">
                                             <p>Selecciona color</p>
                                             <div>
-                                                <button></button>
-                                                <button></button>
-                                                <button></button>
-                                                <button></button>
-                                                <button></button>
+                                                <button type="button" role="radio" aria-checked="false" aria-label="Color negro"></button>
+                                                <button type="button" role="radio" aria-checked="false" aria-label="Color blanco"></button>
+                                                <button type="button" role="radio" aria-checked="false" aria-label="Color beige"></button>
+                                                <button type="button" role="radio" aria-checked="false" aria-label="Color gris"></button>
+                                                <button type="button" role="radio" aria-checked="false" aria-label="Color verde"></button>
                                             </div>
                                         </div>
-                                        <div class="size">
+                                        <div class="size" role="radiogroup" aria-label="Selecciona tu talla">
                                             <p>Selecciona tu talla</p>
                                             <div>
-                                                <button>XS</button>
-                                                <button>S</button>
-                                                <button>M</button>
-                                                <button>L</button>
-                                                <button>XL</button>
-                                                <button>2XL</button>
+                                                <button type="button" role="radio" aria-checked="false">XS</button>
+                                                <button type="button" role="radio" aria-checked="false">S</button>
+                                                <button type="button" role="radio" aria-checked="false">M</button>
+                                                <button type="button" role="radio" aria-checked="false">L</button>
+                                                <button type="button" role="radio" aria-checked="false">XL</button>
+                                                <button type="button" role="radio" aria-checked="false">2XL</button>
                                             </div>
                                         </div>
                                         <div class="buttons">
@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnMenu.addEventListener('click', () => {
         menuPrincipal.style.display = "flex";
+
     });
 
     btnFilters.addEventListener('click', () => {

@@ -149,3 +149,8 @@ html.saturation-low {
 .underline {
   text-decoration: underline;
 }
+
+button:focus, a:focus {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}

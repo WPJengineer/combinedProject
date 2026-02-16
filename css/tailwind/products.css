@@ -86,3 +86,112 @@
   }
 
 }
+
+:root{
+  --dark: #0f0f0f;
+  --light: #fcfcfc;
+  --blue: #336699;
+  --regular-text-mobile: 20; /* unitless so calc works */
+  --accessibility-scale: 1;
+  --accessibility-line-scale: 1;
+  --accessibility-word-spacing: 0em;
+  --accessibility-letter-spacing: 0em;
+}
+
+/* Apply the accessibility controls globally */
+html{
+  font-size: calc(16px * var(--accessibility-scale));
+}
+
+body{
+  line-height: calc(1.4 * var(--accessibility-line-scale));
+  word-spacing: var(--accessibility-word-spacing);
+  letter-spacing: var(--accessibility-letter-spacing);
+}
+
+/* Floating button */
+#accessibility-btn{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+#accessibility-btn img{
+  width: 100%;
+  height: 100%;
+}
+
+/* Panel */
+#accessibility-panel{
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 95px;
+  z-index: 9999;
+  background: var(--light);
+  border: 1px solid var(--dark);
+  border-radius: 16px;
+  width: 320px;
+}
+
+#accessibility-panel .title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+#accessibility-panel .accessibility-options{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+#accessibility-panel .accessibility-options button{
+  background: var(--blue);
+  color: var(--light);
+  border: 1px solid var(--dark);
+  border-radius: 10px;
+  height: 60px;
+  cursor: pointer;
+}
+
+/* Status message */
+#accessibility-status{
+  padding: 10px;
+  text-align: center;
+}
+
+/* Effects */
+html.accessibility-grey{ filter: grayscale(100%); }
+html.saturation-high{ filter: saturate(200%); }
+html.saturation-low{ filter: saturate(50%); }
+
+html.accessibility-contrast-dark,
+html.accessibility-contrast-dark body{
+  background: #000 !important;
+  color: #fff !important;
+}
+
+html.accessibility-contrast-light,
+html.accessibility-contrast-light body{
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.underline{ text-decoration: underline; }
+
+/* Focus visibility */
+button:focus, a:focus{
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}

@@ -6,89 +6,95 @@
   <link rel="stylesheet" href="../css/tailwind/products-output.css">
   <title>Products</title>
   <link rel="icon" href="../assets/iconos/icon-TW.jpg" type="jpg">
-<link rel="stylesheet" href="../css/accessibility.css">
+  <link rel="stylesheet" href="../css/accessibility.css">
 </head>
 <body class="text-xl text-dark font-afacad md:text-2xl lg:text-[28px]">
   <header class="flex items-center justify-between px-5 bg-light">
-        <div class="menuHeader">
-            <img class="icon absolute right-1.5 top-1.5" id="btnCloseMenu" src="../assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+        <div class="menuHeader" id="header-menu" aria-hidden="true">
+            <button type="button" id="btnCloseMenu" class="absolute right-1.5 top-1.5" aria-label="Close menu">
+                <img class="icon" src="../assets/iconos/close_24dp_0F0F0F.png" alt="">
+            </button>
             <ul class="flex flex-col gap-3">
                 <li id="btnHome">Home</li>
                 <li>Wishlist</li>
                 <li class="btnShoppingCart2">Carrito</li>
             </ul>
             <div class="flex flex-col items-center">
-                <button class="btnLogin button">Entrar</button>
-                <button class="button">Regístrarme</button>
+                <button class="btnLogin button" type="button">Entrar</button>
+                <button class="button" type="button">Regístrarme</button>
             </div>
         </div>
-        <nav class="md:hidden">
-            <img id="btnMenu" class="icon" src="../assets/iconos/menu_24dp_0F0F0F.png" alt="menu">
-        </nav>
-        <img id="btnLogo" class="logo" src="../assets/images/logo.png" alt="logo">
-        <div class="md:flex md:gap-2 lg:gap-10">
-            <div id="btnHome2" class="hidden md:flex">
-                <img class="icon lg:hidden" src="../assets/iconos/home_24dp_0F0F0F.png" alt="home">
+        <button type="button" id="btnMenu" class="md:hidden" aria-controls="header-menu" aria-expanded="false" aria-label="Open menu">
+            <img id="btnMenu" class="icon" src="../assets/iconos/menu_24dp_0F0F0F.png" alt="">
+        </button>
+        <button type="button" id="btnLogo" aria-label="Go to homepage">
+            <img id="btnLogo" class="logo" src="../assets/images/logo.png" alt="TeamWear logo">
+        </button>
+        <div class="md:flex md:gap-2 lg:gap-10" aria-label="Primary navigation">
+            <button type="button" id="btnHome2" class="hidden md:flex" aria-label="Home">
+                <img class="icon lg:hidden" src="../assets/iconos/home_24dp_0F0F0F.png" alt="">
                 <span class="headerNavText">Home</span>
-            </div>
-            <div class="hidden md:flex">
-                <img class="icon lg:hidden" src="../assets/iconos/wishlist.png" alt="wishlist">
+            </button>
+            <button type="button" class="hidden md:flex" aria-label="Wishlist">
+                <img class="icon lg:hidden" src="../assets/iconos/wishlist.png" alt="">
                 <span class="headerNavText">Wishlist</span>
-            </div>
-            <div class="btnShoppingCart hidden md:flex">
-                <img class="icon lg:hidden" src="../assets/iconos/shopping_cart_24dp_0F0F0F.png" alt="cart">
+            </button>
+            <button type="button" class="btnShoppingCart hidden md:flex" aria-label="Carrito">
+                <img class="icon lg:hidden" src="../assets/iconos/shopping_cart_24dp_0F0F0F.png" alt="">
                 <span class="headerNavText">Carrito</span>
-            </div>
-            <div class="hidden user md:flex">
-                <img class="icon lg:hidden" src="../assets/iconos/person_24dp_0F0F0F.png" alt="user">
+            </button>
+            <button type="button" class="hidden user md:flex" aria-label="Cuenta">
+                <img class="icon lg:hidden" src="../assets/iconos/person_24dp_0F0F0F.png" alt="">
                 <span class="headerNavText">Cuenta</span>
-            </div>
-            <img class="icon" src="../assets/iconos/search_24dp_OFOFOF.png" alt="search">
+            </button>
+            <button type="button" aria-label="Search"></button>
+                <img class="icon" src="../assets/iconos/search_24dp_OFOFOF.png" alt="">
+            </button>
         </div>
     </header>
-    <main class="bg-green flex flex-col p-5 gap-5 md:p-10 md:gap-10">
-        <p class="">breadcrumbs > breadcrumb</p>
+    <main id="main-content" class="bg-green flex flex-col p-5 gap-5 md:p-10 md:gap-10">
+        <p class="">breadcrumbs &gt; breadcrumb</p>
         <div class="flex flex-col gap-5 md:gap-10 lg:flex-row justify">
             <div class="flex flex-col gap-5 md:gap-10">
-                <img class="product-image mx-auto w-3/4 border border-dark aspect-4/5 max-h-250"src="" alt="product-image">
+                <img class="product-image mx-auto w-3/4 border border-dark aspect-4/5 max-h-250" src="" alt="Product-image">
             </div>
             <div class="flex flex-col gap-5 md:gap-10">
                 <div class="flex flex-col gap-1 md:gap-2">
-                    <p class="product-name">Nombre producto</p>
-                    <p class="product-price text-3xl md:text-4xl lg:text-5xl">9.99€</p>
+                    <p class="product-name" id="product-name">Nombre producto</p>
+                    <p class="product-price text-3xl md:text-4xl lg:text-5xl" aria-label="Price">9.99€</p>
                 </div>
                 <div class="flex flex-col gap-2 md:gap-2.5">
-                    <p>Selecciona color</p>
-                    <div class="flex gap-2.5 md:gap-5">
-                        <button class="selectColorBtn bg-dark" id="btnBlack"></button>
-                        <button class="selectColorBtn bg-light" id="btnWhite"></button>
-                        <button class="selectColorBtn bg-[#D2AAA1]" id="btnOrange"></button>
-                        <button class="selectColorBtn bg-[#A4A2A2]" id="btnGrey"></button>
-                        <button class="selectColorBtn bg-[#353A26]" id="btnGreen"></button>
+                    <p id="color-label">Selecciona color</p>
+                    <div class="flex gap-2.5 md:gap-5" role="radiogroup" aria-labelledby="color-label">
+                        <button type="button" role="radio" aria-checked="true" aria-label="Negro" class="selectColorBtn bg-dark" id="btnBlack"></button>
+                        <button type="button" role="radio" aria-checked="false" aria-label="Blanco" class="selectColorBtn bg-light" id="btnWhite"></button>
+                        <button type="button" role="radio" aria-checked="false" aria-label="Beige" class="selectColorBtn bg-[#D2AAA1]" id="btnOrange"></button>
+                        <button type="button" role="radio" aria-checked="false" aria-label="Gris" class="selectColorBtn bg-[#A4A2A2]" id="btnGrey"></button>
+                        <button type="button" role="radio" aria-checked="false" aria-label="Verde" class="selectColorBtn bg-[#353A26]" id="btnGreen"></button>
                     </div>
                 </div>
                 <div class="flex flex-col gap-2 md:gap-2.5">
-                    <p>Selecciona tu talla</p>
-                    <div class="size flex gap-2.5 md:gap-5">
-                        <button class="selectSizeBtn">XS</button>
-                        <button class="selectSizeBtn">S</button>
-                        <button class="selectSizeBtn">M</button>
-                        <button class="selectSizeBtn">L</button>
-                        <button class="selectSizeBtn">XL</button>
-                        <button class="selectSizeBtn">2XL</button>
+                    <p id="size-label">Selecciona tu talla</p>
+                    <div class="size flex gap-2.5 md:gap-5" role="radiogroup" aria-labelledby="size-label">
+                        <button type="button" role="radio" aria-checked="false" class="selectSizeBtn">XS</button>
+                        <button type="button" role="radio" aria-checked="false" class="selectSizeBtn">S</button>
+                        <button type="button" role="radio" aria-checked="false" class="selectSizeBtn">M</button>
+                        <button type="button" role="radio" aria-checked="false" class="selectSizeBtn">L</button>
+                        <button type="button" role="radio" aria-checked="false" class="selectSizeBtn">XL</button>
+                        <button type="button" role="radio" aria-checked="false" class="selectSizeBtn">2XL</button>
                     </div>
                 </div>
                 <div class="flex flex-col items-start gap-2 lg:items-start">
-                    <p>Cantidad</p>
+                    <p id="qty-label">Cantidad</p>
                     <div class="flex items-center gap-2.5 rounded-full border border-dark  bg-light px-3 py-1">
-                        <button class="btnMinus p-2 hover:cursor-pointer">-</button>
-                        <span class="quantity p-2">1</span>
-                        <button class="btnPlus p-2 hover:cursor-pointer">+</button>
+                        <button type="button" class="btnMinus p-2 hover:cursor-pointer" aria-label="Decrease quantity">-</button>
+                        <span class="quantity p-2" aria-live="polite">1</span>
+                        <button type="button" class="btnPlus p-2 hover:cursor-pointer" aria-label="Increase quantity">+</button>
                     </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <button class="addToCart button">Añadir a la cesta</button>
-                    <button class="button">Comprar ahora</button>
+                <div class="flex flex-col items-center" role="group" aria-labelledby="quantity-label">
+                    <button type="button"  class="addToCart button">Añadir a la cesta</button>
+                    <button type="button"  class="button">Comprar ahora</button>
                 </div>
             </div>
         </div>
@@ -99,7 +105,9 @@
         <div class="flex flex-col gap-5 md:gap-7.5">
             <p>También te gustará</p>
             <div class="flex items-center gap-2.5 md:gap-5">
-                <img class="arrow-icon" id="btnLeft" src="../assets/iconos/chevron_left_24dp_OFOFOF.png" alt="left-arrow-icon">
+                <button type="button" id="btnLeft" aria-label="Scroll left">
+                    <img class="arrow-icon" src="../assets/iconos/chevron_left_24dp_OFOFOF.png" alt="">
+                </button>
                 <div class="scrollbar" id="scrollContainer">
                     <img class="scrollbarImage" src="../assets/images/2.png" alt="product-image">
                     <img class="scrollbarImage" src="../assets/images/9.png" alt="product-image">
@@ -107,7 +115,9 @@
                     <img class="scrollbarImage" src="../assets/images/41.png" alt="product-image">
                     <img class="scrollbarImage" src="../assets/images/49.png" alt="product-image">
                 </div>
-                <img class="arrow-icon" id="btnRight" src="../assets/iconos/navigate_next_24dp_OFOFOF.png" alt="right-arrow-icon">
+                <button type="button" id="btnRight" aria-label="Scroll right">
+                    <img class="arrow-icon" src="../assets/iconos/navigate_next_24dp_OFOFOF.png" alt="">
+                </button>
             </div>
         </div>
         <button id="accessibility-btn" aria-controls="accessibility-panel" aria-expanded="false" aria-haspopup="dialog" aria-label="Accessibility options">

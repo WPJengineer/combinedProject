@@ -2,7 +2,7 @@ $(document).on('click', '#accessibility-btn', function () {
   $('#accessibility-panel').css("display", "flex");
 });
 
-$(document).on('click', '#btnCloseMenu', function () {
+$(document).on('click', '#accessibility-panel #btnCloseMenu', function () {
   $('#accessibility-panel').css("display", "none");
 });
 
@@ -15,6 +15,9 @@ $('[data-accessibility="font-inc"]').on('click', function () {
     newScale = 2;
   }
   root.style.setProperty('--accessibility-scale', newScale);
+  $('#accessibility-status').text(
+    `Line spacing ${Math.round(newScale * 100)}%`
+  );
 });
 
 $('[data-accessibility="font-dec"]').on('click', function () {
@@ -25,7 +28,10 @@ $('[data-accessibility="font-dec"]').on('click', function () {
   if (newScale < 0.8) {
     newScale = 0.8;
   }
-  root.style.setProperty('--accessibility-scale', newScale)
+  root.style.setProperty('--accessibility-scale', newScale);
+  $('#accessibility-status').text(
+    `Line spacing ${Math.round(newScale * 100)}%`
+  );
 });
 
 $('[data-accessibility="line-inc"]').on('click', function () {
@@ -165,6 +171,35 @@ $('[data-accessibility="saturation-low"]').on('click', function () {
 
 $('[data-accessibility="underline"]').on('click', function () {
   $('a').toggleClass("underline");
+  $('#accessibility-status').text('Links underline enabled');
 });
 
-$().on()
+$('[data-accessibility="reset"]').on('click', function () {
+  const root = document.documentElement;
+  const $html = $('html');
+
+  root.style.setProperty('--accessibility-scale', 1);
+  root.style.setProperty('--accessibility-line-scale', 1);
+  root.style.setProperty('--accessibility-word-spacing', '0em');
+  root.style.setProperty('--accessibility-letter-spacing', '0em');
+
+ $html.removeClass(
+    'accessibility-grey ' +
+    'accessibility-contrast-dark ' +
+    'accessibility-contrast-light ' +
+    'saturation-high ' +
+    'saturation-low'
+  );
+
+  $('a').removeClass('underline');
+
+  $('[data-accessibility="greys"], ' +
+    '[data-accessibility="contrast-dark"], ' +
+    '[data-accessibility="contrast-light"], ' +
+    '[data-accessibility="saturation-high"], ' +
+    '[data-accessibility="saturation-low"], ' +
+    '[data-accessibility="underline"]'
+  ).attr('aria-pressed', 'false');
+
+  $('#accessibility-status').text('Accessibility settings reset');
+});

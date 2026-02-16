@@ -10,10 +10,10 @@
 </head>
 <body>
     <header>
-        <div class="menu">
+        <div class="menu" id="main-menu" aria-hidden="true">
             <!-- sort out issue -->
-            <button>
-                <img class="icon" id="btnCloseMenu" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+            <button aria-label="Close menu">
+                <img class="icon" id="btnCloseMenu" src="./assets/iconos/close_24dp_0F0F0F.png" alt="">
             </button>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -25,34 +25,34 @@
                 <button class="button">Regístrarme</button>
             </div>
         </div>
-        <button id="btnMenu">
+        <button id="btnMenu" aria-controls="main-menu" aria-expanded="false" aria-label="Open menu">
             <img class="icon" src="./assets/iconos/menu_24dp_0F0F0F.png" alt="menu">
         </button>
-        <a href="#">
+        <a href="">
             <img class="logo" src="./assets/images/logo.png" alt="logo">
         </a>
         <div class="icons">
-            <a href="" class="icon-item">
+            <a href="./views/shopping_cart.html" class="icon-item">
                 <img class="icon" src="./assets/iconos/home_24dp_0F0F0F.png" alt="home">
                 <span>Home</span>
             </a>
-            <a href="" class="icon-item">
+            <a href="#" class="icon-item">
                 <img class="icon" src="./assets/iconos/wishlist.png" alt="wishlist">
                 <span>Wishlist</span>
             </a>
-            <a href="" class="icon-item btnShoppingCart">
+            <a href="./views/shopping_cart.html" class="icon-item btnShoppingCart">
                 <img class="icon" src="./assets/iconos/shopping_cart_24dp_0F0F0F.png" alt="cart">
                 <span>Carrito</span>
             </a>
-            <a href="" class="icon-item user">
+            <a href="/student014/shop/backend/forms/form_login.php" class="icon-item user">
                 <img class="icon" src="./assets/iconos/person_24dp_0F0F0F.png" alt="user">
                 <span>Cuenta</span>
             </a>
             <a href="" class="icon-item btnDwec">
                 <span>Juego DWEC</span>
             </a>
-            <button class="search">
-                <img class="icon" src="./assets/iconos/search_24dp_OFOFOF.png" alt="search">
+            <button class="search" aria-label="Search">
+                <img class="icon" src="./assets/iconos/search_24dp_OFOFOF.png" alt="">
             </button>
         </div>
     </header>
@@ -63,10 +63,10 @@
         </div>
         <section>
             <div class="content">
-                <div class="menuFilters">
+                <div class="menuFilters" id="filters-panel" aria-hidden="true">
                     <!-- sort out error -->
-                    <button>
-                        <img class="icon" id="btnCloseFilters" src="./assets/iconos/close_24dp_0F0F0F.png" alt="close-icon">
+                    <button id="btnFilters" aria-controls="filters-panel" aria-expanded="false" aria-label="Close filters">
+                        <img class="icon" id="btnCloseFilters" src="./assets/iconos/close_24dp_0F0F0F.png" alt="">
                     </button>
                     <form>
                         <div>
@@ -118,11 +118,11 @@
                 <div id="filters">
                     <button id="btnFilters" class="button">Filtros <img src="./assets/iconos/filter_alt_24dp_0F0F0F.png" alt="filter"></button>
                 </div>
-                <div class="articles" id="productsGrid"></div>
+                <div class="articles" id="productsGrid" role="region" aria-live="polite" aria-label="Product results"></div>
             </div>
             <div class="show-more">
                 <p>Mostrando <span>0</span> de <span>99</span></p>
-                <button class="button mostrar">Mostrar más</button>
+                <button class="button mostrar" aria-controls="productsGrid">Mostrar más</button>
             </div>
         </section>
         <button id="accessibility-btn" aria-controls="accessibility-panel" aria-expanded="false" aria-haspopup="dialog" aria-label="Accessibility options">
@@ -149,10 +149,8 @@
                 <button type="button" data-accessibility="underline" aria-pressed="false">Subrayar links</button>
                 <button type="button" data-accessibility="reset">Reset</button>
             </div>
-            <p id="accessibility-status" aria-live="polite"></p>
+            <p id="accessibility-status" class="screenreader-only" aria-live="polite"></p>
         </div>
-
-
     </main>
     <footer>
         <a href="#">
