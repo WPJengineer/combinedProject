@@ -61,8 +61,6 @@ $stmt = $conn->prepare("SELECT seller_id FROM `014_sellers` WHERE api_key = ?");
       $vendorId,
       $quantity
     );
-  
-    // $stmt->execute();
 
     if ($stmt->execute()) {
         $inserted++;
@@ -73,15 +71,7 @@ $stmt = $conn->prepare("SELECT seller_id FROM `014_sellers` WHERE api_key = ?");
         "product_code" => $productId
       ];
     }
-
   }
-
-// } else {
-//   http_response_code(403);
-//   echo json_encode([
-//     "error" => "Invalid API key"
-//   ]);
-// }
 
 echo json_encode([
   "success" => $inserted > 0,
