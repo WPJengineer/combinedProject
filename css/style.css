@@ -3,12 +3,15 @@
     --light: #fcfcfc;
     --green: #4fb286;
     --blue: #336699;
-    --regular-text-mobile: 20px;
-    --small-text-mobile: 16px;
-    --regular-text-tablet: 24px;
-    --small-text-tablet: 20px;
-    --regular-text-desktop: 28px;
-    --small-text-desktop: 24px;
+    --regular-text-mobile: 20;
+    --small-text-mobile: 16;
+    --regular-text-tablet: 24;
+    --small-text-tablet: 20;
+    --regular-text-desktop: 28;
+    --small-text-desktop: 24;
+    --accessibility-scale: 1;
+    --accessibility-line-scale: 1;
+    --accessibility-word-spacing: 0em;
 }
 
 * {
@@ -37,7 +40,7 @@
     border-radius: 20px;
     border: 1px solid var(--dark);
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
     box-shadow: 4px 2px 2px var(--dark);
 }
 
@@ -48,6 +51,11 @@
 
 .button:active {
     box-shadow: -2px -2px 1px var(--dark);
+}
+
+body {
+  line-height: calc(1.4 * var(--accessibility-line-scale));
+  word-spacing: var(--accessibility-word-spacing);
 }
 
 /*     HEADER     */
@@ -111,7 +119,7 @@ header a {
     gap: 30px;
     background-color: var(--light);
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
     padding: 20px;
     border: 1px solid var(--dark);
 }
@@ -148,13 +156,13 @@ header a {
     gap: 30px;
     background-color: var(--light);
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
     padding: 20px;
     border: 1px solid var(--dark);
 }
 
 .menuFilters h3 {
-    font-size: 24px;
+    font-size: calc(24 * 1px * var(--accessibility-scale));
 }
 
 .menuFilters img {
@@ -209,7 +217,7 @@ header a {
 
 .menuFilters input[type="checkbox"]:checked::after {
     content: "✔";
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
 }
 
 /*     MENU PRODUCTOS     */
@@ -252,7 +260,7 @@ header a {
     min-width: 350px;
     background-color: var(--light);
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
     padding: 20px;
     border: 1px solid var(--dark);
 }
@@ -291,7 +299,7 @@ header a {
     border-radius: 20px;
     border-width: 1px;
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
 }
 
 .menuProduct .num-products span {
@@ -300,7 +308,7 @@ header a {
 
 .price {
     margin-top: 20px;
-    font-size: 30px;
+    font-size: calc(30 * 1px * var(--accessibility-scale));
 }
 
 .color, .size {
@@ -346,7 +354,7 @@ header a {
     height: 45px;
     border-radius: 5px;
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
     background-color: var(--light);
     color: var(--dark);
 }
@@ -357,11 +365,6 @@ header a {
     align-items: center;
 }
 
-
-
-
-
-
 /*     MAIN     */
 
 main {
@@ -371,6 +374,8 @@ main {
 
 #background {
     width: 100%;
+    /* need to do something about this damn image thats too big... */
+    /* max-height: 900px; */
 }
 
 #special-offer {
@@ -382,7 +387,7 @@ main {
     color: var(--light);
     text-align: center;
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
 }
 
 main section {
@@ -412,32 +417,6 @@ main section {
   cursor: pointer;
 }
 
-/*     images and number of products hardcoded as examples before intergration of database     */
-
-/* .article-card:nth-child(1) {
-    background-image: url('../assets/images/1.png');
-}
-
-.article-card:nth-child(2) {
-    background-image: url('../assets/images/2.png');
-}
-
-.article-card:nth-child(3) {
-    background-image: url('../assets/images/3.png');
-}
-
-.article-card:nth-child(4) {
-    background-image: url('../assets/images/4.png');
-}
-
-.article-card:nth-child(5) {
-    background-image: url('../assets/images/5.png');
-}
-
-.article-card:nth-child(6) {
-    background-image: url('../assets/images/6.png');
-} */
-
 .article-card img.heart {
     position: absolute;
     right: 10px;
@@ -460,11 +439,11 @@ main section {
 }
 
 .bottom-overlay h3 {
-    font-size: 24px;
+    font-size: calc(24 * 1px * var(--accessibility-scale));
 }
 
 .bottom-overlay h4 {
-    font-size: 20px;
+    font-size: calc(20 * 1px * var(--accessibility-scale));
 }
 
 /*     MOSTRAR MAS PRODUCTOS     */
@@ -476,7 +455,7 @@ main section {
     gap: 20px;
     padding: 20px;
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
 }
 
 /*     FOOTER     */
@@ -490,7 +469,7 @@ footer {
     align-items: center;
     gap: 20px;
     font-family: 'afacad';
-    font-size: var(--regular-text-mobile);
+    font-size: calc(var(--regular-text-mobile) * 1px * var(--accessibility-scale));
 }
 
 .links ul {
@@ -506,14 +485,14 @@ footer {
 }
 
 #copyright {
-    font-size: var(--small-text-mobile);
+    font-size: calc(var(--small-text-mobile) * 1px * var(--accessibility-scale));
 }
 
 .legal ul {
     display: flex;
     align-items: center;
     gap: 20px;
-    font-size: var(--small-text-mobile);
+    font-size: calc(var(--small-text-mobile) * 1px * var(--accessibility-scale));
 }
 
 .legal li {
@@ -544,9 +523,9 @@ footer a {
         width: 40px;
     }
 
-    button {
+    /* button {
         display: none;
-    }
+    } */
 
     .articles {
         grid-template-columns: repeat(2, 1fr);
@@ -560,19 +539,19 @@ footer a {
     }
 
     .menuFilters, .menuProduct, .num-products, .size button, #special-offer p, .show-more,.button, footer {
-        font-size: var(--regular-text-tablet);
+        font-size: calc(var(--regular-text-tablet) * 1px * var(--accessibility-scale));
     }
 
     #copyright, .legal li {
-        font-size: var(--small-text-tablet);
+        font-size: calc(var(--small-text-tablet) * 1px * var(--accessibility-scale));
     }
 
     .price {
-        font-size: 34px;
+        font-size: calc(34 * 1px * var(--accessibility-scale));
     }
 
     .menuFilters h3, .bottom-overlay h3 {
-        font-size: 28px;
+        font-size: calc(28 * 1px * var(--accessibility-scale));
     }
 
     .menuFilters input[type="checkbox"] {
@@ -581,11 +560,11 @@ footer a {
     }
 
     .menuFilters input[type="checkbox"]:checked::after {
-        font-size: var(--regular-text-tablet);
+        font-size: calc(var(--regular-text-tablet) * 1px * var(--accessibility-scale));
     }
 
     .bottom-overlay h4 {
-        font-size: 24px;
+        font-size: calc(24 * 1px * var(--accessibility-scale));
     }
 
     #btnFilters {
@@ -621,7 +600,7 @@ footer a {
         align-items: center;
         gap: 40px;
         font-family: 'afacad';
-        font-size: var(--regular-text-desktop);
+        font-size: calc(var(--regular-text-desktop) * 1px * var(--accessibility-scale));
     }
 
     .icons .icon-item img {
@@ -674,19 +653,19 @@ footer a {
     }
 
     .menuFilters, .menuProduct, .num-products, .size button, #special-offer p, .show-more,.button, footer {
-        font-size: var(--regular-text-desktop);
+        font-size: calc(var(--regular-text-desktop) * 1px * var(--accessibility-scale));
     }
 
     #copyright, .legal li {
-        font-size: var(--small-text-desktop);
+        font-size: calc(var(--small-text-desktop) * 1px * var(--accessibility-scale));
     }
 
     .price {
-        font-size: 38px;
+        font-size: calc(38 * 1px * var(--accessibility-scale));
     }
 
     .menuFilters h3, .bottom-overlay h3 {
-        font-size: 32px;
+        font-size: calc(32 * 1px * var(--accessibility-scale));
     }
 
     .menuFilters input[type="checkbox"] {
@@ -695,11 +674,11 @@ footer a {
     }
 
     .menuFilters input[type="checkbox"]:checked::after {
-        font-size: var(--regular-text-desktop);
+        font-size: calc(var(--regular-text-desktop) * 1px * var(--accessibility-scale));
     }
 
     .bottom-overlay h4 {
-        font-size: 28px;
+        font-size: calc(28 * 1px * var(--accessibility-scale));
     }
 
 }
