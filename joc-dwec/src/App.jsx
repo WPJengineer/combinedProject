@@ -3,6 +3,7 @@ import './App.css'
 import Carta from './components/Carta';
 import Timer from './components/Timer';
 import PopUp from './components/PopUp';
+import Matchup from './components/Matchup';
 
 function App() {
 
@@ -17,28 +18,27 @@ function App() {
 
   // need to get this from our assets.
   const imagenesCartas = [
-    { "src": "/img/bug.png", "encontrada": false },
-    { "src": "/img/dark.png", "encontrada": false  },
-    { "src": "/img/dragon.png", "encontrada": false  },
-    { "src": "/img/electric.png", "encontrada": false  },
-    { "src": "/img/fairy.png", "encontrada": false  },
-    { "src": "/img/fighting.png", "encontrada": false  },
-    { "src": "/img/fire.png", "encontrada": false  },
-    { "src": "/img/flying.png", "encontrada": false  },
-    { "src": "/img/ghost.png", "encontrada": false  },
-    { "src": "/img/grass.png", "encontrada": false  },
-    { "src": "/img/ground.png", "encontrada": false  },
-    { "src": "/img/ice.png", "encontrada": false  },
-    { "src": "/img/normal.png", "encontrada": false  },
-    { "src": "/img/poison.png", "encontrada": false  },
-    { "src": "/img/psychic.png", "encontrada": false  },
-    { "src": "/img/rock.png", "encontrada": false  },
-    { "src": "/img/steel.png", "encontrada": false  },
-    { "src": "/img/water.png", "encontrada": false  },
-    { "src": "/img/stellar.png", "encontrada": false  }
+    { "src": "/img/bug.png", "encontrada": false, "type": "bug", "weakness": ["flying", "fire", "rock"] },
+    { "src": "/img/dark.png", "encontrada": false, "type": "dark", "weakness": ["fighting", "fairy", "bug"] },
+    { "src": "/img/dragon.png", "encontrada": false, "type": "dragon", "weakness": ["dragon", "fairy", "ice"] },
+    { "src": "/img/electric.png", "encontrada": false, "type": "electric", "weakness": ["ground"] },
+    { "src": "/img/fairy.png", "encontrada": false, "type": "fairy", "weakness": ["steel", "poison"] },
+    { "src": "/img/fighting.png", "encontrada": false, "type": "fighting", "weakness": ["flying", "psychic", "fairy"] },
+    { "src": "/img/fire.png", "encontrada": false, "type": "fire", "weakness": ["water", "rock", "ground"] },
+    { "src": "/img/flying.png", "encontrada": false, "type": "flying", "weakness": ["electric", "ice", "rock"] },
+    { "src": "/img/ghost.png", "encontrada": false, "type": "ghost", "weakness": ["ghost", "dark"] },
+    { "src": "/img/grass.png", "encontrada": false, "type": "grass", "weakness": ["flying", "ice", "poison", "bug", "fire"] },
+    { "src": "/img/ground.png", "encontrada": false, "type": "ground", "weakness": ["water", "grass", "ice"] },
+    { "src": "/img/ice.png", "encontrada": false, "type": "ice", "weakness": ["fighting", "steel", "rock", "fire"] },
+    { "src": "/img/normal.png", "encontrada": false, "type": "normal", "weakness": ["fighting"] },
+    { "src": "/img/poison.png", "encontrada": false, "type": "poison", "weakness": ["ground", "psychic"] },
+    { "src": "/img/psychic.png", "encontrada": false, "type": "psychic", "weakness": ["dark", "ghost", "bug"] },
+    { "src": "/img/rock.png", "encontrada": false, "type": "rock", "weakness": ["steel", "fighting", "water", "grass", "ground"] },
+    { "src": "/img/steel.png", "encontrada": false, "type": "steel", "weakness": ["fire", "ground", "fighting"] },
+    { "src": "/img/water.png", "encontrada": false, "type": "water", "weakness": ["grass", "electric"] }
+    // { "src": "/img/stellar.png", "encontrada": false, "type": "stellar", "weakness": [""] }
   ];
 
-  //still an issu with restarting.
   const barajar = () => {
     // resets all states
     setEleccionUno(null);
@@ -61,6 +61,22 @@ function App() {
     setGameStatus('playing');
     setRestartKey((k) => k + 1);
   };
+
+  // shuffle cards and pick one out of the deck for the match up game.
+  const shuffle = () => {
+    const pickCard = [...imagenesCartas]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 1)
+      .map((c) => ({ ...c}));
+    console.log(pickCard);
+    setCartas(pickCard);
+  }
+
+  // when we have a picked card we capture the weakness.
+
+
+  // when we pick a type we capture the type to check if its in the weakness array.
+  // if in we show correct if not a fail in pop up-
 
   const handleEleccion = (carta) => {
     eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta);
@@ -117,8 +133,10 @@ function App() {
           }}
         />
       </div>
-      <button onClick={barajar}>Nueva Partida</button>
-
+      <div>
+        <button onClick={barajar}>Jugar Memory game</button>
+        <button onClick={shuffle}>Jugar Match Up game</button>
+      </div>      
       <div className="grid-carta">
         {
           cartas.map((carta) => (
@@ -132,13 +150,21 @@ function App() {
           ))
         }
       </div>
-      
+      <div className="picked-card">
+        {
+          cartas.map((carta) => {
+            <Matchup
+              carta={carta}
+              key={carta.id}
+          />
+          })
+        }
+      </div>
       <PopUp
         gameStatus={gameStatus}
         onClose={() => setGameStatus('idle')}
         onRestart={barajar}
       />
-
     </div>
   )
 }
