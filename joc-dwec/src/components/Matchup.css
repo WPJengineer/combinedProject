@@ -1,0 +1,27 @@
+/* Matchup.css */
+
+.matchup-card {
+  /* controls card size */
+  width: min(220px, 70vw);
+  aspect-ratio: 1 / 1; /* keeps it square */
+  margin: 24px auto;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.matchup-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  /* same "round badge" look you had */
+  border-radius: 999px;
+
+  /* helps PNG edges look nicer */
+  display: block;
+}

@@ -4,10 +4,12 @@ import Carta from './components/Carta';
 import Timer from './components/Timer';
 import PopUp from './components/PopUp';
 import Matchup from './components/Matchup';
+import createPlugin from 'tailwindcss/plugin';
 
 function App() {
 
   const [cartas, setCartas] = useState([]);
+  const [pickedCard, setPickedCard] = useState([]);
   const [eleccionUno, setEleccionUno] = useState(null);
   const [eleccionDos, setEleccionDos] = useState(null);
   const [deshabilitado, setDeshabilitado] = useState(false);
@@ -64,12 +66,10 @@ function App() {
 
   // shuffle cards and pick one out of the deck for the match up game.
   const shuffle = () => {
-    const pickCard = [...imagenesCartas]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 1)
-      .map((c) => ({ ...c}));
-    console.log(pickCard);
-    setCartas(pickCard);
+    const randomIndex = Math.floor(Math.random() * imagenesCartas.length);
+    const pick = { ...imagenesCartas[randomIndex], encontrada: false, id: Math.floor(Math.random() * 19) };
+    setPickedCard(pick);
+    console.log(pick);
   }
 
   // when we have a picked card we capture the weakness.
@@ -136,28 +136,25 @@ function App() {
       <div>
         <button onClick={barajar}>Jugar Memory game</button>
         <button onClick={shuffle}>Jugar Match Up game</button>
-      </div>      
-      <div className="grid-carta">
-        {
-          cartas.map((carta) => (
-            <Carta
-              carta={carta}
-              key={carta.id}
-              handleEleccion={handleEleccion}
-              volteada={carta===eleccionUno || carta===eleccionDos || carta.encontrada}
-              deshabilitado={deshabilitado || gameStatus !== 'playing'}
-            />
-          ))
-        }
       </div>
+      {!pickedCard && (
+        <div className="grid-carta">
+          {
+            cartas.map((carta) => (
+              <Carta
+                carta={carta}
+                key={carta.id}
+                handleEleccion={handleEleccion}
+                volteada={carta===eleccionUno || carta===eleccionDos || carta.encontrada}
+                deshabilitado={deshabilitado || gameStatus !== 'playing'}
+              />
+            ))
+          }
+        </div>
+      )}
       <div className="picked-card">
         {
-          cartas.map((carta) => {
-            <Matchup
-              carta={carta}
-              key={carta.id}
-          />
-          })
+          pickedCard && <Matchup carta={pickedCard} />
         }
       </div>
       <PopUp

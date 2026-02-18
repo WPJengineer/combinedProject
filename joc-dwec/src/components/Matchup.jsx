@@ -1,12 +1,9 @@
-import './Carta.css';
+import './Matchup.css';
 
-export default function Matchup(carta) {
-
+export default function Matchup({ carta }) {
   return (
-    <div className="carta">
-        <div className={volteada="volteada"}>
-          <img className="delante" src={carta.src} />
-        </div>
-      </div>
-  )
+    <div className="matchup-card">
+      <img src={carta.src} alt={carta.type} />
+    </div>
+  );
 }
