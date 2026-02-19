@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnShoppingCart = document.querySelector('.btnShoppingCart');
     const btnShoppingCart2 = document.querySelector('.btnShoppingCart2');
     const btnShowMore = document.querySelector(".mostrar");
-    const btnDwec = document.querySelector(".btnDwec");
+    // const btnDwec = document.querySelector(".btnDwec");
     let allProducts = [];
     let visibleCount = 0;
     const PAGE_SIZE = 6;
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    btnDwec.addEventListener('click', () => {
-        window.location.href = "/student014/shop/joc-dwec";
-    })
+    // btnDwec.addEventListener('click', () => {
+    //     window.location.href = "/student014/shop/joc-dwec/dist/index.html";
+    // })
 });

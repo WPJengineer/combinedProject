@@ -17,10 +17,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: rgb(0, 96, 90); */
   background-color: rgb(1, 76, 138);
-  /* background-color: rgb(200, 100, 40); */
-  /* background-color: rgb(60, 60, 60); */
   color: #fcfcfc;
   padding: 5px 10px;
   border-radius: 20px;

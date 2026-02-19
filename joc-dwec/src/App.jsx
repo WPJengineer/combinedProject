@@ -4,21 +4,21 @@ import Carta from './components/Carta';
 import Timer from './components/Timer';
 import PopUp from './components/PopUp';
 import Matchup from './components/Matchup';
-import createPlugin from 'tailwindcss/plugin';
 
 function App() {
 
   const [cartas, setCartas] = useState([]);
-  const [pickedCard, setPickedCard] = useState([]);
+  const [pickedCard, setPickedCard] = useState(null);
+  const [selectedType, setSelectedType] = useState("");
+  const [resultMessage, setResultMessage] = useState("");
+  const [mode, setMode] = useState(null);
   const [eleccionUno, setEleccionUno] = useState(null);
   const [eleccionDos, setEleccionDos] = useState(null);
   const [deshabilitado, setDeshabilitado] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [restartKey, setRestartKey] = useState(0);
-  // 'idle' before start, 'playing' after shuffle, then 'win' or 'lose'
   const [gameStatus, setGameStatus] = useState('idle');
 
-  // need to get this from our assets.
   const imagenesCartas = [
     { "src": "/img/bug.png", "encontrada": false, "type": "bug", "weakness": ["flying", "fire", "rock"] },
     { "src": "/img/dark.png", "encontrada": false, "type": "dark", "weakness": ["fighting", "fairy", "bug"] },
@@ -41,8 +41,14 @@ function App() {
     // { "src": "/img/stellar.png", "encontrada": false, "type": "stellar", "weakness": [""] }
   ];
 
+  const allTypes = imagenesCartas.map(c => c.type);
+
   const barajar = () => {
-    // resets all states
+    // sets mode and resets other game.
+    setMode('memory');
+    setPickedCard(null);
+
+    // resets all states.
     setEleccionUno(null);
     setEleccionDos(null);
     setDeshabilitado(false);
@@ -66,17 +72,30 @@ function App() {
 
   // shuffle cards and pick one out of the deck for the match up game.
   const shuffle = () => {
+    // sets mode and resets other.
+    setMode('matchup');
+    setCartas([]);
+    setSelectedType("");
+    setResultMessage("");
+
+    // stop timer.
+    setIsRunning(false);
+
     const randomIndex = Math.floor(Math.random() * imagenesCartas.length);
     const pick = { ...imagenesCartas[randomIndex], encontrada: false, id: Math.floor(Math.random() * 19) };
     setPickedCard(pick);
-    console.log(pick);
+    // console.log(pick);
   }
 
-  // when we have a picked card we capture the weakness.
-
-
-  // when we pick a type we capture the type to check if its in the weakness array.
-  // if in we show correct if not a fail in pop up-
+  // get weakness of selected random card.
+  const checkAnswer = () => {
+    if (!selectedType || !pickedCard) return;
+    if (pickedCard.weakness.includes(selectedType)) {
+      setResultMessage("Correcto!");
+    } else {
+      setResultMessage("Incorrecto!");
+    }
+  };
 
   const handleEleccion = (carta) => {
     eleccionUno ? setEleccionDos(carta) : setEleccionUno(carta);
@@ -125,7 +144,7 @@ function App() {
       <h1 className="title">PAREJAS OCULTAS</h1>
       <div>
         <Timer
-          isRunning={isRunning}
+          isRunning={mode === 'memory' && isRunning}
           restartKey={restartKey}
           onFinish={() => {
             setIsRunning(false);
@@ -137,7 +156,7 @@ function App() {
         <button onClick={barajar}>Jugar Memory game</button>
         <button onClick={shuffle}>Jugar Match Up game</button>
       </div>
-      {!pickedCard && (
+      {mode === 'memory' && (
         <div className="grid-carta">
           {
             cartas.map((carta) => (
@@ -152,11 +171,26 @@ function App() {
           }
         </div>
       )}
-      <div className="picked-card">
-        {
-          pickedCard && <Matchup carta={pickedCard} />
-        }
-      </div>
+      {mode === 'matchup' && pickedCard && (
+        <div className="picked-card">
+          <Matchup carta={pickedCard} />
+          <div className="matchup-select">
+            <select
+              value={selectedType}
+              onChange={(e) => setSelectedType(e.target.value)}
+            >
+              <option value="">Select a type</option>
+              {allTypes.map(type => (
+                <option key={type} value={type}>{type}</option>
+              ))}
+            </select>
+            <button onClick={checkAnswer}>Check</button>
+          </div>
+          {resultMessage && (
+            <div className="matchup-result">{resultMessage}</div>
+          )}
+        </div>
+      )}
       <PopUp
         gameStatus={gameStatus}
         onClose={() => setGameStatus('idle')}
